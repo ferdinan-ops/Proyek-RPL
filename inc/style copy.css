@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --bs-primary: #960909;
+}
+
+* {
+    font-family: poppins, sans-serif;
+}
+
+body {
+    background-color: #eee;
+}
+
+/* .navbar {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2) !important;
+} */
+
+
+nav .container .collapse ul {
+    width: 55%;
+}
+
+nav .container .collapse ul li a {
+    font-weight: 450;
+    color: #202020;
+    transition: 0.3s ease;
+}
+
+nav .container .collapse ul li a:hover {
+    color: #960909 !important;
+}
+
+nav .container .navbar-brand img {
+    width: 200px;
+}
+
+/* Kategori */
+.kategori .container form button {
+    border-radius: 0 6px 6px 0;
+}
+
+.kategori .container form input {
+    border-radius: 6px 0 0 6px;
+    border: none;
+    outline: none;
+}
+
+.kategori .container form input:focus {
+    /* outline: 1px solid #960909 !important; */
+    box-shadow: none;
+    border: none;
+    outline: none;
+}
+
+.kategori .container {
+    width: 100%;
+}
+
+
+
+.diskusi .container {
+    background-color: #fff;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    width: 93%;
+    border-radius: 10px;
+    /* box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2); */
+    font-size: 16px;
+}
+
+.diskusi .container .profile img {
+    width: 65px;
+    border-radius: 50%;
+}
+
+.diskusi .container .judul a {
+    display: flex;
+    text-decoration: none;
+    padding: 5px 10px;
+    background-color: #f0ad4e;
+    width: fit-content;
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.diskusi .container .content p {
+    text-align: justify;
+}
+
+footer {
+    background-color: #960909;
+    margin-top: 50px;
+    padding-top: 30px;
+}
+
+/* nav .container .collapse ul li a.sign-up {
+    color: #960909 !important;
+    border-radius: 5px;
+
+    box-sizing: border-box;
+    font-weight: bold;
+} */
+
+.komentar .container .pesan {
+    display: flex;
+    align-items: center;
+}
+
+.more:hover {
+    cursor: pointer !important;
+}
+
+/* about */
+.kelompok .kelompok1 .anggota {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.kelompok .kelompok1 .anggota .identitas {
+    align-items: center;
+    margin-top: 20px;
+}
+
+.about .container center img {
+    width: 100%;
+}
+
+/* akhir about */
+@media (min-width: 992px) {
+
+    .kategori .container {
+        width: 75%;
+    }
+
+    .diskusi .container {
+        width: 73%;
+        box-sizing: border-box;
+    }
+
+    .diskusi .container .profile {
+        margin: 20px 0 40px 0 !important;
+    }
+
+    nav .container .navbar-brand img {
+        width: 300px;
+    }
+
+    /* nav .container .collapse ul li a.sign-up {
+        background-color: #960909 !important;
+        color: #eee !important;
+        font-weight: normal;
+        padding-left: 10px;
+        padding-right: 10px;
+    } */
+
+    .user .profil {
+        width: fit-content;
+    }
+
+    .kelompok .kelompok1 .anggota {
+        flex-direction: row;
+        width: 48%;
+        justify-content: flex-start;
+    }
+
+    .about .container center img {
+        width: 500px;
+    }
+
+    .kelompok .kelompok1 .anggota .identitas {
+        align-items: flex-start;
+        margin-top: 0;
+    }
+}
