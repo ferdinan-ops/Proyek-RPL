@@ -126,6 +126,7 @@ if (isset($_GET['id'])) {
                         </div>
                         <div class="body bg-light p-lg-4">
                             <form method='post' action='profile/ubah_password.php'>
+                                <input type="hidden" name="id" value="<?= $user['id'] ?>">
                                 <div class='my-3'>
                                     <label for='' class='form-label'>Password</label>
                                     <input type='password' class='form-control' name='password' placeholder='Masukkan password'>

@@ -21,7 +21,7 @@ if (isset($_GET['id'])) {
             </div>
             <div class="profile d-flex  align-items-center justify-content-between">
                 <div class="user d-flex  align-items-center">
-                    <a href="./?hal=profile&id=<?= $dbrt['id_user'] ?>"><img src="admin/module/user/<?= $dbrt['lokasi']; ?>" alt="foto" style="width: 100px;height: 100px;" class="me-3 shadow"></a>
+                    <a href="./?hal=profile&id=<?= $dbrt['id_user'] ?>"><img src="admin/module/user/<?= $dbrt['lokasi']; ?>" alt="foto" style="width: 80px;height: 80px;" class="me-3 shadow-sm"></a>
                     <div class="name">
                         <p style="margin-bottom: 1px; font-weight: bold;"><a href="./?hal=profile&id=<?= $dbrt['id_user'] ?>"><?= $dbrt['nama_lengkap']; ?></a></p>
                         <span style="color: rgba(86, 86, 86, 0.667);"><?= $dbrt['tgl']; ?></span>
@@ -39,19 +39,19 @@ if (isset($_GET['id'])) {
                     $pecah = explode(".", $files['nama']);
                     $ekstensi = $pecah[1];
                     if ($ekstensi == 'zip' && 'rar') {
-                        echo "<a href='diskusi/$files[lokasi]' class='word'><img src='images/rar.png' class='me-3' width='48px'>$files[nama]</a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/rar.png' class='me-3' ><p>$files[nama]</p></a>";
                     } elseif ($ekstensi == 'docx' && 'doc') {
-                        echo "<a href='diskusi/$files[lokasi]' class='word'><img src='images/word.png' class='me-3' width='48px'>$files[nama]</a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/word.png' class='me-3' ><p>$files[nama]</p></a>";
                     } elseif ($ekstensi == 'pdf') {
-                        echo "<a href='diskusi/$files[lokasi]' class='word'><img src='images/pdf.png' class='me-3' width='48px'>$files[nama]</a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/pdf.png' class='me-3' ><p>$files[nama]</p></a>";
                     } elseif ($ekstensi == 'ppt' && 'pptx') {
-                        echo "<a href='diskusi/$files[lokasi]' class='word'><img src='images/ppt.png' class='me-3' width='48px'>$files[nama]</a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/ppt.png' class='me-3' ><p>$files[nama]</p></a>";
                     } elseif ($ekstensi == 'mp4') {
-                        echo "<a href='diskusi/$files[lokasi]' class='word'><img src='images/word.png' class='me-3'> width='48px'$files[nama]</a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/word.png' class='me-3'><p>$files[nama]</p></a>";
                     } elseif ($ekstensi == 'xlsx') {
-                        echo "<a href='diskusi/$files[lokasi]' class='word'><img src='images/excel.png' class='me-3' width='48px'>$files[nama]</a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/excel.png' class='me-3' ><p>$files[nama]</p></a>";
                     } else {
-                        echo "<a href='diskusi/$files[lokasi]' class='word'><img src='images/excel.png' class='me-3' width='48px'>$files[nama]</a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/excel.png' class='me-3' ><p>$files[nama]</p></a>";
                     }
                 }
             }
@@ -107,19 +107,19 @@ if (isset($_GET['id'])) {
                                         $pecah = explode(".", $fileKomen['nama']);
                                         $ekstensi = $pecah[1];
                                         if ($ekstensi == 'zip' && 'rar') {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word'><img src='images/rar.png' class='me-3' width='48px'>$fileKomen[nama]</a>";
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/rar.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
                                         } elseif ($ekstensi == 'docx' && 'doc') {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word'><img src='images/word.png' class='me-3' width='48px'>$fileKomen[nama]</a>";
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/word.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
                                         } elseif ($ekstensi == 'pdf') {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word'><img src='images/pdf.png' class='me-3' width='48px'>$fileKomen[nama]</a>";
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/pdf.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
                                         } elseif ($ekstensi == 'ppt' && 'pptx') {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word'><img src='images/ppt.png' class='me-3' width='48px'>$fileKomen[nama]</a>";
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/ppt.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
                                         } elseif ($ekstensi == 'mp4') {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word'><img src='images/word.png' class='me-3'> width='48px'$fileKomen[nama]</a>";
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/word.png' class='me-3'> <p>$fileKomen[nama]</p></a>";
                                         } elseif ($ekstensi == 'xlsx') {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word'><img src='images/excel.png' class='me-3' width='48px'>$fileKomen[nama]</a>";
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/excel.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
                                         } else {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word'><img src='images/file.png' class='me-3' width='48px'>$fileKomen[nama]</a>";
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/file.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
                                         }
                                     }
                                 }

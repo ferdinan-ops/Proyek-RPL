@@ -32,6 +32,7 @@ for ($i = 0; $i < $jumlahFile; $i++) {
     } else {
         echo "<span style='color: red'>Upload file {$namaFile} gagal</span> <br>";
     }
+    header('Location: .././?hal=diskusi&id=' . $idb);
 }
 // if ($simpan) {
 //     header("Location: ./?hal=diskusi&id=$idb");

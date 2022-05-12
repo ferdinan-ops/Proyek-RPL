@@ -6,23 +6,34 @@
 
 * {
     font-family: poppins, sans-serif;
+    /* border: 1px solid black; */
 }
 
 
 
 .diskusi .container a.word {
     background-color: rgba(66, 163, 238, 0.15);
-    width: fit-content;
+    width: 100%;
     padding: 10px 15px;
     border-radius: 10px;
     color: #103F8D;
     margin-bottom: 15px;
+    font-size: 12px;
+    text-align: justify;
 }
 
-.diskusi .container .word image {
-    width: 48px !important;
-    height: 48px;
+.diskusi .container a.word p {
+    margin-bottom: 0;
 }
+
+.diskusi .container .word img {
+    width: 35px !important;
+    height: 35px;
+}
+
+/* .diskusi .container a.word:hover {
+    text-decoration: underline;
+} */
 
 a {
     text-decoration: none;
@@ -70,6 +81,16 @@ body {
     .judul .container table tbody tr td a,
     .judul .container table tbody tr td {
         font-size: 16px !important;
+    }
+
+    .diskusi .container a.word {
+        font-size: 16px;
+        width: fit-content;
+    }
+
+    .diskusi .container .word img {
+        width: 48px !important;
+        height: 48px;
     }
 }
 

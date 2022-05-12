@@ -18,7 +18,6 @@ $host = "localhost";
 $user = "root";
 $pass = "";
 $dbname = "dbdiskusi";
-$port = "3307";
 
 
-$konek = mysqli_connect($host, $user, $pass, $dbname, $port);
+$konek = mysqli_connect($host, $user, $pass, $dbname);

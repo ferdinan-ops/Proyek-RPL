@@ -27,7 +27,7 @@ if (isset($_GET['tipe'])) {
                     <input type='text' class='form-control' name='notelp' placeholder='Masukkan no.telp'>
                 </div>
                 <div class='my-3'>
-                    <label for='level' class='mb-2'>Kategori Diskusi</label>
+                    <label for='level' class='mb-2'>Level</label>
                     <select class='form-select' name='level'>
                     <option>admin</option>
                     <option>Mahasiswa</option>
@@ -84,7 +84,7 @@ if (isset($_GET['tipe'])) {
                     <input type='text' class='form-control' name='notelp' placeholder='Masukkan no.telp' value='$de[telp]'>
                 </div>
                 <div class='my-3'>
-                    <label for='level' class='mb-2'>Kategori Diskusi</label>
+                    <label for='level' class='mb-2'>Level</label>
                     <select class='form-select' name='level'>
                     <option>$de[level]</option>
                     <option>admin</option>
@@ -106,7 +106,7 @@ if (isset($_GET['tipe'])) {
                 </div>
                 <div class='my-3'>
                     <label for='' class='form-label'>Foto</label><br>
-                    <img src='$de[lokasi]' class='me-3' width='100px'>
+                    <img src='user/$de[lokasi]' class='me-3' width='100px'>
                     <input type='file' id='img' name='img' accept='image/*'>
                 </div>
                 <label>&nbsp;</label>
