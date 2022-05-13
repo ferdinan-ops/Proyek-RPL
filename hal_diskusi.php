@@ -39,19 +39,29 @@ if (isset($_GET['id'])) {
                     $pecah = explode(".", $files['nama']);
                     $ekstensi = $pecah[1];
                     if ($ekstensi == 'zip' && 'rar') {
-                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/rar.png' class='me-3' ><p>$files[nama]</p></a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word'><img src='images/rar.png' class='me-3' ><p>$files[nama]</p></a>";
                     } elseif ($ekstensi == 'docx' && 'doc') {
-                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/word.png' class='me-3' ><p>$files[nama]</p></a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word'><img src='images/word.png' class='me-3' ><p>$files[nama]</p></a>";
                     } elseif ($ekstensi == 'pdf') {
-                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/pdf.png' class='me-3' ><p>$files[nama]</p></a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word' style='background-color:#E0CFCF;color:#AA0000;'><img src='images/pdf.png' class='me-3' ><p>$files[nama]</p></a>";
                     } elseif ($ekstensi == 'ppt' && 'pptx') {
-                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/ppt.png' class='me-3' ><p>$files[nama]</p></a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word' style='background-color:#E9D8D3;color:#BD3A1D;'><img src='images/ppt.png' class='me-3' ><p>$files[nama]</p></a>";
                     } elseif ($ekstensi == 'mp4') {
-                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/word.png' class='me-3'><p>$files[nama]</p></a>";
+            ?>
+                        <video width="100%" height="" controls>
+                            <source src="diskusi/<?= $files['lokasi'] ?>" type="video/mp4">
+                        </video>
+                    <?php
+                    } elseif ($ekstensi == 'mp4') {
+                    ?>
+                        <audio controls>
+                            <source src="diskusi/<?= $files['lokasi'] ?>" type="audio/mp3">
+                        </audio>
+            <?php
                     } elseif ($ekstensi == 'xlsx') {
-                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/excel.png' class='me-3' ><p>$files[nama]</p></a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word' style='background-color:rgba(33, 163, 102, 0.2);color:green;'><img src='images/excel.png' class='me-3' ><p>$files[nama]</p></a>";
                     } else {
-                        echo "<a href='diskusi/$files[lokasi]' class='word d-flex align-items-center'><img src='images/excel.png' class='me-3' ><p>$files[nama]</p></a>";
+                        echo "<a href='diskusi/$files[lokasi]' class='word'><img src='images/file.png' class='me-3' ><p>$files[nama]</p></a>";
                     }
                 }
             }
@@ -107,19 +117,33 @@ if (isset($_GET['id'])) {
                                         $pecah = explode(".", $fileKomen['nama']);
                                         $ekstensi = $pecah[1];
                                         if ($ekstensi == 'zip' && 'rar') {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/rar.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
-                                        } elseif ($ekstensi == 'docx' && 'doc') {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/word.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word'><img src='images/rar.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
+                                        } elseif ($ekstensi == 'docx') {
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word'><img src='images/word.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
+                                        } elseif ($ekstensi == 'doc') {
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word'><img src='images/word.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
                                         } elseif ($ekstensi == 'pdf') {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/pdf.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
-                                        } elseif ($ekstensi == 'ppt' && 'pptx') {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/ppt.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word' style='background-color:#E0CFCF;color:#AA0000;'><img src='images/pdf.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
+                                        } elseif ($ekstensi == 'ppt') {
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word' style='background-color:#E9D8D3;color:#BD3A1D;'><img src='images/ppt.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
+                                        } elseif ($ekstensi == 'pptx') {
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word' style='background-color:#E9D8D3;color:#BD3A1D;'><img src='images/ppt.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
                                         } elseif ($ekstensi == 'mp4') {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/word.png' class='me-3'> <p>$fileKomen[nama]</p></a>";
+                                ?>
+                                            <video width="100%" height="" controls>
+                                                <source src="komentar/<?= $fileKomen['lokasi'] ?>" type="video/mp4">
+                                            </video>
+                                        <?php
+                                        } elseif ($ekstensi == 'mp4') {
+                                        ?>
+                                            <audio controls>
+                                                <source src="komentar/<?= $fileKomen['lokasi'] ?>" type="audio/mp3">
+                                            </audio>
+                                <?php
                                         } elseif ($ekstensi == 'xlsx') {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/excel.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word' style='background-color:rgba(33, 163, 102, 0.2);color:green;'><img src='images/excel.png' class='me-3' ><p>$files[nama]</p></a>";
                                         } else {
-                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word d-flex align-items-center'><img src='images/file.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
+                                            echo "<a href='komentar/$fileKomen[lokasi]' class='word'><img src='images/file.png' class='me-3' ><p>$fileKomen[nama]</p></a>";
                                         }
                                     }
                                 }

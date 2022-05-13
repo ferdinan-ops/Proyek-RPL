@@ -30,10 +30,6 @@ include "inc/config.php";
     <link rel="icon" type="icon/x-image" href="images/title.png">
 
     <style>
-        /* * {
-            border: 1px solid black;
-        } */
-
         /* gambar */
 
         .slider {

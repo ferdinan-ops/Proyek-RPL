@@ -9,7 +9,38 @@
     /* border: 1px solid black; */
 }
 
+.bungkus .point {
+    display: flex;
+    flex-direction: column;
+    background: #960909;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #960909, #212529);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #960909, #212529);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    box-shadow: rgba(233, 3, 3, 0.24) 0px 3px 8px;
+    transition: 0.3s;
+    border-radius: 10px;
+}
 
+.bungkus .point:hover {
+    box-shadow: rgba(233, 3, 3, 0.25) 0px 30px 60px -12px, rgba(233, 3, 3, 0.3) 0px 18px 36px -18px;
+}
+
+.bungkus .point i {
+    background: #960909;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #960909, #212529);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #960909, #212529);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
 
 .diskusi .container a.word {
     background-color: rgba(66, 163, 238, 0.15);
@@ -20,6 +51,8 @@
     margin-bottom: 15px;
     font-size: 12px;
     text-align: justify;
+    display: flex;
+    align-items: center;
 }
 
 .diskusi .container a.word p {
