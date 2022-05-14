@@ -1,4 +1,34 @@
 <?php
+// fungsi keterangan waktu
+function time_elapsed_string($datetime, $full = false)
+{
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) $string = array_slice($string, 0, 1);
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
 if (isset($_GET['id'])) {
     // tampilkan detail berita
     $sqlDetail = mysqli_query($konek, "SELECT berita.*,kategori.nm_kategori,user.nama_lengkap,user.lokasi
@@ -6,6 +36,7 @@ if (isset($_GET['id'])) {
             INNER JOIN user ON berita.id_user=user.id
             WHERE berita.id='$_GET[id]'");
     $dbrt = mysqli_fetch_array($sqlDetail);
+
 ?>
 
     <head>
@@ -21,10 +52,10 @@ if (isset($_GET['id'])) {
             </div>
             <div class="profile d-flex  align-items-center justify-content-between">
                 <div class="user d-flex  align-items-center">
-                    <a href="./?hal=profile&id=<?= $dbrt['id_user'] ?>"><img src="admin/module/user/<?= $dbrt['lokasi']; ?>" alt="foto" style="width: 80px;height: 80px;" class="me-3 shadow-sm"></a>
+                    <a href="./?hal=profile&id=<?= $dbrt['id_user'] ?>"><img src="admin/module/user/<?= $dbrt['lokasi']; ?>" alt="foto" style="width: 70px;height: 70px;" class="me-3 shadow-sm"></a>
                     <div class="name">
                         <p style="margin-bottom: 1px; font-weight: bold;"><a href="./?hal=profile&id=<?= $dbrt['id_user'] ?>"><?= $dbrt['nama_lengkap']; ?></a></p>
-                        <span style="color: rgba(86, 86, 86, 0.667);"><?= $dbrt['tgl']; ?></span>
+                        <span style="color: rgba(86, 86, 86, 0.667);"><?= time_elapsed_string($dbrt['tgl']); ?></span>
                     </div>
                 </div>
             </div>
@@ -100,7 +131,7 @@ if (isset($_GET['id'])) {
             <hr>
 
             <section class="komentar " id="">
-                <div class="container mt-3" style="width: 100%;box-shadow: none;background-color: #eee">
+                <div class="container mt-3 p-3" style="width: 100%;box-shadow: none;background-color: #eee">
                     <h5 class="mb-4 fw-bold" style="color: #960909;">Diskusi</h5>
                     <?php
                     $sqlKomen = mysqli_query($konek, "SELECT * FROM komentar WHERE id_berita='$dbrt[id]' ORDER BY id DESC");
@@ -179,7 +210,7 @@ if (isset($_GET['id'])) {
                                 }
                                 ?>
                                 <p class="link-secondary mb-1" style="font-size: 12px;text-align: right;padding: 0;margin-top: -10px;">
-                                    <?= $dk['tgl'] ?></p>
+                                    <?= time_elapsed_string($dk['tgl']); ?></p>
                             </div>
                         </div>
                     <?php
