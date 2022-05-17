@@ -9,9 +9,22 @@
     /* border: 1px solid black; */
 }
 
+.tabel table.dashboard-table thead tr {
+    border-top: 2px solid #960909;
+    border-bottom: 2px solid #f44f4f5c;
+}
+
+.tabel table.dashboard-table td {
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(210, 210, 210, 0.6);
+}
+
+.tabel table.dashboard-table th {
+    padding: 15px 0;
+
+}
+
 .bungkus .point {
-    display: flex;
-    flex-direction: column;
     background: #960909;
     /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #960909, #212529);
