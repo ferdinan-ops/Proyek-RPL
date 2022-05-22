@@ -1,230 +1,202 @@
-<?php
-session_start();
-if (!isset($_SESSION['login'])) {
-    header('location:login.php');
-}
-$level = $_SESSION['level'];
-if ($level == "admin") {
-    echo "Anda Tidak Punya Akses Kesini";
-    header('location:login.php');
-}
-include "inc/config.php";
-
-?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UNIKA Discussion Forum</title>
-    <link rel="stylesheet" href="inc/style.css">
     <link rel="icon" type="icon/x-image" href="images/title.png">
-
-    <style>
-        /* gambar */
-
-        .slider {
-            height: fit-content;
-        }
-
-        .slider .slick-slide img.gambar {
-            width: 100%;
-        }
-
-        /* make button larger and change their positions */
-        .slick-prev,
-        .slick-next {
-            width: 50px;
-            height: 50px;
-            z-index: 1;
-        }
-
-        .slick-prev {
-            left: 5px;
-        }
-
-        .slick-next {
-            right: 5px;
-        }
-
-        .slick-prev:before,
-        .slick-next:before {
-            font-size: 40px;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* move dotted nav position */
-        .slick-dots {
-            bottom: 15px;
-        }
-
-        /* enlarge dots and change their colors */
-        .slick-dots li button:before {
-            font-size: 12px;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            opacity: 1;
-        }
-
-        .slick-dots li.slick-active button:before {
-            color: #dedede;
-        }
-
-        /* hide dots and arrow buttons when slider is not hovered */
-        .slider:not(:hover) .slick-arrow,
-        .slider:not(:hover) .slick-dots {
-            opacity: 0;
-        }
-
-        /* transition effects for opacity */
-        .slick-arrow,
-        .slick-dots {
-            transition: opacity 0.5s ease-out;
-        }
-
-        /* akhir gambar */
-        .diskusi .container .komentar form #formFileMultiple {
-            display: none !important;
-        }
-    </style>
+    <link rel="stylesheet" href="inc/style copy.css">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light shadow-sm fixed-top" style="background-color: #fff;">
-        <div class="container">
-            <a class="navbar-brand" href="./">
-                <img src="images/logo3.png" alt="" width="300">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-md-auto d-flex justify-content-around">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="./">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="./?hal=about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="./?hal=kategori">Category</a>
-                    </li>
-                    <li class="nav-item">
-                        <!-- <a href="user.html">
-                            <img src="images/foto.jpg" class="rounded-circle" width="45">
-                        </a> -->
-                        <a class="nav-link active" href="./?hal=profile&m=home">Profile</a>
-                    </li>
-                </ul>
-            </div>
+    <nav>
+        <div class="nav-brand">
+            <img src="images/logo3.png">
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="login.php" class="login">Login</a></li>
+        </ul>
+        <div class="menu-toggle">
+            <input type="checkbox">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
-    <!-- Akhir Navbar -->
-    <?php
-    if (isset($_GET['hal'])) {
-        if ($_GET['hal'] == 'about') {
-            include 'about.php';
-        } elseif ($_GET['hal'] == 'kategori') {
-            include 'kategori.php';
-        } elseif ($_GET['hal'] == 'profile') {
-            include 'profile/profile.php';
-        } elseif ($_GET['hal'] == 'diskusi') {
-            include "hal_diskusi.php";
-        } elseif ($_GET['hal'] == 'tambahdiskusi' || $_GET['hal'] == 'editdiskusi') {
-            include "diskusi/tambah_diskusi.php";
-        } elseif ($_GET['hal'] == 'tambahkategori') {
-            include "kategori/tambah_kategori.php";
-        } elseif ($_GET['hal'] == 'search') {
-            include "search.php";
-        }
-    } else {
-    ?>
-        <!-- Kategori Menu -->
-        <section class="kategori" style="margin-top: 150px;">
-            <div class="container d-flex justify-content-between align-items-center flex-column flex-lg-row">
-                <div class="dropdown me-2 mb-3 mb-lg-0">
-                    <a href="./?hal=tambahdiskusi">
-                        <button class="btn shadow link-light" type="button" style="background-color: #960909;">
-                            <i class="uil uil-plus"></i> Diskusi Baru
-                        </button>
-                    </a>
+    <section class="hero" id="home">
+        <div class="content">
+            <div class="desc">
+                <h1>Ayo!! Mulai berdiskusi di UNIKA Discussion Forum</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi quidem sint incidunt
+                    voluptate
+                    quas nihil maiores accusantium praesentium, quod vitae delectus doloribus numquam tenetur
+                    dignissimos asperiores libero officiis saepe.</p>
+                <a href="#">Get Started <i class="las la-arrow-right"></i></a>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero.png" width="100%">
+            </div>
+        </div>
+
+    </section>
+
+    <section class="features" id="features">
+        <div class="content">
+            <div class="isi">
+                <h1>Our Features</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ducimus ut cumque temporibus
+                    corrupti,<br> reprehenderit nesciunt laudantium earum et, itaque incidunt pariatur, explicabo
+                    magni
+                </p>
+            </div>
+            <div class="items">
+                <div class="card">
+                    <div class="card-header">
+                        <img class="orange" src="images/diskusi2.png">
+                        <h4>Discussion</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum.</p>
+                    </div>
                 </div>
-
-                <form class="d-flex" style="width: 85%;" method='post' action='./?hal=search'>
-                    <input class="form-control" type="search" placeholder="Cari Diskusi Disini" aria-label="Search" style="width: 100%;" name="teks">
-                    <button class="btn link-light" type="submit" style="background-color: #960909;"><i class="uil uil-search"></i>
-                    </button>
-                </form>
+                <div class="card">
+                    <div class="card-header">
+                        <img class="yellow" src="images/comment.png">
+                        <h4>Comment</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <img class="green" src="images/send-file.png">
+                        <h4>Send File</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <img class="blue" src="images/easy-use.png">
+                        <h4>Easy Use</h4>
+                    </div>
+                    <div class="card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum.</p>
+                    </div>
+                </div>
             </div>
-        </section>
-        <!-- Akhir Kategori Menu -->
-        <section class="judul">
-            <div class="container mt-5 bg-light p-4 shadow-sm rounded-3">
-                <h3 class="fw-bold mb-4" style="color: #960909;">Diskusi Terbaru</h3>
-                <table class="table" style="width: 100%;">
-
-                    <thead>
-                        <tr>
-                            <th scope='col'>Judul Diskusi</th>
-                            <th scope='col' class='px-3 px-lg-0'>Kategori</th>
-                            <th scope='col'>Dibuat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        $sqlBerita = mysqli_query($konek, "SELECT berita.*,kategori.nm_kategori,user.nama_lengkap
-            FROM berita INNER JOIN kategori ON berita.id_kategori=kategori.id 
-            INNER JOIN user ON berita.id_user=user.id ORDER BY tgl DESC");
-                        while ($brt = mysqli_fetch_array($sqlBerita)) {
-                            echo "
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="content">
+            <div class="isi">
+                <h1>About Us</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ducimus ut cumque temporibus
+                    corrupti,<br> reprehenderit nesciunt laudantium earum et, itaque incidunt pariatur, explicabo
+                    magni
+                </p>
+            </div>
+            <div class="items2">
+                <div class="worker">
+                    <img src="images/foto.jpg" width="100px">
+                    <p>Ferdinan Imanuel Tumanggor</p>
+                    <span>Project Manager, Developer</span>
+                </div>
+                <div class="worker">
+                    <img src="images/foto.jpg" width="100px">
+                    <p>Samuel Doli Hasian Manihuruk</p>
+                    <span>Project Analyst</span>
+                </div>
+                <div class="worker">
+                    <img src="images/foto.jpg" width="100px">
+                    <p>Dionisius Siahaan</p>
+                    <span>Project Analyst</span>
+                </div>
+                <div class="worker">
+                    <img src="images/foto.jpg" width="100px">
+                    <p>Christ Jordan Baeha</p>
+                    <span>Project Analyst</span>
+                </div>
+                <div class="worker">
+                    <img src="images/foto.jpg" width="100px">
+                    <p>Yosia Silalahi</p>
+                    <span>Project Analyst</span>
+                </div>
+                <div class="worker">
+                    <img src="images/foto.jpg" width="100px">
+                    <p>Samuel Doli Hasian Manihuruk</p>
+                    <span>Project Analyst</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="content">
+            <div class="isi">
+                <h1>Contact Us</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ducimus ut cumque temporibus
+                    corrupti,<br> reprehenderit nesciunt laudantium earum et, itaque incidunt pariatur, explicabo
+                    magni
+                </p>
+            </div>
+            <form action="">
+                <table>
                     <tr>
-                        <td><a href='./?hal=diskusi&id=$brt[id]' class='juduld'>$brt[judul]</a></td>
-                        <td class='px-3 px-lg-0 text-center text-lg-start''>
-                            <a href='./?hal=diskusi&ktg=$brt[id_kategori];' class='list-group-item-success py-1 px-2 rounded-2 fs-6 link-success'>$brt[nm_kategori]
-                            </a>
-                        </td>
-                        <td><a href='./?hal=profile&id=$brt[id_user]'>$brt[nama_lengkap]</a></td>
+                        <td><label for="nama">Nama</label></td>
                     </tr>
-                        ";
-                        }
-                        ?>
-                    </tbody>
+                    <tr>
+                        <td><input type="text" name="nama" id="nama"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nama">Email</label></td>
+                    </tr>
+                    <tr>
+                        <td><input type="email" name="email" id="email"></td>
+                    </tr>
+                    <tr>
+                        <td><label for="nama">Pesan</label></td>
+                    </tr>
+                    <tr>
+                        <td><textarea name="pesan" id="pesan" cols="30" rows="10"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Send Message"></td>
+                    </tr>
                 </table>
-            </div>
-        </section>
-        <!-- footer -->
-        <footer>
-            <center>
-                <img src="images/logo2.png" alt="logo" width="200px">
-            </center>
-        </footer>
-        <!-- Akhir footer -->
-    <?php
-    }
-    ?>
+            </form>
+        </div>
 
-    <!-- Optional JavaScript; choose one of the two! -->
+    </section>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#800000" fill-opacity="1" d="M0,160L48,149.3C96,139,192,117,288,133.3C384,149,480,203,576,208C672,213,768,171,864,165.3C960,160,1056,192,1152,197.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">
+        </path>
+    </svg>
+    <footer>
+        <center><img src="images/footer.png">
+            <p>Copyright © 2022 Made with 💛 Ferdinan Imanuel Tumanggor</p>
+        </center>
+    </footer>
+    <script>
+        window.addEventListener("scroll", function() {
+            const navbar = document.querySelector("nav");
+            navbar.classList.toggle("sticky", window.scrollY > 0);
+        })
 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+        const slide = document.querySelector('.menu-toggle input');
+        const nav = document.querySelector('nav ul');
+        slide.addEventListener('click', function() {
+            nav.classList.toggle('slide');
+        })
     </script>
-
-    <script src="script.js"></script>
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
 </body>
 
 </html>

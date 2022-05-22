@@ -16,14 +16,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light  fixed-top" style="background-color: #fff;">
-        <div class="container d-flex justify-content-center">
-            <a class="navbar-brand" href="#">
-                <img src="images/logo3.png" alt="" width="300">
-            </a>
-        </div>
-    </nav>
-    <main class="mt-5">
+    <main>
         <div class="box">
             <div class="inner-box">
                 <div class="forms-wrap">
@@ -55,7 +48,7 @@
                                 $_SESSION['nama'] = $d['nama_lengkap'];
                                 $_SESSION['level'] = $d['level'];
                                 $_SESSION['lokasi'] = $d['lokasi'];
-                                header('Location:index.php');
+                                header('Location:user/index.php');
                             } else {
                                 echo "<script>alert('username dan password salah');</script>";
                             }
@@ -67,7 +60,6 @@
                     <form action="" method="post" name="login" autocomplete="off" class="sign-in-form">
                         <div class="logo">
                             <img src="images/logo3.png" alt="easyclass" />
-                            <!-- <h4>easyclass</h4> -->
                         </div>
                         <div class="heading">
                             <h2>Login</h2>
@@ -78,7 +70,7 @@
                         <div class="actual-form">
                             <div class="input-wrap">
                                 <input type="text" name="username" id="username" minlength="4" class="input-field" autocomplete="off" required />
-                                <label>Name</label>
+                                <label>Username</label>
                             </div>
 
                             <div class="input-wrap">
@@ -87,11 +79,6 @@
                             </div>
                             <label for="">&nbsp;</label>
                             <input type="submit" value="Login" class="sign-btn" />
-
-                            <!-- <p class="text">
-                                Forgotten your password or you login datails?
-                                <a href="#">Get help</a> signing in
-                            </p> -->
                         </div>
                     </form>
                 </div>
@@ -108,7 +95,6 @@
                             <div class="text-group">
                                 <h2>UNIKA FORUM DISCUSSION</h2>
                                 <h2>UNIKA FORUM DISCUSSION</h2>
-
                             </div>
                         </div>
 
@@ -122,14 +108,6 @@
             </div>
         </div>
     </main>
-
-    <!-- footer -->
-    <footer>
-        <center>
-            <img src="images/logo2.png" width="200px">
-        </center>
-    </footer>
-    <!-- Akhir footer -->
 
     <!-- Javascript file -->
 

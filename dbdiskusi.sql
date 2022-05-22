@@ -1,785 +1,360 @@
-<!doctype html>
-<html lang="id" dir="ltr">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="referrer" content="no-referrer">
-  <meta name="robots" content="noindex,nofollow">
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <style id="cfs-style">html{display: none;}</style>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-      <link rel="stylesheet" type="text/css" href="./themes/pmahomme/jquery/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/lib/codemirror.css?v=5.1.3">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/hint/show-hint.css?v=5.1.3">
-    <link rel="stylesheet" type="text/css" href="js/vendor/codemirror/addon/lint/lint.css?v=5.1.3">
-    <link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/theme.css?v=5.1.3&nocache=423463966ltr&server=1">
-    <link rel="stylesheet" type="text/css" href="./themes/pmahomme/css/printview.css?v=5.1.3" media="print" id="printcss">
-    <title>localhost / 127.0.0.1 | phpMyAdmin 5.1.3</title>
-    <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.min.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery-migrate.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/sprintf.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/ajax.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/keyhandler.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/bootstrap/bootstrap.bundle.min.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery-ui.min.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/js.cookie.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.mousewheel.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.validate.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery-ui-timepicker-addon.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.ba-hashchange-2.0.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/jquery/jquery.debounce-1.0.6.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/menu_resizer.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/cross_framing_protection.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/rte.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/messages.php?l=id&v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/config.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/doclinks.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/functions.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/navigation.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/indexes.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/common.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/page_settings.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/export_output.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/lib/codemirror.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/mode/sql/sql.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/runmode/runmode.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/hint/show-hint.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/hint/sql-hint.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/codemirror/addon/lint/lint.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/codemirror/addon/lint/sql-lint.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/vendor/tracekit.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/error_report.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/drag_drop_import.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/shortcuts_handler.js?v=5.1.3"></script>
-  <script data-cfasync="false" type="text/javascript" src="js/dist/console.js?v=5.1.3"></script>
+-- phpMyAdmin SQL Dump
+-- version 5.1.3
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 22 Bulan Mei 2022 pada 09.31
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 7.4.28
 
-<script data-cfasync="false" type="text/javascript">
-// <![CDATA[
-CommonParams.setAll({common_query:"",opendb_url:"index.php?route=/database/structure",lang:"id",server:"1",table:"",db:"",token:"3a2b3b723f28337d6033327334717041",text_dir:"ltr",show_databases_navigation_as_tree:true,pma_text_default_tab:"Jelajahi",pma_text_left_default_tab:"Struktur",pma_text_left_default_tab2:false,LimitChars:"50",pftext:"",confirm:true,LoginCookieValidity:"1440",session_gc_maxlifetime:"1440",logged_in:true,is_https:false,rootPath:"/phpmyadmin/",arg_separator:"&",PMA_VERSION:"5.1.3",auth_type:"config",user:"root"});
-var firstDayOfCalendar = '0';
-var themeImagePath = '.\/themes\/pmahomme\/img\/';
-var mysqlDocTemplate = '.\/url.php\u003Furl\u003Dhttps\u00253A\u00252F\u00252Fdev.mysql.com\u00252Fdoc\u00252Frefman\u00252F8.0\u00252Fen\u00252F\u002525s.html';
-var maxInputVars = 1000;
-
-if ($.datepicker) {
-  $.datepicker.regional[''].closeText = 'Selesai';
-  $.datepicker.regional[''].prevText = 'Prev';
-  $.datepicker.regional[''].nextText = 'Berikutnya';
-  $.datepicker.regional[''].currentText = 'Hari\u0020ini';
-  $.datepicker.regional[''].monthNames = [
-    'Januari',
-    'Februari',
-    'Maret',
-    'April',
-    'Mei',
-    'Juni',
-    'Juli',
-    'Agustus',
-    'September',
-    'Oktober',
-    'November',
-    'Desember',
-  ];
-  $.datepicker.regional[''].monthNamesShort = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'Mei',
-    'Jun',
-    'Jul',
-    'Agu',
-    'Sep',
-    'Okt',
-    'Nov',
-    'Des',
-  ];
-  $.datepicker.regional[''].dayNames = [
-    'Minggu',
-    'Senin',
-    'Selasa',
-    'Rabu',
-    'Kamis',
-    'Jumat',
-    'Sabtu',
-  ];
-  $.datepicker.regional[''].dayNamesShort = [
-    'Min',
-    'Sen',
-    'Sel',
-    'Rab',
-    'Kam',
-    'Jum',
-    'Sab',
-  ];
-  $.datepicker.regional[''].dayNamesMin = [
-    'Min',
-    'Sn',
-    'Sl',
-    'Rb',
-    'Km',
-    'Jm',
-    'Sb',
-  ];
-  $.datepicker.regional[''].weekHeader = 'Mingguan';
-  $.datepicker.regional[''].showMonthAfterYear = false;
-  $.datepicker.regional[''].yearSuffix = '';
-  $.extend($.datepicker._defaults, $.datepicker.regional['']);
-}
-
-if ($.timepicker) {
-  $.timepicker.regional[''].timeText = 'Waktu';
-  $.timepicker.regional[''].hourText = 'Jam';
-  $.timepicker.regional[''].minuteText = 'Menit';
-  $.timepicker.regional[''].secondText = 'Detik';
-  $.extend($.timepicker._defaults, $.timepicker.regional['']);
-}
-
-function extendingValidatorMessages () {
-  $.extend($.validator.messages, {
-    required: 'Wajib\u0020diisi',
-    remote: 'Silakan\u0020perbaiki\u0020kolom\u0020ini',
-    email: 'Silakan\u0020masukkan\u0020alamat\u0020email\u0020yang\u0020valid',
-    url: 'Silakan\u0020masukkan\u0020URL\u0020yang\u0020valid',
-    date: 'Silakan\u0020masukkan\u0020tanggal\u0020yang\u0020valid',
-    dateISO: 'Silakan\u0020masukkan\u0020tanggal\u0020yang\u0020valid\u0020\u0028ISO\u0029',
-    number: 'Silakan\u0020masukkan\u0020angka\u0020yang\u0020valid',
-    creditcard: 'Silakan\u0020masukkan\u0020nomor\u0020kartu\u0020kredit\u0020yang\u0020valid',
-    digits: 'Silakan\u0020masukkan\u0020angka\u0020saja',
-    equalTo: 'Silakan\u0020masukkan\u0020lagi\u0020nilai\u0020yang\u0020sama',
-    maxlength: $.validator.format('Silakan\u0020masukkan\u0020tidak\u0020lebih\u0020dari\u0020\u007B0\u007D\u0020karakter'),
-    minlength: $.validator.format('Silakan\u0020masukkan\u0020setidaknya\u0020\u007B0\u007D\u0020karakter'),
-    rangelength: $.validator.format('Silakan\u0020masukkan\u0020nilai\u0020panjang\u0020karakter\u0020antara\u0020\u007B0\u007D\u0020dan\u0020\u007B1\u007D'),
-    range: $.validator.format('Silakan\u0020masukkan'),
-    max: $.validator.format('Silakan\u0020masukkan\u0020nilai\u0020kurang\u0020dari\u0020atau\u0020sama\u0020dengan\u0020\u007B0\u007D'),
-    min: $.validator.format('Silakan\u0020masukkan\u0020nilai\u0020lebih\u0020dari\u0020atau\u0020sama\u0020dengan\u0020\u007B0\u007D'),
-    validationFunctionForDateTime: $.validator.format('Silakan\u0020masukkan\u0020tanggal\u0020dan\u0020jam\u0020yang\u0020valid'),
-    validationFunctionForHex: $.validator.format('Silakan\u0020masukkan\u0020input\u0020HEX\u0020yang\u0020valid'),
-    validationFunctionForMd5: $.validator.format('Kolom\u0020ini\u0020tidak\u0020boleh\u0020berisi\u0020sebuah\u0020nilai\u002032\u0020karakter'),
-    validationFunctionForAesDesEncrypt: $.validator.format('Fungsi\u0020ini\u0020dimaksudkan\u0020untuk\u0020mengembalikan\u0020sebuah\u0020hasil\u0020biner\u003B\u0020untuk\u0020menghindari\u0020hasil\u0020yang\u0020tidak\u0020konsisten,\u0020Anda\u0020harus\u0020menyimpannya\u0020di\u0020sebuah\u0020kolom\u0020BINARY,\u0020VARBINARY,\u0020or\u0020BLOB.')
-  });
-}
-
-ConsoleEnterExecutes=false
-
-AJAX.scriptHandler
-  .add('vendor/jquery/jquery.min.js', 0)
-  .add('vendor/jquery/jquery-migrate.js', 0)
-  .add('vendor/sprintf.js', 1)
-  .add('ajax.js', 0)
-  .add('keyhandler.js', 1)
-  .add('vendor/bootstrap/bootstrap.bundle.min.js', 1)
-  .add('vendor/jquery/jquery-ui.min.js', 0)
-  .add('vendor/js.cookie.js', 1)
-  .add('vendor/jquery/jquery.mousewheel.js', 0)
-  .add('vendor/jquery/jquery.validate.js', 0)
-  .add('vendor/jquery/jquery-ui-timepicker-addon.js', 0)
-  .add('vendor/jquery/jquery.ba-hashchange-2.0.js', 0)
-  .add('vendor/jquery/jquery.debounce-1.0.6.js', 0)
-  .add('menu_resizer.js', 1)
-  .add('cross_framing_protection.js', 0)
-  .add('rte.js', 1)
-  .add('messages.php', 0)
-  .add('config.js', 1)
-  .add('doclinks.js', 1)
-  .add('functions.js', 1)
-  .add('navigation.js', 1)
-  .add('indexes.js', 1)
-  .add('common.js', 1)
-  .add('page_settings.js', 1)
-  .add('export_output.js', 1)
-  .add('vendor/codemirror/lib/codemirror.js', 0)
-  .add('vendor/codemirror/mode/sql/sql.js', 0)
-  .add('vendor/codemirror/addon/runmode/runmode.js', 0)
-  .add('vendor/codemirror/addon/hint/show-hint.js', 0)
-  .add('vendor/codemirror/addon/hint/sql-hint.js', 0)
-  .add('vendor/codemirror/addon/lint/lint.js', 0)
-  .add('codemirror/addon/lint/sql-lint.js', 0)
-  .add('vendor/tracekit.js', 1)
-  .add('error_report.js', 1)
-  .add('drag_drop_import.js', 1)
-  .add('shortcuts_handler.js', 1)
-  .add('console.js', 1)
-;
-$(function() {
-        AJAX.fireOnload('vendor/sprintf.js');
-        AJAX.fireOnload('keyhandler.js');
-      AJAX.fireOnload('vendor/bootstrap/bootstrap.bundle.min.js');
-        AJAX.fireOnload('vendor/js.cookie.js');
-                AJAX.fireOnload('menu_resizer.js');
-        AJAX.fireOnload('rte.js');
-        AJAX.fireOnload('config.js');
-      AJAX.fireOnload('doclinks.js');
-      AJAX.fireOnload('functions.js');
-      AJAX.fireOnload('navigation.js');
-      AJAX.fireOnload('indexes.js');
-      AJAX.fireOnload('common.js');
-      AJAX.fireOnload('page_settings.js');
-      AJAX.fireOnload('export_output.js');
-                    AJAX.fireOnload('vendor/tracekit.js');
-      AJAX.fireOnload('error_report.js');
-      AJAX.fireOnload('drag_drop_import.js');
-      AJAX.fireOnload('shortcuts_handler.js');
-      AJAX.fireOnload('console.js');
-  });
-// ]]>
-</script>
-
-  <noscript><style>html{display:block}</style></noscript>
-</head>
-<body>
-    <div id="pma_navigation" data-config-navigation-width="240">
-    <div id="pma_navigation_resizer"></div>
-    <div id="pma_navigation_collapser"></div>
-    <div id="pma_navigation_content">
-      <div id="pma_navigation_header">
-
-                  <div id="pmalogo">
-                          <a href="index.php">
-                                      <img id="imgpmalogo" src="./themes/pmahomme/img/logo_left.png" alt="phpMyAdmin">
-                                      </a>
-                      </div>
-        
-        <div id="navipanellinks">
-          <a href="index.php?route=/" title="Beranda"><img src="themes/dot.gif" title="Beranda" alt="Beranda" class="icon ic_b_home"></a>
-
-                      <a class="logout disableAjax" href="index.php?route=/logout" title="Sesi data kosong"><img src="themes/dot.gif" title="Sesi data kosong" alt="Sesi data kosong" class="icon ic_s_loggoff"></a>
-          
-          <a href="./doc/html/index.html" title="Dokumentasi phpMyAdmin" target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Dokumentasi phpMyAdmin" alt="Dokumentasi phpMyAdmin" class="icon ic_b_docs"></a>
-
-          <a href="./url.php?url=https%3A%2F%2Fmariadb.com%2Fkb%2Fen%2Fdocumentation%2F" title="MariaDB Documentation" target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="MariaDB Documentation" alt="MariaDB Documentation" class="icon ic_b_sqlhelp"></a>
-
-          <a id="pma_navigation_settings_icon" href="#" title="Pengaturan panel navigasi"><img src="themes/dot.gif" title="Pengaturan panel navigasi" alt="Pengaturan panel navigasi" class="icon ic_s_cog"></a>
-
-          <a id="pma_navigation_reload" href="#" title="Muat ulang panel navigasi"><img src="themes/dot.gif" title="Muat ulang panel navigasi" alt="Muat ulang panel navigasi" class="icon ic_s_reload"></a>
-        </div>
-
-        
-        <img src="themes/dot.gif" title="Memproses…" alt="Memproses…" style="visibility: hidden; display:none" class="icon ic_ajax_clock_small throbber">
-      </div>
-      <div id="pma_navigation_tree" class="list_container synced highlight autoexpand">
-
-  <div class="pma_quick_warp"><div class="drop_list"><button title="Tabel terakhir" class="drop_button btn">Terbaru</button><ul id="pma_recent_list"><li class="warp_link">Tidak ada tabel terbaru.</li></ul></div><div class="drop_list"><button title="Tabel favorit" class="drop_button btn">Favorit</button><ul id="pma_favorite_list"><li class="warp_link">Tidak ada tabel favorit terbaru.</li></ul></div><div class="clearfloat"></div></div>
-
-<div class="clearfloat"></div>
-
-<ul>
-  
-  <!-- CONTROLS START --><li id="navigation_controls_outer"><div id="navigation_controls"><a href="#" id="pma_navigation_collapse" title="Tutup semua"><img src="themes/dot.gif" title="Tutup semua" alt="Tutup semua" class="icon ic_s_collapseall"></a><a href="#" id="pma_navigation_sync" title="Unlink dari panel utama"><img src="themes/dot.gif" title="Unlink dari panel utama" alt="Unlink dari panel utama" class="icon ic_s_link"></a></div></li><!-- CONTROLS ENDS -->
-</ul>
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
 
 
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
 
-<div id='pma_navigation_tree_content'>
-  <ul>
-    <li class="first new_database italics"><div class='block'><i class='first'></i></div><div class="block second"><a href='index.php?route=/server/databases&server=1'><img src="themes/dot.gif" title="" alt="" class="icon ic_b_newdb"></a></div><a class='hover_show_full' href='index.php?route=/server/databases&server=1' title='Baru'>Baru</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.ZGJkaXNrdXNp" data-vpath="cm9vdA==.ZGJkaXNrdXNp" data-pos="0"></span><img src="themes/dot.gif" title="Bentangkan/Tutup" alt="Bentangkan/Tutup" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=dbdiskusi&amp;'><img src="themes/dot.gif" title="Operasi database" alt="Operasi database" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=dbdiskusi' title='Struktur'>dbdiskusi</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.aW5mb3JtYXRpb25fc2NoZW1h" data-vpath="cm9vdA==.aW5mb3JtYXRpb25fc2NoZW1h" data-pos="0"></span><img src="themes/dot.gif" title="Bentangkan/Tutup" alt="Bentangkan/Tutup" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=information_schema&amp;'><img src="themes/dot.gif" title="Operasi database" alt="Operasi database" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=information_schema' title='Struktur'>information_schema</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.bXlzcWw=" data-vpath="cm9vdA==.bXlzcWw=" data-pos="0"></span><img src="themes/dot.gif" title="Bentangkan/Tutup" alt="Bentangkan/Tutup" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=mysql&amp;'><img src="themes/dot.gif" title="Operasi database" alt="Operasi database" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=mysql' title='Struktur'>mysql</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.cGVyZm9ybWFuY2Vfc2NoZW1h" data-vpath="cm9vdA==.cGVyZm9ybWFuY2Vfc2NoZW1h" data-pos="0"></span><img src="themes/dot.gif" title="Bentangkan/Tutup" alt="Bentangkan/Tutup" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=performance_schema&amp;'><img src="themes/dot.gif" title="Operasi database" alt="Operasi database" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=performance_schema' title='Struktur'>performance_schema</a><div class="clearfloat"></div></li><li class="database"><div class='block'><i></i><b></b><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.cGhwbXlhZG1pbg==" data-vpath="cm9vdA==.cGhwbXlhZG1pbg==" data-pos="0"></span><img src="themes/dot.gif" title="Bentangkan/Tutup" alt="Bentangkan/Tutup" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=phpmyadmin&amp;'><img src="themes/dot.gif" title="Operasi database" alt="Operasi database" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=phpmyadmin' title='Struktur'>phpmyadmin</a><div class="clearfloat"></div></li><li class="last database"><div class='block'><i></i><a class="expander" href='#'><span class="hide paths_nav" data-apath="cm9vdA==.dGVzdA==" data-vpath="cm9vdA==.dGVzdA==" data-pos="0"></span><img src="themes/dot.gif" title="Bentangkan/Tutup" alt="Bentangkan/Tutup" class="icon ic_b_plus"></a></div><div class="block second"><a href='index.php?route=/database/operations&amp;server=1&amp;db=test&amp;'><img src="themes/dot.gif" title="Operasi database" alt="Operasi database" class="icon ic_s_db"></a></div><a class='hover_show_full' href='index.php?route=/database/structure&server=1&amp;db=test' title='Struktur'>test</a><div class="clearfloat"></div></li>
-  </ul>
-</div>
+--
+-- Database: `dbdiskusi`
+--
 
+-- --------------------------------------------------------
 
-      </div>
+--
+-- Struktur dari tabel `berita`
+--
 
-      <div id="pma_navi_settings_container">
-                  <div id="pma_navigation_settings"><div class="page_settings"><form method="post" action="index.php&#x3F;route&#x3D;&#x25;2Fexport&amp;server&#x3D;1" class="config-form disableAjax">
-  <input type="hidden" name="tab_hash" value="">
-      <input type="hidden" name="check_page_refresh" id="check_page_refresh" value="">
-    <input type="hidden" name="token" value="3a2b3b723f28337d6033327334717041">
-  <input type="hidden" name="submit_save" value="Navi">
-<ul class="tabs responsivetable row">
-      <li><a href="#Navi_panel">Panel navigasi</a></li>
-      <li><a href="#Navi_tree">Panel navigasi</a></li>
-      <li><a href="#Navi_servers">Server</a></li>
-      <li><a href="#Navi_databases">Basis data</a></li>
-      <li><a href="#Navi_tables">Tabel</a></li>
-  </ul>
-<div class="tabs_contents col">
-<fieldset class="optbox" id="Navi_panel">
-<legend>Panel navigasi</legend>
-    <p>Atur tampilan panel navigasi.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="ShowDatabasesNavigationAsTree">Tampilkan cabang navigasi databases</label><span class="doc"><a href="./doc/html/config.html#cfg_ShowDatabasesNavigationAsTree" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>di panel navigasi, timpa cabang database serta selectornya</small></th><td><span class="checkbox"><input type="checkbox" name="ShowDatabasesNavigationAsTree" id="ShowDatabasesNavigationAsTree" checked="checked"></span><a class="restore-default hide" href="#ShowDatabasesNavigationAsTree" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationLinkWithMainPanel">Link ke panel utama</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationLinkWithMainPanel" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Menghubungkan dengan panel utama untuk menyoroti database atau tabel yang saat ini.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationLinkWithMainPanel" id="NavigationLinkWithMainPanel" checked="checked"></span><a class="restore-default hide" href="#NavigationLinkWithMainPanel" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationDisplayLogo">Tampilkan logo</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationDisplayLogo" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Tampilkan logo di panel navigasi.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationDisplayLogo" id="NavigationDisplayLogo" checked="checked"></span><a class="restore-default hide" href="#NavigationDisplayLogo" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationLogoLink">URL tautan logo</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationLogoLink" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Arahkan URL untuk logo pada panel navigasi.</small></th><td><input type="text" class="w-75" name="NavigationLogoLink" id="NavigationLogoLink" value="index.php"><a class="restore-default hide" href="#NavigationLogoLink" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationLogoLinkWindow">Sasaran tautan logo</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationLogoLinkWindow" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Open the linked page in the main window (<code>main</code>) or in a new one (<code>new</code>).</small></th><td><select class="w-75" name="NavigationLogoLinkWindow" id="NavigationLogoLinkWindow"><option value="main" selected="selected">main</option><option value="new">new</option></select><a class="restore-default hide" href="#NavigationLogoLinkWindow" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreePointerEnable">Aktifkan penyorotan</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreePointerEnable" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Sorot server yang dikenai kursor.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreePointerEnable" id="NavigationTreePointerEnable" checked="checked"></span><a class="restore-default hide" href="#NavigationTreePointerEnable" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="FirstLevelNavigationItems">Item maksimum di tingkat pertama</label><span class="doc"><a href="./doc/html/config.html#cfg_FirstLevelNavigationItems" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Jumlah item yang dapat ditampilkan pada setiap halaman dari cabang navigasi.</small></th><td><input type="number" name="FirstLevelNavigationItems" id="FirstLevelNavigationItems" value="100"><a class="restore-default hide" href="#FirstLevelNavigationItems" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeDisplayItemFilterMinimum">Jumlah minimum item yang ditampilkan di kotak tabel filter</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDisplayItemFilterMinimum" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Tentukan jumlah minimum item (tabel, view, routines dan event) untuk menampilkan kotak filter.</small></th><td><input type="number" name="NavigationTreeDisplayItemFilterMinimum" id="NavigationTreeDisplayItemFilterMinimum" value="30"><a class="restore-default hide" href="#NavigationTreeDisplayItemFilterMinimum" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NumRecentTables">Tabel yang terakhir digunakan</label><span class="doc"><a href="./doc/html/config.html#cfg_NumRecentTables" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Jumlah maksimum tabel yang terakhir digunakan; atur 0 untuk menonaktifkannya.</small></th><td><input type="number" name="NumRecentTables" id="NumRecentTables" value="10"><a class="restore-default hide" href="#NumRecentTables" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NumFavoriteTables">Tabel favorit</label><span class="doc"><a href="./doc/html/config.html#cfg_NumFavoriteTables" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Jumlah maksimum tabel favorit; atur 0 untuk menonaktifkannya.</small></th><td><input type="number" name="NumFavoriteTables" id="NumFavoriteTables" value="10"><a class="restore-default hide" href="#NumFavoriteTables" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationWidth">Lebar panel navigasi</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationWidth" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Setel ke 0 untuk menutup panel navigasi.</small></th><td><input type="number" name="NavigationWidth" id="NavigationWidth" value="240"><a class="restore-default hide" href="#NavigationWidth" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_tree">
-<legend>Panel navigasi</legend>
-    <p>Atur panel navigasi.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="MaxNavigationItems">Item maksimal di cabang</label><span class="doc"><a href="./doc/html/config.html#cfg_MaxNavigationItems" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Jumlah item yang dapat ditampilkan pada setiap halaman dari pohon navigasi.</small></th><td><input type="number" name="MaxNavigationItems" id="MaxNavigationItems" value="50"><a class="restore-default hide" href="#MaxNavigationItems" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeEnableGrouping">Item Group di pohon</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeEnableGrouping" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Mengelompokkan barang di cabang navigasi (ditentukan oleh pemisah yang didefinisikan di tab Database dan Tabel di atas).</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeEnableGrouping" id="NavigationTreeEnableGrouping" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeEnableGrouping" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeEnableExpansion">Bolehkan perluasan pohon navigasi</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeEnableExpansion" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Apakah akan menonaktifkan kemungkinan ekspansi database atau tidak.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeEnableExpansion" id="NavigationTreeEnableExpansion" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeEnableExpansion" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowTables">Tampilkan tabel pada cabang</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowTables" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Apakah akan menampilkan tabel di bawah database di pohon navigasi</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowTables" id="NavigationTreeShowTables" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowTables" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowViews">Tampilkan Views dalam bentuk bercabang</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowViews" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Apakah menampilkan views di bawah database di navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowViews" id="NavigationTreeShowViews" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowViews" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowFunctions">Tampilkan Fungsi dalam bentuk bercabang</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowFunctions" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Apakah akan menampilkan fungsi di bawah database di navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowFunctions" id="NavigationTreeShowFunctions" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowFunctions" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowProcedures">Tampilkan prosedur di percabangan</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowProcedures" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Apakah akan menampilkan prosedur di bawah database di pohon navigasi</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowProcedures" id="NavigationTreeShowProcedures" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowProcedures" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeShowEvents">Tunjukkan events dalam pohon</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeShowEvents" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Entah untuk menampilkan events di bawah database di navigation tree</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeShowEvents" id="NavigationTreeShowEvents" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeShowEvents" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeAutoexpandSingleDb">Expand single database</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeAutoexpandSingleDb" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Entah untuk menampilkan events di bawah database di navigation tree secara otomatis.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationTreeAutoexpandSingleDb" id="NavigationTreeAutoexpandSingleDb" checked="checked"></span><a class="restore-default hide" href="#NavigationTreeAutoexpandSingleDb" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_servers">
-<legend>Server</legend>
-    <p>Opsi tampilan server.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="NavigationDisplayServers">Tampilkan pilihan server</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationDisplayServers" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Tampilkan pilihan server di bagian atas panel navigasi.</small></th><td><span class="checkbox"><input type="checkbox" name="NavigationDisplayServers" id="NavigationDisplayServers" checked="checked"></span><a class="restore-default hide" href="#NavigationDisplayServers" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="DisplayServersList">Tampilkan server dalam bentuk daftar</label><span class="doc"><a href="./doc/html/config.html#cfg_DisplayServersList" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>Tampilkan daftar server dalam bentuk daftar dan bukan tarik-turun.</small></th><td><span class="checkbox"><input type="checkbox" name="DisplayServersList" id="DisplayServersList"></span><a class="restore-default hide" href="#DisplayServersList" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_databases">
-<legend>Basis data</legend>
-    <p>Opsi tampilan basis data.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="NavigationTreeDisplayDbFilterMinimum">Jumlah minimum database yang ditampilkan di kotak tabel filter</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDisplayDbFilterMinimum" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span></th><td><input type="number" name="NavigationTreeDisplayDbFilterMinimum" id="NavigationTreeDisplayDbFilterMinimum" value="30"><a class="restore-default hide" href="#NavigationTreeDisplayDbFilterMinimum" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeDbSeparator">Pemisah hierarki basis data</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDbSeparator" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>String yang memisahkan basis data ke dalam tingkat hierarki yang berbeda.</small></th><td><input type="text" size="25" name="NavigationTreeDbSeparator" id="NavigationTreeDbSeparator" value="_"><a class="restore-default hide" href="#NavigationTreeDbSeparator" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-<fieldset class="optbox" id="Navi_tables">
-<legend>Tabel</legend>
-    <p>Opsi tampilan tabel.</p>
-<table class="pma-table" width="100%" cellspacing="0">
-<tr><th><label for="NavigationTreeDefaultTabTable">Target ikon akses cepat</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDefaultTabTable" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span></th><td><select class="w-75" name="NavigationTreeDefaultTabTable" id="NavigationTreeDefaultTabTable"><option value="structure" selected="selected">Struktur</option><option value="sql">SQL</option><option value="search">Cari</option><option value="insert">Tambahkan</option><option value="browse">Jelajahi</option></select><a class="restore-default hide" href="#NavigationTreeDefaultTabTable" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeDefaultTabTable2">Target buat ikon akses cepat kedua</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeDefaultTabTable2" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span></th><td><select class="w-75" name="NavigationTreeDefaultTabTable2" id="NavigationTreeDefaultTabTable2"><option value="" selected="selected"></option><option value="structure">Struktur</option><option value="sql">SQL</option><option value="search">Cari</option><option value="insert">Tambahkan</option><option value="browse">Jelajahi</option></select><a class="restore-default hide" href="#NavigationTreeDefaultTabTable2" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeTableSeparator">Pemisah hierarki tabel</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeTableSeparator" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span><small>String yang memisahkan tabel ke dalam tingkat hierarki yang berbeda.</small></th><td><input type="text" size="25" name="NavigationTreeTableSeparator" id="NavigationTreeTableSeparator" value="__"><a class="restore-default hide" href="#NavigationTreeTableSeparator" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr><tr><th><label for="NavigationTreeTableLevel">Kedalaman hierarki tabel maksimum</label><span class="doc"><a href="./doc/html/config.html#cfg_NavigationTreeTableLevel" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a>
-</span></th><td><input type="number" name="NavigationTreeTableLevel" id="NavigationTreeTableLevel" value="1"><a class="restore-default hide" href="#NavigationTreeTableLevel" title="Kembalikan nilai bawaan"><img src="themes/dot.gif" title="" alt="" class="icon ic_s_reload"></a></td></tr></table>
-</fieldset>
-</div>
-</form>
-<script type="text/javascript">
-    if (typeof configInlineParams === 'undefined' || !Array.isArray(configInlineParams)) {
-        configInlineParams = [];
-    }
-    configInlineParams.push(function () {
-        registerFieldValidator('FirstLevelNavigationItems', 'validatePositiveNumber', true);
-registerFieldValidator('NavigationTreeDisplayItemFilterMinimum', 'validatePositiveNumber', true);
-registerFieldValidator('NumRecentTables', 'validateNonNegativeNumber', true);
-registerFieldValidator('NumFavoriteTables', 'validateNonNegativeNumber', true);
-registerFieldValidator('NavigationWidth', 'validateNonNegativeNumber', true);
-registerFieldValidator('MaxNavigationItems', 'validatePositiveNumber', true);
-registerFieldValidator('NavigationTreeTableLevel', 'validatePositiveNumber', true);
-$.extend(Messages, {
-	'error_nan_p': 'Bukan angka positif!',
-	'error_nan_nneg': 'Bukan angka non-negatif!',
-	'error_incorrect_port': 'Bukan angka port yang sah!',
-	'error_invalid_value': 'Nilai yang salah!',
-	'error_value_lte': 'Nilai harus sama dengan atau lebih kecil dari %s!'});
-$.extend(defaultValues, {
-	'ShowDatabasesNavigationAsTree': true,
-	'NavigationLinkWithMainPanel': true,
-	'NavigationDisplayLogo': true,
-	'NavigationLogoLink': 'index.php',
-	'NavigationLogoLinkWindow': ['main'],
-	'NavigationTreePointerEnable': true,
-	'FirstLevelNavigationItems': '100',
-	'NavigationTreeDisplayItemFilterMinimum': '30',
-	'NumRecentTables': '10',
-	'NumFavoriteTables': '10',
-	'NavigationWidth': '240',
-	'MaxNavigationItems': '50',
-	'NavigationTreeEnableGrouping': true,
-	'NavigationTreeEnableExpansion': true,
-	'NavigationTreeShowTables': true,
-	'NavigationTreeShowViews': true,
-	'NavigationTreeShowFunctions': true,
-	'NavigationTreeShowProcedures': true,
-	'NavigationTreeShowEvents': true,
-	'NavigationTreeAutoexpandSingleDb': true,
-	'NavigationDisplayServers': true,
-	'DisplayServersList': false,
-	'NavigationTreeDisplayDbFilterMinimum': '30',
-	'NavigationTreeDbSeparator': '_',
-	'NavigationTreeDefaultTabTable': ['structure'],
-	'NavigationTreeDefaultTabTable2': [''],
-	'NavigationTreeTableSeparator': '__',
-	'NavigationTreeTableLevel': '1'});
-    });
-    if (typeof configScriptLoaded !== 'undefined' && configInlineParams) {
-        loadInlineConfig();
-    }
-</script>
-</div></div>
-              </div>
-    </div>
+CREATE TABLE `berita` (
+  `id` int(11) NOT NULL,
+  `id_kategori` int(11) NOT NULL,
+  `judul` varchar(200) NOT NULL,
+  `isi` text NOT NULL,
+  `tgl` date NOT NULL,
+  `id_user` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-          <div class="pma_drop_handler">
-        Letakkan berkas disini      </div>
-      <div class="pma_sql_import_status">
-        <h2>
-          SQL upload          ( <span class="pma_import_count">0</span> )
-          <span class="close">x</span>
-          <span class="minimize">-</span>
-        </h2>
-        <div></div>
-      </div>
-      </div>
+--
+-- Dumping data untuk tabel `berita`
+--
 
-  
-  <div id="prefs_autoload" class="alert alert-primary print_ignore hide" role="alert">
-    <form action="index.php?route=/preferences/manage" method="post" class="disableAjax">
-        <input type="hidden" name="token" value="3a2b3b723f28337d6033327334717041">
-        <input type="hidden" name="json" value="">
-        <input type="hidden" name="submit_import" value="1">
-        <input type="hidden" name="return_url" value="index.php?route=%2Fexport">
-        Your browser has phpMyAdmin configuration for this domain. Would you like to import it for current session?        <br>
-        <a href="#yes">Ya</a>
-        / <a href="#no">Tidak</a>
-        / <a href="#delete">Delete settings</a>
-    </form>
-</div>
+INSERT INTO `berita` (`id`, `id_kategori`, `judul`, `isi`, `tgl`, `id_user`) VALUES
+(10, 2, 'Bagaimana Cara Mengisi KRS yang Baik dan Benar?', 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, esse explicabo maiores et iste ex exercitationem nemo sapiente optio quisquam reprehenderit dolorem nulla nisi illo eius sit culpa! Sunt, et!\r\nLorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, esse explicabo maiores et iste ex exercitationem nemo sapiente optio quisquam reprehenderit dolorem nulla nisi illo eius sit culpa! Sunt, et!\r\nLorem ipsum dolor sit, amet consectetur adipisicing elit. Provident, esse explicabo maiores et iste ex exercitationem nemo sapiente optio quisquam reprehenderit dolorem nulla nisi illo eius sit culpa! Sunt, et!', '2022-04-27', 3),
+(12, 5, 'Apa yang harus dipersiapkan untuk UTS?', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo labore nisi in ea repudiandae blanditiis maiores obcaecati doloremque, voluptatem fuga quod accusamus modi iure cum natus. Minus natus nostrum sunt!\r\nLorem ipsum dolor sit amet consectetur, adipisicing elit. Illo labore nisi in ea repudiandae blanditiis maiores obcaecati doloremque, voluptatem fuga quod accusamus modi iure cum natus. Minus natus nostrum sunt!\r\nLorem ipsum dolor sit amet consectetur, adipisicing elit. Illo labore nisi in ea repudiandae blanditiis maiores obcaecati doloremque, voluptatem fuga quod accusamus modi iure cum natus. Minus natus nostrum sunt!', '2022-04-28', 5),
+(16, 5, 'coba-coba', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quae sit nostrum nesciunt, laboriosam obcaecati dolores deleniti rem. Necessitatibus unde cumque sequi exercitationem eligendi quia mollitia consequuntur quod, assumenda, corporis porro?\r\nLorem ipsum dolor, sit amet consectetur adipisicing elit. Quae sit nostrum nesciunt, laboriosam obcaecati dolores deleniti rem. Necessitatibus unde cumque sequi exercitationem eligendi quia mollitia consequuntur quod, assumenda, corporis porro?\r\nLorem ipsum dolor, sit amet consectetur adipisicing elit. Quae sit nostrum nesciunt, laboriosam obcaecati dolores deleniti rem. Necessitatibus unde cumque sequi exercitationem eligendi quia mollitia consequuntur quod, assumenda, corporis porro?\r\nLorem ipsum dolor, sit amet consectetur adipisicing elit. Quae sit nostrum nesciunt, laboriosam obcaecati dolores deleniti rem. Necessitatibus unde cumque sequi exercitationem eligendi quia mollitia consequuntur quod, assumenda, corporis porro?\r\n', '2022-05-11', 3);
 
+-- --------------------------------------------------------
 
-  
-      <noscript>
-      <div class="alert alert-danger" role="alert">
-  <img src="themes/dot.gif" title="" alt="" class="icon ic_s_error"> Javascript harus diaktifkan lewat point ini!
-</div>
+--
+-- Struktur dari tabel `file`
+--
 
-    </noscript>
-  
-      <div id="floating_menubar"></div>
-<nav id="server-breadcrumb" aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item">
-      <img src="themes/dot.gif" title="" alt="" class="icon ic_s_host">
-      <a href="index.php?route=/" data-raw-text="127.0.0.1">
-        Server:        127.0.0.1
-      </a>
-    </li>
+CREATE TABLE `file` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `lokasi` varchar(255) NOT NULL,
+  `id_berita` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-      </ol>
-</nav>
-<div id="topmenucontainer" class="menucontainer">
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-label="Toggle navigation" aria-controls="navbarNav" aria-expanded="false">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul id="topmenu" class="navbar-nav">
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/databases">
-              <img src="themes/dot.gif" title="Basis data" alt="Basis data" class="icon ic_s_db">&nbsp;Basis data
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/sql">
-              <img src="themes/dot.gif" title="SQL" alt="SQL" class="icon ic_b_sql">&nbsp;SQL
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/status">
-              <img src="themes/dot.gif" title="Status" alt="Status" class="icon ic_s_status">&nbsp;Status
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/privileges&viewing_mode=server">
-              <img src="themes/dot.gif" title="Akun pengguna" alt="Akun pengguna" class="icon ic_s_rights">&nbsp;Akun pengguna
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/export">
-              <img src="themes/dot.gif" title="Ekspor" alt="Ekspor" class="icon ic_b_export">&nbsp;Ekspor
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/import">
-              <img src="themes/dot.gif" title="Impor" alt="Impor" class="icon ic_b_import">&nbsp;Impor
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/preferences/manage">
-              <img src="themes/dot.gif" title="Pengaturan" alt="Pengaturan" class="icon ic_b_tblops">&nbsp;Pengaturan
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/replication">
-              <img src="themes/dot.gif" title="Replikasi" alt="Replikasi" class="icon ic_s_replication">&nbsp;Replikasi
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/variables">
-              <img src="themes/dot.gif" title="Variabel" alt="Variabel" class="icon ic_s_vars">&nbsp;Variabel
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/collations">
-              <img src="themes/dot.gif" title="Set Karakter" alt="Set Karakter" class="icon ic_s_asci">&nbsp;Set Karakter
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/engines">
-              <img src="themes/dot.gif" title="Mesin" alt="Mesin" class="icon ic_b_engine">&nbsp;Mesin
-                          </a>
-          </li>
-                  <li class="nav-item">
-            <a class="nav-link text-nowrap" href="index.php?route=/server/plugins">
-              <img src="themes/dot.gif" title="Plugin" alt="Plugin" class="icon ic_b_plugin">&nbsp;Plugin
-                          </a>
-          </li>
-              </ul>
-    </div>
-  </nav>
-</div>
+--
+-- Dumping data untuk tabel `file`
+--
 
-    <span id="page_nav_icons">
-      <span id="lock_page_icon"></span>
-      <span id="page_settings_icon">
-        <img src="themes/dot.gif" title="Pengaturan Terkait dengan Halaman" alt="Pengaturan Terkait dengan Halaman" class="icon ic_s_cog">
-      </span>
-      <a id="goto_pagetop" href="#"><img src="themes/dot.gif" title="Klik pada bar untuk menggulir ke atas halaman" alt="Klik pada bar untuk menggulir ke atas halaman" class="icon ic_s_top"></a>
-    </span>
-  
-  <div id="pma_console_container">
-    <div id="pma_console">
-                <div class="toolbar collapsed">
-                    <div class="switch_button console_switch">
-            <img src="themes/dot.gif" title="Konsol Kueri SQL" alt="Konsol Kueri SQL" class="icon ic_console">
-            <span>Konsol</span>
-        </div>
-                            <div class="button clear">
-            
-            <span>Bersihkan</span>
-        </div>
-                            <div class="button history">
-            
-            <span>Riwayat</span>
-        </div>
-                            <div class="button options">
-            
-            <span>Opsi</span>
-        </div>
-                            <div class="button bookmarks">
-            
-            <span>Bookmark</span>
-        </div>
-                            <div class="button debug hide">
-            
-            <span>Men-Debug SQL</span>
-        </div>
-            </div>
-                <div class="content">
-            <div class="console_message_container">
-                <div class="message welcome">
-                    <span id="instructions-0">
-                        Tekan Ctrl+Enter untuk menjalankan kueri                    </span>
-                    <span class="hide" id="instructions-1">
-                        Press Enter to execute query                    </span>
-                </div>
-                            </div><!-- console_message_container -->
-            <div class="query_input">
-                <span class="console_query_input"></span>
-            </div>
-        </div><!-- message end -->
-                <div class="mid_layer"></div>
-                <div class="card" id="debug_console">
-            <div class="toolbar ">
-                    <div class="button order order_asc">
-            
-            <span>ascending</span>
-        </div>
-                            <div class="button order order_desc">
-            
-            <span>descending</span>
-        </div>
-                            <div class="text">
-            
-            <span>Order:</span>
-        </div>
-                            <div class="switch_button">
-            
-            <span>Men-Debug SQL</span>
-        </div>
-                            <div class="button order_by sort_count">
-            
-            <span>Jumlah</span>
-        </div>
-                            <div class="button order_by sort_exec">
-            
-            <span>Execution order</span>
-        </div>
-                            <div class="button order_by sort_time">
-            
-            <span>Time taken</span>
-        </div>
-                            <div class="text">
-            
-            <span>Order by:</span>
-        </div>
-                            <div class="button group_queries">
-            
-            <span>Group queries</span>
-        </div>
-                            <div class="button ungroup_queries">
-            
-            <span>Ungroup queries</span>
-        </div>
-            </div>
-            <div class="content debug">
-                <div class="message welcome"></div>
-                <div class="debugLog"></div>
-            </div> <!-- Content -->
-            <div class="templates">
-                <div class="debug_query action_content">
-                    <span class="action collapse">
-            Tampilkan
-                    </span>
-                            <span class="action expand">
-            Buka
-                    </span>
-                            <span class="action dbg_show_trace">
-            Show trace
-                    </span>
-                            <span class="action dbg_hide_trace">
-            Hide trace
-                    </span>
-                            <span class="text count hide">
-            Jumlah
-                    </span>
-                            <span class="text time">
-            Time taken
-                    </span>
-            </div>
-            </div> <!-- Template -->
-        </div> <!-- Debug SQL card -->
-                        <div class="card" id="pma_console_options">
-            <div class="toolbar ">
-                    <div class="switch_button">
-            
-            <span>Opsi</span>
-        </div>
-                            <div class="button default">
-            
-            <span>Kembalikan nilai bawaan</span>
-        </div>
-            </div>
-            <div class="content">
-                <label>
-                    <input type="checkbox" name="always_expand">Selalu tampilkan pesan kueri                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="start_history">Tampilkan riwayat kueri di awal                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="current_query">Show current browsing query                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="enter_executes">
-                        Execute queries on Enter and insert new line with Shift + Enter. To make this permanent, view settings.                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="dark_theme">Beralih ke tema gelap                </label>
-                <br>
-            </div>
-        </div> <!-- Options card -->
-        <div class="templates">
-                        <div class="query_actions">
-                    <span class="action collapse">
-            Tampilkan
-                    </span>
-                            <span class="action expand">
-            Buka
-                    </span>
-                            <span class="action requery">
-            Kueri ulang
-                    </span>
-                            <span class="action edit">
-            Ubah
-                    </span>
-                            <span class="action explain">
-            Jelaskan
-                    </span>
-                            <span class="action profiling">
-            Profil
-                    </span>
-                            <span class="action bookmark">
-            Bookmarks
-                    </span>
-                            <span class="text failed">
-            Kueri gagal
-                    </span>
-                            <span class="text targetdb">
-            Basis data
-                            : <span></span>
-                    </span>
-                            <span class="text query_time">
-            Waktu eksekusi kueri
-                            : <span></span>
-                    </span>
-            </div>
-        </div>
-    </div> <!-- #console end -->
-</div> <!-- #console_container end -->
+INSERT INTO `file` (`id`, `nama`, `lokasi`, `id_berita`) VALUES
+(1, 'Pembagian Divisi Himpunan Mahasiswa Prodi TI.docx', 'assets/uploads/627bc1aac76e3-Pembagian Divisi Himpunan Mahasiswa Prodi TI.docx', 16),
+(3, 'SNMPTN.xlsx', 'assets/uploads/627bc1aac8b2c-SNMPTN.xlsx', 16);
 
+-- --------------------------------------------------------
 
-  <div id="page_content">
-    
+--
+-- Struktur dari tabel `file_komen`
+--
 
-    
-<!DOCTYPE HTML>
-<html lang="id" dir="ltr">
-<head>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <title>phpMyAdmin</title>
-    <meta charset="utf-8">
-    <style type="text/css">
-        html {
-            padding: 0;
-            margin: 0;
-        }
-        body  {
-            font-family: sans-serif;
-            font-size: small;
-            color: #000000;
-            background-color: #F5F5F5;
-            margin: 1em;
-        }
-        h1 {
-            margin: 0;
-            padding: 0.3em;
-            font-size: 1.4em;
-            font-weight: bold;
-            color: #ffffff;
-            background-color: #ff0000;
-        }
-        p {
-            margin: 0;
-            padding: 0.5em;
-            border: 0.1em solid red;
-            background-color: #ffeeee;
-        }
-    </style>
-</head>
-<body>
-<h1>phpMyAdmin - Galat</h1>
-<p>index.php: Parameter yang hilang: what<a href="./doc/html/faq.html#faqmissingparameters" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a><br>index.php: Parameter yang hilang: export_type<a href="./doc/html/faq.html#faqmissingparameters" target="documentation"><img src="themes/dot.gif" title="Dokumentasi" alt="Dokumentasi" class="icon ic_b_help"></a><br></p>
-</body>
-</html>
-  </div>
-  <div id="selflink" class="print_ignore"><a href="index.php?route=%2Fexport&amp;server=1" title="Buka jendela phpMyAdmin baru" target="_blank" rel="noopener noreferrer"><img src="themes/dot.gif" title="Buka jendela phpMyAdmin baru" alt="Buka jendela phpMyAdmin baru" class="icon ic_window-new"></a></div>
+CREATE TABLE `file_komen` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(255) NOT NULL,
+  `lokasi` varchar(255) NOT NULL,
+  `id_komentar` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-  <div class="clearfloat" id="pma_errors">
-    
-  </div>
+--
+-- Dumping data untuk tabel `file_komen`
+--
 
-  
-<script data-cfasync="false" type="text/javascript">
-// <![CDATA[
-var debugSQLInfo = 'null';
+INSERT INTO `file_komen` (`id`, `nama`, `lokasi`, `id_komentar`) VALUES
+(1, 'Pembagian Divisi Himpunan Mahasiswa Prodi TI.docx', 'assets/uploads/627c67588c1b0-Pembagian Divisi Himpunan Mahasiswa Prodi TI.docx', 1),
+(2, 'Pembagian Divisi Himpunan Mahasiswa Prodi SI.docx', 'assets/uploads/627c67588dcd7-Pembagian Divisi Himpunan Mahasiswa Prodi SI.docx', 1),
+(3, '3.jpeg', 'assets/uploads/627c67588e5d0-3.jpeg', 1),
+(4, '2.jpeg', 'assets/uploads/627c675890340-2.jpeg', 1),
+(5, 'We are Researcher of Reserach Adventure!! (1).png', 'assets/uploads/627c67f924f25-We are Researcher of Reserach Adventure!! (1).png', 2),
+(6, 'PosterVotingRV.jpg', 'assets/uploads/627c684e24548-PosterVotingRV.jpg', 3),
+(7, '1._Konsep_Dasar_RPL.key', 'assets/uploads/627e068587ef3-1._Konsep_Dasar_RPL.key', 4),
+(8, '6da5029af896b73f6f7a52b5e0726f74.pptx', 'assets/uploads/627e0685915f3-6da5029af896b73f6f7a52b5e0726f74.pptx', 4),
+(9, '177-Article Text-292-1-10-20180319.pdf', 'assets/uploads/627e06859220a-177-Article Text-292-1-10-20180319.pdf', 4),
+(10, 'CHRIST JORDAN BAEHA_UNIVERSITAS KATOLIK SANTO THOMAS_PKM-KI.docx', 'assets/uploads/627e0685936a4-CHRIST JORDAN BAEHA_UNIVERSITAS KATOLIK SANTO THOMAS_PKM-KI.docx', 4);
 
-// ]]>
-</script>
+-- --------------------------------------------------------
 
+--
+-- Struktur dari tabel `halaman`
+--
 
-  
-  
-  </body>
-</html>
+CREATE TABLE `halaman` (
+  `id` int(11) NOT NULL,
+  `judul` varchar(200) NOT NULL,
+  `isi` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `halaman`
+--
+
+INSERT INTO `halaman` (`id`, `judul`, `isi`) VALUES
+(1, 'Profil', '<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus amet ad magnam saepe illum nobis provident harum odit, incidunt nemo error unde accusamus et adipisci voluptatum dolor fuga natus voluptates.</p><p><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA6sAAAOvCAYAAAAqc1KTAAAABGdBTUEAALGOfPtRkwAAACBjSFJNAACHDwAAjA8AAP1SAACBQAAAfXkAAOmLAAA85QAAGcxzPIV3AAAKL2lDQ1BJQ0MgUHJvZmlsZQAASMedlndUVNcWh8+9d3qhzTDSGXqTLjCA9C4gHQRRGGYGGMoAwwxNbIioQEQREQFFkKCAAaOhSKyIYiEoqGAPSBBQYjCKqKhkRtZKfHl57+Xl98e939pn73P32XuftS4AJE8fLi8FlgIgmSfgB3o401eFR9Cx/QAGeIABpgAwWempvkHuwUAkLzcXerrICfyL3gwBSPy+ZejpT6eD/0/SrFS+AADIX8TmbE46S8T5Ik7KFKSK7TMipsYkihlGiZkvSlDEcmKOW+Sln30W2VHM7GQeW8TinFPZyWwx94h4e4aQI2LER8QFGVxOpohvi1gzSZjMFfFbcWwyh5kOAIoktgs4rHgRm4iYxA8OdBHxcgBwpLgvOOYLFnCyBOJDuaSkZvO5cfECui5Lj25qbc2ge3IykzgCgaE/k5XI5LPpLinJqUxeNgCLZ/4sGXFt6aIiW5paW1oamhmZflGo/7r4NyXu7SK9CvjcM4jW94ftr/xS6gBgzIpqs+sPW8x+ADq2AiB3/w+b5iEAJEV9a7/xxXlo4nmJFwhSbYyNMzMzjbgclpG4oL/rfzr8DX3xPSPxdr+Xh+7KiWUKkwR0cd1YKUkpQj49PZXJ4tAN/zzE/zjwr/NYGsiJ5fA5PFFEqGjKuLw4Ubt5bK6Am8Kjc3n/qYn/MOxPWpxrkSj1nwA1yghI3aAC5Oc+gKIQARJ5UNz13/vmgw8F4psXpjqxOPefBf37rnCJ+JHOjfsc5xIYTGcJ+RmLa+JrCdCAACQBFcgDFaABdIEhMANWwBY4AjewAviBYBAO1gIWiAfJgA8yQS7YDApAEdgF9oJKUAPqQSNoASdABzgNLoDL4Dq4Ce6AB2AEjIPnYAa8AfMQBGEhMkSB5CFVSAsygMwgBmQPuUE+UCAUDkVDcRAPEkK50BaoCCqFKqFaqBH6FjoFXYCuQgPQPWgUmoJ+hd7DCEyCqbAyrA0bwwzYCfaGg+E1cBycBufA+fBOuAKug4/B7fAF+Dp8Bx6Bn8OzCECICA1RQwwRBuKC+CERSCzCRzYghUg5Uoe0IF1IL3ILGUGmkXcoDIqCoqMMUbYoT1QIioVKQ21AFaMqUUdR7age1C3UKGoG9QlNRiuhDdA2aC/0KnQcOhNdgC5HN6Db0JfQd9Dj6DcYDIaG0cFYYTwx4ZgEzDpMMeYAphVzHjOAGcPMYrFYeawB1g7rh2ViBdgC7H7sMew57CB2HPsWR8Sp4sxw7rgIHA+XhyvHNeHO4gZxE7h5vBReC2+D98Oz8dn4Enw9vgt/Az+OnydIE3QIdoRgQgJhM6GC0EK4RHhIeEUkEtWJ1sQAIpe4iVhBPE68QhwlviPJkPRJLqRIkpC0k3SEdJ50j/SKTCZrkx3JEWQBeSe5kXyR/Jj8VoIiYSThJcGW2ChRJdEuMSjxQhIvqSXpJLlWMkeyXPKk5A3JaSm8lLaUixRTaoNUldQpqWGpWWmKtKm0n3SydLF0k/RV6UkZrIy2jJsMWyZf5rDMRZkxCkLRoLhQWJQtlHrKJco4FUPVoXpRE6hF1G+o/dQZWRnZZbKhslmyVbJnZEdoCE2b5kVLopXQTtCGaO+XKC9xWsJZsmNJy5LBJXNyinKOchy5QrlWuTty7+Xp8m7yifK75TvkHymgFPQVAhQyFQ4qXFKYVqQq2iqyFAsVTyjeV4KV9JUCldYpHVbqU5pVVlH2UE5V3q98UXlahabiqJKgUqZyVmVKlaJqr8pVLVM9p/qMLkt3oifRK+g99Bk1JTVPNaFarVq/2ry6jnqIep56q/ojDYIGQyNWo0yjW2NGU1XTVzNXs1nzvhZei6EVr7VPq1drTltHO0x7m3aH9qSOnI6XTo5Os85DXbKug26abp3ubT2MHkMvUe+A3k19WN9CP16/Sv+GAWxgacA1OGAwsBS91Hopb2nd0mFDkqGTYYZhs+GoEc3IxyjPqMPohbGmcYTxbuNe408mFiZJJvUmD0xlTFeY5pl2mf5qpm/GMqsyu21ONnc332jeaf5ymcEyzrKDy+5aUCx8LbZZdFt8tLSy5Fu2WE5ZaVpFW1VbDTOoDH9GMeOKNdra2Xqj9WnrdzaWNgKbEza/2BraJto22U4u11nOWV6/fMxO3Y5pV2s3Yk+3j7Y/ZD/ioObAdKhzeOKo4ch2bHCccNJzSnA65vTC2cSZ79zmPOdi47Le5bwr4urhWuja7ybjFuJW6fbYXd09zr3ZfcbDwmOdx3lPtKe3527PYS9lL5ZXo9fMCqsV61f0eJO8g7wrvZ/46Pvwfbp8Yd8Vvnt8H67UWslb2eEH/Lz89vg98tfxT/P/PgAT4B9QFfA00DQwN7A3iBIUFdQU9CbYObgk+EGIbogwpDtUMjQytDF0Lsw1rDRsZJXxqvWrrocrhHPDOyOwEaERDRGzq91W7109HmkRWRA5tEZnTdaaq2sV1iatPRMlGcWMOhmNjg6Lbor+wPRj1jFnY7xiqmNmWC6sfaznbEd2GXuKY8cp5UzE2sWWxk7G2cXtiZuKd4gvj5/munAruS8TPBNqEuYS/RKPJC4khSW1JuOSo5NP8WR4ibyeFJWUrJSBVIPUgtSRNJu0vWkzfG9+QzqUvia9U0AV/Uz1CXWFW4WjGfYZVRlvM0MzT2ZJZ/Gy+rL1s3dkT+S453y9DrWOta47Vy13c+7oeqf1tRugDTEbujdqbMzfOL7JY9PRzYTNiZt/yDPJK817vSVsS1e+cv6m/LGtHlubCyQK+AXD22y31WxHbedu799hvmP/jk+F7MJrRSZF5UUfilnF174y/ariq4WdsTv7SyxLDu7C7OLtGtrtsPtoqXRpTunYHt897WX0ssKy13uj9l4tX1Zes4+wT7hvpMKnonO/5v5d+z9UxlfeqXKuaq1Wqt5RPXeAfWDwoOPBlhrlmqKa94e4h+7WetS212nXlR/GHM44/LQ+tL73a8bXjQ0KDUUNH4/wjowcDTza02jV2Nik1FTSDDcLm6eORR67+Y3rN50thi21rbTWouPguPD4s2+jvx064X2i+yTjZMt3Wt9Vt1HaCtuh9uz2mY74jpHO8M6BUytOdXfZdrV9b/T9kdNqp6vOyJ4pOUs4m3924VzOudnzqeenL8RdGOuO6n5wcdXF2z0BPf2XvC9duex++WKvU++5K3ZXTl+1uXrqGuNax3XL6+19Fn1tP1j80NZv2d9+w+pG503rm10DywfODjoMXrjleuvyba/b1++svDMwFDJ0dzhyeOQu++7kvaR7L+9n3J9/sOkh+mHhI6lH5Y+VHtf9qPdj64jlyJlR19G+J0FPHoyxxp7/lP7Th/H8p+Sn5ROqE42TZpOnp9ynbj5b/Wz8eerz+emCn6V/rn6h++K7Xxx/6ZtZNTP+kv9y4dfiV/Kvjrxe9rp71n/28ZvkN/NzhW/l3x59x3jX+z7s/cR85gfsh4qPeh+7Pnl/eriQvLDwG/eE8/s3BCkeAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAIXRFWHRDcmVhdGlvbiBUaW1lADIwMTc6MTI6MjEgMTM6Mzg6MjDM4SUIAAD1HklEQVR4XuydB3hU1RLH525J771RRVE0QhJCYkWw944NFQUBAQVBEUEQUFBAmoqgggKiKNh77wWki/qs1BRSSe/ZfTMLUUqy99y22TLzffl8j5x7yu/e7N45Z+Y/kt1uBzYmwASYABNgAkxAO4FpJpPpIZvNpr0n7oEJMAEmwASYABOQ2Fnlh4AJMAEmwASYgHoCRelZvUwgXSFJcCn2cizuAX+M/32zoqL5/S5/byhX3zNfyQSYABNgAkzAtwmws+rb959XzwSYABNgAgoJbDZlWjunmfqiU3qpJEmX4eWd2+iiAcD+hR2kt+11zW/H/LohX+FQ3JwJMAEmwASYgE8TYGfVp28/L54JMAEmwARECBSlpoZI1uALTZIdnVPpYrwmUuS6Q9rYMOnmJ3Re37bbpDditqz7U+H13JwJMAEmwASYgM8RYGfV5245L5gJMAEmwARECOSdmB0d4Ge7HEymK7H9OfgTIHKdYJuf8WT2zebmpjfitm38WfAabsYEmAATYAJMwKcIsLPqU7ebF8sEmAATYALOCJT26pUCJr8rQHI4qGfij8VwYnb4E09dX7Pbml+P2bphs+Hj8QBMgAkwASbABDyEADurHnKjeJpMgAkwASZgDIHijIxjJbBcLYFEDmom/kjGjCTU6y4MFX6jGeD1+C0bfkRhYZbsF8LGjZgAE2ACTMAbCbCz6o13ldfEBJgAE2ACTgkUp2Ufh/mn14AkXY0N090U1x6w29eg87o2ZuvGDey4uuld4mkxASbABJiAYQTYWTUMLXfMBJgAE2AC7kTggIMKA/Dc9Fqc18nuNDeBuezENmvxmHVt9KZ1GwXacxMmwASYABNgAh5PgJ1Vj7+FvAAmwASYABNoiwCF+Jrs1us81EFtY1n2HfiLNc12eDV28/qtfPeZABNgAkyACXgrAXZWvfXO8rqYABNgAj5KoCA9vbNFsl6POah0guquIb563Z3fMUx4tQ2aVsds2vSXXp1yP0yACTABJsAE3IEAO6vucBd4DkyACTABJqCJQElGRpJktwywS9J1qI6UhZ21p0iSprVouHijHeyv1jfCq0k/r9+roR++lAkwASbABJiAWxBgZ9UtbgNPggkwASbABJQS2NuzZ2SQOeBaPEG9AV1TKjNjUtqHl7a3gR2+sUvwakNN82uJ/9tQ7KXr5GUxASbABJiAlxNgZ9XLbzAvjwkwASbgTQRyOnUKDIhOvBSFkm7CdV2AP37etD4D1tKIfX6IBXBeqivJfzdl9+5aA8bgLpkAE2ACTIAJGEKAnVVDsHKnTIAJMAEmoBeB10wmc/9eGWeDZCYHlWqhhurVt579mCKbwNyhEZp+DQB7s1tGIVegmvBrEua4frFlw5fX2GxYzpWNCTABJsAEmID7EmBn1X3vDc+MCTABJuDTBEoysntjndGbJcxDRRDx7gjD3LEB/E6vAutp1WDpUefIlLVXmaDxx2Bo+DYEGtcHgb3eLaOT83Cmr9iabS/FbN2w2R3Z8pyYABNgAkyACbCzys8AE2ACTIAJuA2B/NTMjv5W00CQpIE4qRPcZmIHJyJJdrCcVAfWU6vB77QqMHWkKFsnVi9B44YgaPgOHdcfgsFWYXa3JeF87L/giesKex06rr9uyHfDCfKUmAATYAJMwEcJsLPqozeel80EmAATcBcCRampIWZr0DXooN6MczoLf9zqKFKy2sGaUQPWM6vA75RqkCJVRs/iZU3bA6HhmxDHj63Y4i63oGUeOEP7p3a79GJDYfNbiTkbatxtgjwfJsAEmAAT8C0C7Kz61v3m1TIBJsAE3ILAgTzU3v3RQb0FY2cpDzXYLSZ2cBJSoA38sqvBegY6qNnoswXZ9J0eHmU2/RYAjV8fcFyb91n17V97bxUYgr3GZpNejPv5p29tNpRoYmMCTIAJMAEm4GIC7Ky6GDgPxwSYABPwZQLFGRnHSmAhB/VWTO/s4E4sTGHNB8J70UG1ZqKD6uc6/6z5D39HjmvDV+i45ridwPFOux1WNkHD8vjNm3e50z3juTABJsAEmIB3E2Bn1bvvL6+OCTABJtDuBEp69Ai1B4Zdh7G9t+JkTsMft5HKNUU0O5xTv75VYElDB9UNUkqbd/hBw5eh+ON2jiser9q/ABusaCiyvcFhwu3+p8UTYAJMgAl4PQF2Vr3+FvMCmQATYAKuJ2AymaSiXr37Ok5QJelanIHbhPn+66CeVQmWXlh21A0c1LbuUPPfeOKKp61ueOJahnN+BZqbVkRt3bjO9U8Yj8gEmAATYAK+QICdVV+4y7xGJsAEmICLCJT26pUCZv/b0UkdhEN2cdGwssNQDVQ6PXWcoPZEB9WtJJxkp+9o0PwXOq542kqnrs357pPjiiHCv4JkX95ka1gZv2VLodhquBUTYAJMgAkwAXkC7KzKM+IWTIAJMAEm4ITAZlOmtXNP06UoljQYA3zPx6ZucVZpCsUQX1Lw7Y8nqGme6aC2hd2R4/pFKNSj82ordBvHtREd17claH7uya2bPnsIVZn4D4cJMAEmwASYgBYC7KxqocfXMgEmwAR8mEBJr6zuklnCU1RHLmq8O6CQglHFl3JQ0UGlcjPu4TYbSIZUhbdhORx0XBtQWdhW7hb7BLTgXVgG54W6Rngh6ef1ew0kwF0zASbABJiAFxNgZ9WLby4vjQkwASagN4GcTp0Cg2LiMQfVNBj7PgN/2l0syVFm5jRU8cUcVGsWOqhYF9UnDaukNm4KgobP0XFFZWF7jVvEOjeDHT7GO/LcL1t/eq+vzdbkk/eGF80EmAATYAKqCLCzqgobX8QEmAAT8C0CpSf3PsFusQyVJMcpamR7r14y2x3lZfzOqQS/06sAAnzUQW3rRjRI0PBDMDR8GgqN64PB3tTuewo003xUE17WWNe8NOHXjbvb+xni8ZkAE2ACTMD9CbCz6v73iGfIBJgAE2gXAru7dg0ICY+9RjJJd+AE2v0Uldwty0m1BxzUfpUghXNKpMiDYa80HVAU/izMETLsBm49n7aK3DhuwwSYABNgAqjfh2oIbEyACTABJsAEWgiU9Mw8XrKY0EGV6BQ1ur3JmDs1gD85qPhjSmxs7+l49Pi2fRZ0WlGY6dMwaN7t1+5rwTeQHPSel0m2uqVRW7fmtPuEeAJMgAkwASbgVgTYWXWr28GTYQJMgAm0D4GvTSZLas/My8AkjcQZ9MOfdo0bddRCPbsS/M+rAHP3+vaB4uWjUimc+o8xvxVPXG1l7S7MhBm38KENbIsXbdn4ESsJe/nDx8tjAkyACQgSYGdVEBQ3YwJMgAl4I4HiEzMTTQF4imqXhqJ7mtyea5T8DgolnYdCSX2qvV/Jtz1hHzo2CTP9FAz1H2F+6w8ozNTYrvsUODP7Drtdeqa+HpYl/bquxF0w8TyYABNgAkzA9QTYWXU9cx6RCTABJtDuBIp7ZZ9pMtvxFFW6EifTboU6HXmoPTEPFU9Q/c6qAio9w9Z+BOxVmN9K9Vs/wvzW3wLabyIHRq7FVKVXJbAvjtr800/tPRkenwkwASbABFxPgJ1V1zPnEZkAE2AC7UKgKDU1xGQNugUd1BGo6ntiu0zi4KBmzD31Px8d1AsqwJTA1Uza8160NbYtx4phwmGOUGFbYbvtZ7RMbxPYbE/XlBasTtm9u9YdefGcmAATYAJMQH8C7Kzqz5R7ZAJMgAm4FYGikzOPMVtNI9BJvR0nFtFek5P8Mcz3zCrwv6gCLGnsb7TXfVA8Lh52N27E+q142trwHYYJY1mcdjQKC17WaG9YHL958652nAcPzQSYABNgAi4gwM6qCyDzEEyACTABVxMwmUxSca+Mc0Ey34VjX4Q/JlfPgcZzhPmmYpgvnqD698N6qEEc5tse90GvMR1lcEhN+AMME/6rXcOEm7Fm69tgkxbFbvvpS5vNxqUN9LrJ3A8TYAJMwI0IsLPqRjeDp8IEmAAT0EqgpEePUCkg5FaQpFHoKnbX2p/a602RTeB/Aar5XlQOpg5cbkYtR3e+rvkfP6j/MBwaPsUw4fJ2VRPejrmtTzUU2lYl5myocWdmPDcmwASYABNQRoCdVWW8uDUTYAJMwC0JFPbM6mo2S3dhLiqF+oa1xyQlkx1VfGscYb7W0/AUtV39l/Yg4KNjonpww7eoJvxeODRtDsKyqe1m+8FuX9YIjYs4RLjd7gEPzASYABPQlQA7q7ri5M6YABNgAq4lUJLe5ywJTKMx3vZSHLld3ENzAoolXYhiSeikmmJZLMm1T4B7jWbLQ1EmDBGu/xBrt5ZY2mtyzXY7vGmzNy+M3bLhu/aaBI/LBJgAE2AC2gmws6qdIffABJgAE3Apgd9SU/3iLUEDJJM0BgfOcOngBweTzHiKelo1BFxWDpYMjLxsV82d9iDAYzolQLVb1+FpKzqu9F97c7s9IBvtNvvCgqaaNT22b2/gu8YEmAATYAKeRYCdVc+6XzxbJsAEfJjAvoyMWD+7dRg6hqjsC4ntgcJRcubickeorxSFHgkbE5AhYC+2QP37eNqKP83tVwInD+OTF9fXNi9J/N+GYr5pTIAJMAEm4BkE2Fn1jPvEs2QCTMCHCRRnZBxrslvGoGjSIMQQ5GoULaeo/peUgzWTT1Fdzd9rxqMSOOvxtPWdcPwv5rba2uW0tRbzWlfZm23zordt+N1r2PJCmAATYAJeSoCdVS+9sbwsJsAEPJ9Aca/sM01mGIcruQR/XF56xpGLejGWnMGTVD5F9fznyZ1WYCvE09Z3wx1hwu2U20o1lN6z223zozf/9JU7seG5MAEmwASYwH8E2Fnlp4EJMAEm4EYEXjOZzGf16nM1qvqOxXOnLFdPTZIwFzULFX0vx1PUrOp2cJFdvWIer10JUG7rj8FQ93YENG1oNyXhTSjINO+XrT+t6WuzsUJYuz4QPDgTYAJM4HAC7KzyE8EEmAATcAMC+SmZQf5x0u0Y6nsPqhV1dfWUTGHNB05RUTDJhHmpbEzA1QRse63otGLd1o/xtLWyXYSt99hssNBUs39p1B9/VLh6/TweE2ACTIAJHE2AnVV+KpgAE2AC7Ugg78TsaH9/wPqo9pHopMa4eiqWE+og4Ioy8OuHdVH92rFCpqsXzuO5L4E6Ceo/D4X6t7Bu618BLp8n/hWUY4DBs3apcUH0pk15Lp8AD8gEmAATYAL/EmBnlR8GJsAEmEA7EMhPzezoZzXfg+G+d+Dwwa6cgmS1g9/ZlRBwVRmYj6t35dA8FhNQRKD5t4ADp61fhIK90eWCTPUoxvSi3QaPR29d/4eiiXNjJsAEmAAT0IUAO6u6YOROmAATYAJiBAp7ZaZazKbxeIp6PV5hEbtKn1ammCYIwFxUCvWVwrnsjD5UuRdXELCXmR2CTHV42toOgkw2O9jfkpqb50Rt3bjOFevlMZgAE2ACTOAAAXZW+UlgAkyACbiAQFF6n9PMYHoAa6ReRJ+9Lhjy3yGsJ9WCP56i+vXFUN92SQV05Wp5LK8mgHssDV+HQP0bEdD4S6Drl2qHr5pt9lnxP2/42GZDH5aNCTABJsAEDCXAzqqheLlzJsAEfJ1AaXrmeSCZJyGHM13J4t9Q36sx1PdYDvV1JXseyzUEmv/whzp0WtspRHgbOquPfbVt49prbDYOU3DNLedRmAAT8EEC7Kz64E3nJTMBJmAsgWkmk+munplXgEmaiCNlGDva4b2bIg+G+mK4rxTJ79CuZM9jtQ8B+/6DIcKY29oOIcL/2O322fury1Z0++MP3hVqn0eAR2UCTMCLCbCz6sU3l5fGBJiAawl8bTJZUtN634jFSSfgyCe4cnRLt3oIuAZDfVE4CVBAiY0J+BwBFGBqQBXhutexZutf/q5dvh1yMSh4XjPUPxO/ZQsWKGZjAkyACTABPQiws6oHRe6DCTABnybwW2qqX7w1aBAq+97vyhqpWO4GrKdVO5xUS69an74HvHgmcCiBpq2BUPca5rX+EAx2m0tTxEsA7E9UN9U92WHbtv18V5gAE2ACTEAbAXZWtfHjq5kAE/BhAru7dg0IjYgZYpdM4/F1uIOrUEgBNvC/qMLhpJqSGl01LI/DBDyOgC3fiiet4VD/QTjYa0yunD+GOMDiRlv9XDxpLXTlwDwWE2ACTMCbCLCz6k13k9fCBJiASwjkdOoUGBSdMAwk6T4cMMklg+IgpmjMR72yDPwpHzXU5qpheRwm4PEE7NUmqH8vDOoxRLi50OrK9WBIsP0ZW53t8ZhfN+S7cmAeiwkwASbgDQTYWfWGu8hrYAJMwCUECtLSgi0mvzslkO7FAeNdMigOYu5cD4EDMB/1XM5HdRVzHsdLCVDpmy8xr/VVymsNcOUi6zCTfKnUXDcrauvWHFcOzGMxASbABDyZADurnnz3eO5MgAm4hEBRamqIyS9oFDqpY3HAWJcMioNY02sg4Lr9YM2qcdWQPA4T8BkCTVswr/XVSGhch3mtrlt1Aw61vNEGj8VvWbfTdcPySEyACTABzyTAzqpn3jeeNRNgAi4g8J+TCuNQOCnGBUOCZLKDX98qCLh+P5i7cyUMVzDnMXybgG23H9SuwXqtn4SBHRWFXWSN6CCvbG6yz4zbtn6Hi8bkYZgAE2ACHkeAnVWPu2U8YSbABIwm8G+4rx1zUiWIM3o86l/ys4P/BSiahCeppmQWTXIFcx6DCRxKwF5qdigI170dAZTj6iJrBLt9RVMzPMpOq4uI8zBMgAl4FAF2Vj3qdvFkmQATMJJAfkpmkF+8aYTkQifVFNrsEEwKuKoMpChMqGNjAkygXQk4xJjeCXc4rrYSi6vmwk6rq0jzOEyACXgUAXZWPep28WSZABMwgsAh6r5YJxUSjBjjyD5NMajse+1+CLisHCDQhRlzrlgcj8EEvIEAhgTXf4JiTK9EQvNeP1etiJ1WV5HmcZgAE/AIAuysesRt4kkyASZgBIHfUlP94q1BQ1A4aSKG+yYbMcaRfZqxLmrADaUY8svKvq7gzWMwAc0EcC+p8ftgqH0pCpr+5zIFYUdOa5O94ZH4zZt3aV4Dd8AEmAAT8FAC7Kx66I3jaTMBJqCewNcmkyW1Z+9bwGSajL10Vt+T+JWWLvUQcNN+8OuPTqrL0uHE58ctmQATkCdACsK1q6KgcVOQfGN9WjRgTutSdJdnRm3enKtPl9wLE2ACTMBzCLCz6jn3imfKBJiARgLTTCbTyJ69B5gk0zQ8ST1OY3dCl1tOqIPAm0rBenq1UHtuxASYgPsTaMYT1tqXsOwNnrja7S5REK4FsC9utDXMit+ypdD9CfEMmQATYAL6EGBnVR+O3AsTYAJuTAB9VKkoLfNSDPedjtPs6YqpUo1UclItGfiOycYEmIBXEmje6Qd1L0dCwxehYG92idNaZbfDE7WN1XNTtm8v9UqovCgmwASYwCEE2Fnlx4EJMAGvJlCS3ucsLF76KL5GZrtiodZMdFJvKQFLap0rhuMxmAATcAMCtnyrw2mt/xBrtTYZ77RiPmu5BPZ59trK+dG//Ya5BWxMgAkwAe8kwM6qd95XXhUT8HkCxWl90vBAdSZWML3AaBj0amo9pRoCby0B8/H1Rg/H/TMBJuCmBOxFFqhF9eD6d9FpbXBJcnoRxiHPLK0uW9ztjz/4w8dNnwueFhNgAuoJsLOqnh1fyQSYgBsSKM7IONYEVgr3vQ5/DD3icDipp1ehk1oK5mP5PdENHweeEhNoFwL2UrOj5E0d1mu11xnvtOJJ6178mf7rlp+W97XZmtpl0TwoE2ACTMAAAuysGgCVu2QCTMD1BEoyMpIksJK672DyIY2cgSTZwXrmQSe1a4ORQ3HfTIAJeDABezk6ra9GQN1bEWCvMd5pRVS/A9gmx2zZ+LrNZuMCzh787PDUmQATOECAnVV+EpgAE/BoAju7ZYaHhZnHSxKMwYUYWk/CcZLat/LASSo7qR793PDkmYArCdgrTVC3Bk9aX3eZ07q52QYTY7es+9iV6+SxmAATYAJ6E2BnVW+i3B8TYAIuIfBbaqpfgl/wcCzngKepUoyRgzqcVDpJHYQ5qeykGoma+2YCXk3A9U6r/XM7SBOiN63b6NVgeXFMgAl4LQF2Vr321vLCmIB3EnCUoenV5wYMxX0YndSuRq7y35zUQXiS2o1zUo1kzX0zAV8i4GKnlcKBX21uaJocu33j377EmdfKBJiA5xNgZ9Xz7yGvgAn4DIGStOz+kglm4YJ7G7loh5N6Gp2ksnCSkZy5bybg6wRc7LQ2oNf6bJOt/uH4LVsKfZ09r58JMAHPIMDOqmfcJ54lE/BpAgVpfU6ymkyzEcKFRoOgOqlBg4u5BI3RoLl/JsAE/iXgcFpJPfgNzGmtNVyICeuy2h9vbqiZF7t9exXfBibABJiAOxNgZ9Wd7w7PjQn4OIGi1KwEs580DTGQwq/ZSBzWk2ohcEgJWHrVGjkM980EmAATaJOAvQzVg19Gp/UtLHljfJ3WfXjSOu2XLT8t5XI3/FAyASbgrgTYWXXXO8PzYgI+TCA/JTPIP848FqukjkcMoUaisBxXB4GDS8CaVWPkMNw3E2ACTECYgL3YArWrIqH+PXRamwwtF01z+p8d7CjCtP4d4QlyQybABJiAiwiws+oi0DwME2AC8gSmoXrSXb0yb7FL0sP4epYif4X6FubO9RB0e6lD5ZeNCTABJuCOBGz70GldGQUNH4eBvdlwp/VLe1PTfdHbNm5yRxY8JybABHyTADurvnnfedVMwO0IlKRl9pNM5sdxYulGTs4c3wiBt5WC33kVAIanhhm5Eu6bCTABXyFgy7FC7fJoaPg8BOx2Q51WPGSF1Y3QMCl+8+ZdvsKX18kEmID7EmBn1X3vDc+MCfgEgaLU3t3MVsscDPm9wsgFmyKaIXBgKfhfXo5Sv1TJgY0JMAEm4FkEmnf4Qe1zMdDwY7DRE6/DAZ6otDc82mnz5jKjB+P+mQATYAJtEWBnlZ8NJsAE2oVAaffuYRASOQkHH40//kZNQgqyQeCA/RBw3X6AQHZSjeLM/TIBJuA6Ak2/BqDTGg2NW4OMHdQOhXiQ+xCLMBmLmXtnAkygbQLsrPLTwQSYgEsJvGYymfv1yhwsgfQwnqbGGTW4hKen/peXQeDN+0EKbzZqGO6XCTABJtBuBBp/CnI4rU1/BRg6B7sdfpWgeWzU5g2fGDoQd84EmAATOIIAO6v8SDABJuAyAsUZWX1NIM3HAdOMGlSS7OB3dhWWoSkGU0KTUcNwv0yACTABtyHQ+E0I1KDT2rzXz+g5vWdvakYRpg2/Gz0Q988EmAATIALsrPJzwASYgOEECtKyu1gkmC1JcI2Rg1nTayBoeDGYj6s3chjumwkwASbgfgQwgKT+/XCoXREFthKLkfNrtNvti2sba6albN9eauRA3DcTYAJMgJ1VfgaYABMwjEBOp06BgdGJ96OTSvVSA40ayNINy9Cgk2rpzbVSjWLM/TIBJuAhBOokqFsbCbWrI8FeY6jkOTmq07Zv+enpvjYbh7F4yOPB02QCnkaAnVVPu2M8XybgIQRKM/rgKaqJStF0MmrK5jgsQzO4BMvQVGKciFGjcL9MgAkwAc8jYC83O2q01r8dDvYmIz8g7b/YbdLo6C3rvvA8SjxjJsAE3J0AO6vufod4fkzAwwgUpPU5yWoyLcRp9zdq6g6FXyxDE3BNGYAfK/waxZn7ZQJMwPMJ2PKxRusyrNH6WSiWUDXOsEDrG81NcF/ctvU7jBuFe2YCTMDXCLCz6mt3nNfLBAwisLdnz8ggc8BUSZJG4BCGJExJZlT4vawcAgeVssKvQfeRu2UCTMA7CTT/6Q81T8cYXe6mDpWD59kaqx+N3b69yjtJ8qqYABNwJQF2Vl1Jm8diAl5IwGQyScU9e98GJtNjuLxYo5bod0q1Iy/V1KnBqCG4XybABJiA1xNo/D4Yap6NgebdxikH4wluDh7j3h+79afVNpvNyANdr79fvEAm4OsE2Fn19SeA188ENBAo7pWZLpnNT2E21CkaunF6qeVYFE8aUQSWtFqjhuB+mQATYAK+RYCUg989qBy835BAmBae3zZD412xmzZt8y3AvFomwAT0IsDOql4kuR8m4EMEKOQ32BzwCEjSMFy22Yilm6KbIOgOFE86v4LFk4wAzH0yASbABGolqH05CurWRIC93jDl4GY8Wl1c01Q7pcO2bfsZOhNgAkxACQF2VpXQ4rZMwMcJTMOY35FpfW7HV5qZiMKQkF8JBZMCBuyHwJuwKkIgR4/5+CPHy2cCTMAFBOzFFqh5DkWYPg4zUoSpCGy2CTHbNr7AocEuuKk8BBPwEgLsrHrJjeRlMAGjCZT07J0BFguF/GYbMRYVVvDrVwmBwzAvNYFL9hnBmPtkAkyACTgj0Pw7ijA9FQuNvxhWFpuc4XXQ1DQqetvGTXw3mAATYAJyBNhZlSPEv2cCPk5gZ7fM8LAw03RU+R2JKAwJ+bV0r4OgUZiXmlrn47R5+UyACTCB9ifQ8EUI1D6DIkwFVqMmY8OOn6tpqJ6Ysn07htGwMQEmwARaJ8DOKj8ZTIAJtEmgOD17gEmC+dggyQhMpijMSx2CeakXcl6qEXy5TybABJiAagINkiOXtfalKLDXGpbPyqHBqm8QX8gEfIMAO6u+cZ95lUxAEYGikzOPMVtNT6Gy0QWKLhRsLFkwL/XaMgi8pYTzUgWZcTMmwASYQHsQsJeaoWYp5rN+iPmsdkrYMMDs8H1Tc9OIuG0bfzagd+6SCTABDybAzqoH3zyeOhPQm8Bvqal+Cdbg8SDBROzbkKQlvyysl4ohv6YOjXpPn/tjAkyACTABgwg0/4H5rE8ams+KYgX2J+y1lVOjf/ut0qBlcLdMgAl4GAF2Vj3shvF0mYBRBErSMvtJJvPT2P/xRoxhTm5AJ7UYrKdUG9E998kEmAATYAIuINDwaSjULIkBW4lB9VntkIsJrWNjNq9b44Ll8BBMgAm4OQF2Vt38BvH0mIDRBPJOzI7297c/jgJKt+JYusd4SYE2CLy51BH2C1YuRWP0/eT+mQATYAKGE6D6rJjLWrcmEuyY22qM2T9qaoKRcdvW7zCmf+6VCTABTyDAzqon3CWeIxMwiEBJWtZAySTNw+4NqZnqf3YlBA0vBimWS9EYdAu5WybABJhAuxGw5VuhZnEMNHwTYtQcauxgf3j3FtvcdNsGzh0xijL3ywTcmAA7q258c3hqTMAoAkWpvbuZ/MyLJZDOMWIMc+d6CB6DpWh61RrRPffJBJgAE2ACbkSgaVMgVD8RB827/Qyalf2XZoBhsZvW/2DQANwtE2ACbkqAnVU3vTE8LSZgBIHNpkxrpzTTOHRSp2D/ugsoSUEY8ntrCQRcU2ZQRVYjqHCfTIAJMAEmoJkAepN1r2GpmxXRYK8xpNQN1WZdirVZH+DarJrvFnfABDyGADurHnOreKJMQBuB0l69s8FseRZ7SdXWU+tX+/fHkN8RGPIbwyG/RvDlPpkAE2ACnkDAXoKlblCAqeFTLHVjxITtUGi328dFb1m/yojuuU8mwATciwA7q+51P3g2TEB3AgVpacEWyf8RSYK7sXPdt7vNnRow5LcQLGkc8qv7zeMOmQATYAIeSqBpWyDULIyFph3+hqwAHeFPmmwwPH7Lup2GDMCdMgEm4BYE2Fl1i9vAk2ACxhAoTc88DyTzM9h7Z71HkPwp5BdVfq/bzyG/esPl/pgAE2AC3kAAQ4Pr34qAmucxNLha971SIlRts8GUr7b9tPAamw1HY2MCTMDbCLCz6m13lNfDBJAAlaMJCABS+b3FCCB+p1ZB0N1FYErgkF8j+HKfTIAJMAFvImAvxdDgp2Oh/rNQo5a1sRkah8Ru2rTNqAG4XybABNqHADur7cOdR2UChhEoTutzvUkyLcSKqXF6D2KKa4RgdFKtp1fr3TX3xwSYABNgAl5OoGkLqgbPR9XgPYaoBtPu6bya4vypKbt3c16Klz9LvDzfIcDOqu/ca16plxMoTU9PBsm6GEC6VO+lSma7Q+E3cFAJaggbIpmh95S5Px8h0NgowY5dVsjFeo/FxRaoqZWA/i0oyA6R4c3QtUsDdO3cAH5+xj+3l1/XCaw4TgCGyAcE2B1j0o//wf86/t3/wL/dNRz/ltiYgC8SQJey7pVIqH0xCuz1hoQG/223wbDoLeu+8EW8vGYm4G0E2Fn1tjvK6/FJAqXpWYNAkijsN1JvANaTaiFobCGYuzbo3TX3xwRUESgsNsOnX4TCt98HwW9/BEBDg+S0H3IO+2TUwLn9quAc/DGbVQ3r9CKaw5kXdBXqmObzzUc7hNqqafTZlyGQk2eBqMhmiIxohohwG0Q6/ncTBKMTz8YE3IGAbR9uLj0ZCw3fhxgxHTvY7csqofG+Tps3lxkxAPfJBJiAawiws+oazjwKEzCEQN7JWR0CrIDlaKQL9B7AFNIMgUNLwP/Scuxe7965PyagnEBOnhWeXxkJH38eAs3N6h7KuNgmGHZ7KVx8fqXyCTi5oqrKBOdc1kWoz1D82/r0nV1CbdU0uu/BBPj2h+BWL7VY7Ic4sc0w5Nb9kHpinZph+BomoAuBxu+DoRpVg22FVl36O6wTO+RimZs7sczNu/p3zj0yASbgCgKGxF+4YuI8BhPwZQImk0kqzsge4m+VthvhqPr1rYTwFbvB/zJ2VH35OXOntb/yWjjcdHsKfPBJqGpHldZTWGSBh2fFwd33JUJ5uX5fgfUyp7uHsjQ6JLmsrO2j46YmycHgj7/8Yf3GIKirV+f0u9OzwXPxbALW06ohAr9vAgfsR/F6nU/+JUiWTNI7pRnZq/dlZMR6NimePRPwTQL6fVP7Jj9eNRNwOYGC9PTORWmZn+Af73P4mhmu5wTM8Y0Q+mgehEzbB1I0VwHQk62v9VVQaIHv1wXB8pciYPaCGNXLp/zTKY/EwYKnY6C+Qb+vrJ82BcFtI1IgF8Nl9TC5UORDx/DHvFUjbX+5eJxzBOb1qrE///aDDZsDoUxHh1/NPPgaLyGAWgiBI4ohbMlesJxgyEn/9X5g/bUkPftGLyHGy2ACPkOAw4B95lbzQj2dAJ2mFqX1GY4O6mxci65JPpIJRWCuKoOgwSyg5OnPiavnX1dHAkd+8PcO+vF3/PcvdGQqqw53mD59ZyeEhtgUTQ/rJ8L4yQnw3Y+th7Qq6qyNxgm4QfPMwjyIj9NWhmnnbivccFtHoSmR4NPLz+8Vaqum0dmXdIHqGjHH/r21uyBGxcbUzLmx8M77YY7pxUQ3QbdjGuC4Y+rh2G4N0K1rPXRMaTQkN1gND77Gwwjg33392+FQ81wM2AWfY4UrfA+a6+6M2ro1R+F13JwJMIF2IMDOajtA5yGZgFIC+07s3ckvwLwMQ37PVnqtXHsLvmAGjy8Ac/d6uab8ex8nkF9ggb//OeCU/kX/xR/KI7XZ5ENJlyzIhV4nKzsxWbg4GlavjTCcevdj6+G5J3M1KQb//qc/DBqeIjTX44+rh+VLjHlPppPoM84XE3qiu/bdp/+ocipvuzMZ/ofiVm0ZhTofg0rMx3arhxtQSbxLp0YhNtyICbQQsKO6d/UTKMD0ja57s47uMbahXLLZxkZt+el5Js4EmIB7E2Bn1b3vD8+OCUBpWp/b7SbTPL1DfiV8mQy8pQQCbtgPIB41yHfEBwhQ+Zd/Dp6SHjgxJcfUX/i0rjVE47A+77VXVAjT24T1GEeNS6KXSpfYgKvKYeyoYtVj/fxLAAy9O1no+p6ptY7TXCOMlJIvG9BZqOsQPOn+DE+8lRqdePe/uAvmu4qd3r6wOAdO4M0wpZi5/UECDgGmBXFgw1xr3c0OHwA0DI3avDlX9765QybABHQhIPZNo8tQ3AkTYAJKCFDd1NL07PfBZFqmt6NqxZfl8KW7IWAgO6pK7om3tbWjJ0gno199GwxLV0TChIfi4ZqbOwKFkd5xVzLMmh8Lr2M43rbtgZocVeJGzq6oNWMa5az5GAIoeoEO7da+GQZ0OqrWlAgsUd1Vo8yZuNKRY0ZhKRs1lpNrFXZUTZhiQGHPSuyfnRRGzq8nSph5c9sWAaaAK8qwQpvOfzsSXASS3y+O8m9sTIAJuCUBPll1y9vCk/J1AqUZfW4BMC1ADrrWTZWCbBA0tBj8L2eVX198xn773R9DN/3x1NQP/kTnkZyC2lrXOAUn9aiDpU+JHV68/3GoQ7FXiaUkN0J2Zg1ERzVDRaUJNqL4z18KHGQa6+ST6uDZJ8TmeOTcvvsxCO6dlCg05dNPqYbHZ+wTaqu00fqNgTB6fJLQZWrX+/lXwTBpeoLQGJ06NsCry8Xzc7/4BvueFo8lMiWgMkPHYRjxsZgPS3mwlBfbAe+zyTWPrND6uJFrCTRhBEP1nHho3u2n/8B2eB9PWYfxKav+aLlHJqCFADurWujxtUxAZwKFPXvGW8yBz2Bd08t17hr8sqshaGwhmDQKyeg9L+7PdQTuwnItG1AFtz0sMNAGX7y3E09G5Ee/ZWgK/Pm32Ckn1Q0dd1cxXHFJxVF9k1P18Ow4qKsT926enp8L6T2V5dbSir74OhgmThNz4M4+qwpmTCmQB6GixcefhcBDM+OFrux7ejXMmq7caX7m+Sh4YZXYPpqStf7yP38YeU+SU9XngACb46SWHNdjMd/+0gsqISBA59M2IXrcqN0IYF52LT5/dS9FgR1LMelsGG5kGxO16aeVOvfL3TEBJqCSgPg3uMoB+DImwATECKCk/hUWS+B2vR1VU1gzhEzaByGP5bGjKnYrvLZVt67KwjH1BEEnuLn5Vtku//gLT30FHVXq7IFxRXDlpUc7qvS7s8+qhtkPYxkmBaGDL70aITvH1hqI5m/StQEGlq5xRdkaEtcStWMFnzkS7xr/YKJseSLaePjt9wCHEnFFhZkdVdEb4U3trKi3cFsphC3dA5YTa/VeGe7CmFaUZmS9U5SaJbb7pPcMuD8mwAQOI8DOKj8QTKCdCZR27x5Wkp71Ap44vYlT0bVoud/pVRC+fDf4nVvZzqvk4d2BgKjjYNRcST1Yzr76Vlz5sxfmXl98vvNnu09GLZ66ij//P/4UBCWlyhXHlNRZJaVco0xJzmpkhLoaq0rCq0kNWM6qq00w7oFEKN0vzv32m0th8C14CMbmswTMeMIe9lQOBI8qAglP3PU16VKzH2zHlJxr9O2Xe2MCTEApAXZWlRLj9kxARwIl6X3OgpDInyVJGqRjt2DCl9CQKfkQ8kg+SJjDx8YEiMAxmPfXHka5h6dm1UBwsPwLJeVcitpVl4mpC99y437h01Uqw0OhtEqtvl48HNHfT56D0vFb2u8vE3f4IlQ4qyR8VFgorsoqd5pPYloPTI131OoVtVvxfg69jR1VUV5e3Q7/7PyxNFL4C3vAml6j81KlGDxlXYunrC/u7dlTLO5d5xlwd0yACeBfIUNgAkzA9QR2d+0agOqDcyTJ9DmO3knPGfj3r4TwFXia2r9Kz265Ly8gQLUuzWbjTvXICaMSJZddXOEoA0P5n5+8vRPeeXU3zHs0HzLTnYfskcOnRJE3q7fYy2lifBP0ShXPQ/0GS2UoNUVqwAaGAZeVizurUSqcVTodF32CQkOaIV4mR37Owlj4SUEe9cDryuDOIaVKbw+393ICpsRGCJ2XC8H3FYAksCmmDIc0MNgcuL2oV9YFyq7j1kyACehBgJ1VPShyH0xAAYGi9KxeIRFxG/Go5168TLe/QVNkE4ROz4fgKZijF86nqQpuiVs3rcKTLFJInTk3FtVmE1AlVf10Kfy0Y0qj+g7auPI83CB5dcUe+PKDnUA1NSdiHinVLSWhorBQ8VPEv1ClmE42RSw2pgnCw8X7Pi1bzLGlsbf/FgDEXYm5Sxiw0Serf2P9XVEjESRn9tKaCHjrvTDR7uCGa8tg1LAS4fbc0PcI+ONGWQRt1p6q82atBMlms/RBaUb24qLUVOWhF753K3jFTEA3Asq+jXUbljtiAr5HYJrJZEIRpfFmSVqP+akn6kmg5TTVeqbOX9B6TpL7EiJAziidLpLa6rDRSXD+lZ1h4tQEh6DMdz8GwxvviL/ctzbgMYKCN0KTPdjIjqpgnTpoLylCJXVELQFPS5VYr57iQizNzRJs3hagpHtQFAZs4MnqfgV5n2pyVmlDQdSc5Uh//V0wPPVMlGhXjs2P0XeyoyoMzIcbSriRFTIT02AwFcak78Yt7aQNN/sFby3KyDrVhxHz0pmASwmws+pS3DyYrxIo7dUr5a60Pp+ikzoLGYi/7ckAc+SmTj14mhomfsrkq/fBXddNp2EfYZ7k1Efj4KKrO8Og4SlA5UG2bQ8EcpwOtcXLoqFUhQBQSx9Ur7I1o1GoVulZZ1TBkFtL4cYBZcK4RISTRDrbVyCvFtzST4TCl9Du3RoUhUD/gqerSqy+Qfzr1N/fuL9Vo9WA//pb/OOLSsu0ZrQZ89CMOEctVRG7GutCU1g5GxNQQoBSYRwCg/pv4h5jBumbkoyshzebMsU/tJRMntsyASbwLwHxb1eGxgSYgCoCxenZA8Ac8DNe3F9VB21c5IdOheOLGGs2snkugaJiMzqonWAq1sb86NNQkAvjpPDUhUuiVS/4WAzNDA6yQeqJdXDVpeVw/z1F8NyTufD5+zvgtRf3wGPTCtBZ3Q+XYzidqO3JsYKSMNi2+i1QINwThHVblZgVy10kJ4mHQP/6P4XOqiKBJQ2x3E4WTWJF1YLhy+QmKj1ZtSHynQqEkFoLA6Z7PG5iAoiW+qGyRPeNZkdVybPObf8jIEXihi6mx4Q8uA+ojJuOZpZAerBzmvmHkp6Zx+vYL3fFBJjAEQTYWeVHggkYRIBK0mB+ywqTBK/Se6Few5hC8csXv3hDHkalXxUCKXrNg/vRh0AjFrgXPWFqGfHjz0Jh0xZx1dxDZ3pKnxr4/L2dDgd1/D3Fjhql5LgGBR7uQHXAU1ZR1Vo6/d25W/sBgxJxIDX0SWBK1P7eKX6CSH0qElgyqHQNbXSIusGkzGwRF/V1YMvJtQo7mSaTHbp2OTxntbpGgrFYoqakVGzgyy6qgPFjikRvGbdjAm0S8DvnoPCg/qesvSWLeVNpep9RmOkjFirA94kJMAFFBNhZVYSLGzMBMQJF6X1Ow5I0W7H1LWJXiLXyy64+cJqKX7xs3kHgyDBf0VXNWhAD5OgqNZPgpz6169pFgXOnQHinrTnX1oqvR43QVOeOzgV/Dp1XOarqlpcLwsILlZws+xuUsyp3Kn/o+pSeqtK1fwnUyW0ZowMKefkf4pTTqe+k6Qnwj+AmwMUXVMADKNSFqRNua/n7LLDtlwCgckubtgY6NmyUbFq47cK8dGIGnrIGgWR6siitz4clGRlJXoqPl8UE2o2A+Ddxu02RB2YCnkPgNZPJjCJKU82S6WucdRe9Zi5h2CZJ8oc8lgdStK6hTHpNkftRSaBJmU7Qv6Ps2esHq16NUDmq2GXHdBGvy/q3AuGdtkavqRX/SiJRJ6WWoiAMmPrejYxFTYnAEqkyG2FKTqbV1FhVpAR8hJDXvKdiYN1PQULLvuDcSph0r/s5qrQ5RDV473swAc6+pAtceWMnGHZ3MowenwQjxybBDbd1hP4Xd4FbhqbAomejYOt2ZaHkQnC4kWYC/56ynqZvCg1+Ip0vgfVnrMt6teZJcgdMgAn8S0D8zYChMQEm4JTAvhN7d+qf1ucrPAl4CBuKFzuU4Wo9uRbCn98NJMnP5n0Emo4QUFKywuWrIiAvXyykUkm/LW3lSo8c2qcezqqS01I1Tn5MjLKNnn0F4mzr68W/Tn3hZPVQcaVXXg+H198OF3oEqQzSlPsLQTQCQKhTjY3oVPjNd8Pgihs6wkOYW/7tD8FQXdP6/aZIiT//9ocXX4mE4aOTHdeQsreSU3qN0+XLBQg4TllnYC7rBN3rsqKggPQa1lF/riAtTXnBZoG5cxMm4GsExL9dfY0Mr5cJKCBQmtHnGr8Ayxa85HQFlzltKqEgTNDQYghdkAOmBJXHb3pNhvsxjIDaMGCaECnQzlkYa9jcnJUeOXLQv/8Rr7/Z1oSVOChV1cq/vmKilf0dFZUocFYbxE96jVIDLsOcVVFTc7L6l4J7TEJeZN/+EARPLBYTBDsbxeIeesC9HNWcPCsMxdPTWfNjhXNtD70HpHBNyt50Crt0RaSiEkei95LbqSfgh+HmtBlsTRevwyw0miQNsZr8NpX07J0h1J4bMQEm0CYB5d/2DJMJMIF/CdDOKe2gApjW4j/qJqJkwfIiYc/sgYAb92PXDNwdCPzym7/jdEVvU3NCeOgcfsTQyi+/MWYDv60yN60xoHxJLSV1qE8S5RG1qipxx6ylz1isv6jEiorEx1ASBnxoLqeS+ci1VZSzqrD0D6lQFypQayZn9U8sczNlRjzYbPKOfD8Uvpk+qQDLC8mt0nW/3/5rAAwekQxKlaFbmyGFuC9dEYWhwh3gZ8xzZXMfAias2Rw6NxeCR2HouZ8ylXHnq5C6SxbLD1Rfneqsu8+KeSZMwLMI8B+PZ90vnq0bEShO65NGO6eoADJEr2lJ+LIeeGMpOqp7wXxEzpdeY3A/4gQoLJVOhoaNToIho1JASWkV0VGamuRf5OX6mr8oBmoUiBPJ9dfy+/BwGyg5jfxLY97qkYrEzuZZKVii5dA+InA9Fou4Q1xeIe45KRJYcoOcVaUCSxTmLUouNATjZiU7lqhJhFqBPOQzT6uGRya7l6NKYlL3TEgEJc+AyN9V3j4r3HlPkiEbXyLjc5s2CODHsP81ZRC+dA9Yjq/TE5Mf1VenOuul6enJenbMfTEBXyHAzqqv3Glep24ESJ4eS9Lcjf/9Ed/IuuvVsTmuEULn50Lg0BIADAFmaz8CJKTy7oehcOPtHVBMJRG2bT9QJqZrZ3E1WdHZ6+GsFhZZ4LnlUaJDKmqnLG9VWygwlVMRNTrpU2PhCmottpWX2Nq4SlRgjctZFWeiNAxYSQhwclIT3IuOalGxfBj18cfVw8yH9rnViSpthIyfnABqQs1FnkkK/aew4tVrxfJ4RfrkNvoQMHVshLBFeyHo9hKQzLp+D/fHY9tteMp6hT4z5V6YgO8QEP9m8x0mvFIm0CaBvBOzo/FE9S1ssBB/tL2ZHzKKP5aiCXsed3R71jL9diRQjXmQK1dHOERRZsyJw1IUh6vBdjHAWSXxFmcm6iCveSNcUWkRUczHYki6qP2toLRJa32G0ImcoJVXmECOXWtdKXKIFeTFKhFYMkoNWFEYsMIazUpOzf/4098hMiRitXWS4nqvIv1qabPg6WjIxxNQo+2JxTHwzffGhPAbPXev7h8DKgJuwQinpzHCSUG5KwEm0XjK+iamDi3a3bUrx4ILAOMmTIAIsLPKzwETECRQlJZ5un8AkIjSZYKXyDYz4ct5yIP7IBh/pBDxUyXZjrmBIgJlWE/zySXRcNl1neDp56JbFVIx4y57Z9x119vk1ICH3FqKp07yO/x0WjMbT2uUKOqKrOUYBeHoWhWBo1ChU9TsdglK9ouH6bb0G6Lg9FZJaK+StkYJLBnprCrZiJB/Wv+7y3v2+EEFbjy4i/3vD3/44CP9c9NbWx9xmjEnFkpVPMfuwsub52HuXg/hz6F2xBVlKgplOSEjSSNCI+PWl2Zk9PBmfrw2JqAXAff5htBrRdwPE9CZAAkj4E7oRLPJ/CWmtXTQq3srnqLSaSrVfGNrXwJffB0CL62JaLMcBc0uJbkRrAaEZ8uFASeiEvQVl4iVLdr+WwC880GorjC7KXBWd6Hjoea0s2XCcQpLy5QoUOtV46zaFOwf1dWL5x4bJbBklBowcdixU7zmrJIHkBy2n1HIyF3s+RcjhXNzW+ZMdz4stFlRPnTLtZQTu3S5btp87oLRe+bhj6r8Y4ogZHYumBSqictAOBnzfTaUpGcN9R5YvBImYAwBdlaN4cq9egmBotSshFFpmR+jiNIMXJJ8ApbAuikPJmgIlqSZjyVp4pSpkwp0z01UECgukT+hEw3HVTq8nBpwHYZJDh1UCiGCJ++Lno0GOinWyzpjGJyoKBHl+u7eq96pUSLmROsrKpa/b0dyCAoS90Dp9FbEyJmT23Ro6YdOyY1QvKVNgspKcR6RKDYlajm5VqhTUEdWtN+Wdu6ijluIz9P364KEpx8UaIO7hpfAR2/uhE/e3gXffLQDXlicA1ddVi78N0ODvYsnuUpOxYUnyA11I2DtUwPhL+wGP1St1tGCJEl6pjQj69Xd6ekROvbLXTEBryKg3xuNV2HhxTABgNL0Puea/aStEkjn6MXDnNLgyIMJGMglafRiqkc/xaXy+xBGOatydVbJSSBV3tvomRGwCnRYnnxGrK6lQHeOfEJyWEVNSbjokX3S6bUSK0BhKaWmpICEqJOuKATYICXg8nKz8IlgMDrsSqIEtIZ3y90jd3FWP/0iVKjMDq0nwN8GT8/Pg5sGoILsQcefnq0TMHR0/JhiWL4kB+IFNyNpk+eTz0PkMPHv25mAFGaDkOn5EPIApu0o2PSSn7Y0IFTy21KUkXWqfFtuwQR8jwA7q753z3nFMgReM5nMqNg3DSTTR9g0Xi9g/lR8HPNfKA+Gzb0IlLTryarz0zs6WSUbcGU5JCeJOXOUc7f1Z/1CK5UoAisR4jnyKejYoRGDGMQzHndj2LFSEzsrPdArOXUipqjGKoYVGmH70VkVNSOVgEXncGg7yhOVizBQ06/Sa37aeED1W8RuvqEMSMm4LaPw+UXz8oSfISUnuiLz4zbGEfA7vxLCl6EgYg9dS9x0NoP0dUlG1gSqOGDc7LlnJuB5BNhZ9bx7xjM2kACF/fZP6/MJKvZNwWF0+fuQUNAlZEo+BE8oAAg05kXVQCQe27USoaFigdxHo05Wm2Q0hVpyIekkbBSVNRIwespmL4zVlD966DBK8lb//kdMBba1ZVAuZ2K8eGj8riPUmgXQKGoiGjJcjydjomaUErCSfNUopUrAGlSeTVg7Ws7qG0zw+1/qnxu5/kV//wvmfIta/77y4aApuLl0281iERG//S4+tugcuZ1xBEyJWOLmyb0QeHMp7mvLP+OCM7FgJNejWHHg/fwTMmMEr+FmTMDrCejyMu71lHiBPkGgJC27P4b9ktpvf70WTDuv4cswz6W//IuNXmP6ej/5+yww94kYuHVYirAyrlzOqgXzDOnUzwiTDQOu++9jut+Z1dArVay8EQnivIyiUXpYNyXla3YoP+08dI4URilqu/YoLy/SLHZY6phCTLSYOrGSsjXuoASs9GRVbRgwhcFOvr9Q6Hb+vL19nTXK81ZSVzdaULn6ShRHEwknp5quJaXip+NCULmRsQTwdgUOLoHQhTlgjtf1++FCvyDzFqpAYOwCuHcm4BkE2Fn1jPvEszSQwAG13+wHJRN8gsMk6DEU7bTSjivtvJpQzZXNeAK/Y23HSdPj4eqBHWHtW+GOOo8iNQxJHEdO3IQcVSNEcYiKnDDPkSGmY0ZisXrBUNllqGy6r0B5XueRd0vJyWpRsUVTKZITTxAPraMTcbl7d+RayCkQNdGcQyVhwAGGhQGLrytSwclqVZUJCgqUbwoQu8Xzc6Hv6dVCZT/aWxF4v8LyMTt2iW3KUF3fkwSfablNM9Hnltu5loAltQ7CMCzYv79+yv4Yq5FCFQgoLJjeUVy7Ih6NCbgXAf4DcK/7wbNxMYGCtLS4UWl9PsS3qYdxaF22tUnePnRermPHVZ8eXQzFw4b7YX0QjBqXBIOGp8DnX4UcJpCy6pUI2dWQs2OzOQ/j7NJZXGBIdsAjGsjl6tUdcrJKl1Ke3IXnip3U07Vzn9QeTUYnjOHhYqeMNMe/NZQ5ORlf/JTYdoVlT5SUu6EwThFTIrDkDmHAEUruJZ6UKw1ybHFUkxKbIAhTH5IFhLN+/kU8X1TknihuIx7J7eh61avyny0tc+gkWJ+59oi/dcVr4AvajQDVSQ+esu+A+BKqROtkjrDgu9L6vLcvIyNWpz65GybgcQTYWfW4W8YT1otAUXqf06yS/2Z8RzlPrz79sqshHGunWnqJhWrqNa6v9UNlOj74JBQGDkmBsQ8kwsYtrb/oUt3Rbb84Dy8UOc04pouRzqqMwFIr9TuHDylxqJGK2Lc/BMO3P4iX42irz2MV1FvVkrfaA8OAw8PEHeP1CkRx6BSdwsRF7bhuYiHJSk5WjaqxquSEWcnJqlLBrLjYJngaN+vIUW2xY4+R51iKJ5u5eeL3RvQeirZTmsf73Y/BGGYfLtS9yPNMnwKUbsDm2QQc4ksopGg5Vtmmm8yqL/QD69biXtlnejYdnj0TUEeAnVV13PgqDydQmp41xiyZvsQT1WQ9luKonTqsGEIeywNJwamFHmP7Wh8UfnfVjZ1g+mNx8PcOeVEWudPV9hRXonsnn7N6tDMbF9MMA68vE771dLraoiosfNERDV2Vt0oBb1m9a4Sn+fV3wXgyLtb8HzzxFa0XSg5GomAIv5KTVX+jwoAxQkDUlOSs/qVAMMvhqGI5l+Skw1MfjusmttmzrR1PV6n8jBInnlg/uSQG3vkgVBb7Of2qYPqkApjzSD4smpsHSxflwKqle+GNl3bDh2/sgq8/3AE/fvEPnNRD3qmXHUyggcgGnUA33KQNAqYUFF9ajOJLA/YLhcALgkwymeFzrFQwntWCBYlxM68hwM6q19xKXogIgZIePULxw34NJv3Nx/bKE7FaGcRMqoBP5UDADWKqjyLz5DZtE+iAIYVyCrqHXv3dj0Gwe2/bt1rkxc0oJWCap9xa2nKuBl5XBrExYvnQ+zDnkPJXtZii8jUa1GNpjucqECSjzQa6xyL21bfBIs0cbXqni0dHkJqtqPn5CXrWoh0ebGeUGrCSurlDbyuF1kKnRU5WaRlKQ7oVIpJtruSeU2d0Dvro3FhY84bzE1Zy1s87uwrOOLUGMtJqMYe1HigPnE6fyUE2agOjtQVTRMpl13WCCQ/Fg2jerSw4bnA0AQwSCBxBG9i5YFKQIy6D0oKVCmahWvBbe3v21PaBzveMCXgQAfFvWA9aFE+VCbRGoCCtz0lSYOgG/LC/Vi9Cfn0rIYxqpwoKaOg1ri/3QyVcBlxVLozAbpfgJSequHInq5RjKFrfVHhShzSUE1hqKV1zZN8BAXa4c3Cp8JCrkcHOXer3Z5SILO3E02/R087WFnBqVg0oyat85vlo2TI9lSgU9NrbYmGbNKdT+oif7rZ1j1pbm1GOiZIwYNGTVbqHpCotam05peInq+2rCHzGqdWiS/23HX2+zHsqBhYvjVJ8rasv+OzLEHhkdqwjR/+rb0PgpsEp8NCMONibo/5zwdVr8LTxrNk1mBq0G6zp4p8nAmu8LNgSsLGkZ+8MgbbchAl4PAF2Vj3+FvICRAjgaeqNVpNpHYDUXaS9XBsJHZjgewohZBqKKaCwAptrCVx1WQUEKhCx+BBPE0rbKAtRUuI8fLJThwbDlICJmqyzWtd2TuuF51U6BJdErKlZgtkL1Gt0kMiUSM1MmgudBufkqn8BJuXlyy+uEFmWow2F986a3/baSMRq6sw4KC8XC5X1x9PPs1DFVtSUhAF/vy4YbhmaAkNGJcOIsUkwZkIi3D8lASY/Eg8z5sQ6yi49uSQannk+Cl5YFenYaFn7Vpgj3PSjz0JgaxslXvYLro3WFBkh9plF91A0bNqMqRBdOrUuSEXhwWGh8nnItJlC6sPtZf3OqFYcCtwy1xUvR8LEafGgJH/ZleukcPmH8G/gUDE5crQ//jwUrr+tg+PZy9dBOdyVa/KUsaSoZgidmwtBQ4qBUob0MamrZLF8X5KeNUKf/rgXJuC+BNrvW8F9mfDMvIjAb6mpfpifughPU1/CZYnHADphYEaF0LBFe8H/cvHTPS9C6hZLCcUNgssvEndmGhsleLWNUL3iUueiLkaGABNMEotyZs6cBXyuYfSdxcL3ZMvPgfD+x/I5dq11SMJAHTAXS9TU1uZs6f+6q8tBiXLuOx+EwT3o+P35938ngcSWBJiG3p0M5CSKWr++1RCiYBNKiYNCzhiVVfoFxb82bw2EdT8FATkSn34RAu9+GOYou0QOKjmq5LCS4zr3iViY+XgcOtzxsBKdoiONTkArKsS/zkVPrZXcw05Y3snZ/RI5XSXniUTR2ssoauPWm9Snc3zxdQgMH5MMRcVimyKuWueP+Iw9+HB8m/nxlDdPz961N3eEOQtjQCQ1wlVz95px8LM6YOB+CF2QAybcvNHJ/CVJWoSl914qSk0N0alP7oYJuB0B8W83t5s6T4gJOCdQmp6eHO8X/BXmp+q28/hv2O+xYqdZfI+MI3DDteV44im+S/3GO2FQU3v0KaXci5mRZWuIjtzJar2Tk1W6Pq1nHZx1hlgpG2pPzk9FpbqPfiWhwEocndaekqjIZrj2CmUbQvRSfsvQDnDe5Z1RhKsj9Lu4K4wenwS//S7uAFEN21sV5p8rcVa1/kX4t6ICXV5hBnL0RCwIIxJENwGUiCvJCXCJ5q3+LKPeLbJGLW2uwU3I7ho+3//3hz/cPiIF/vhLPHxay3zlrt2ESukTpsQDbdjJGX0WvY6h8lff1BEWLo6G2lY+L+X64N87J0A1WcOX7gaqHKCbSXCjyS94fUnPzON165M7YgJuREDdG4sbLYCnwgRaI1CckdUXJL9N+PV8ih6EJNxxDx59MOwXi7yztT8BquV4zlniTlpllRneeT/sqInL1d00+mSVwnOdmUgY5qhhpWCxiDnuZRguuujZaFU3UFH5GgGlZrlJ3H5LKURHKT+FqKg0Q94+KygJz22ZC9Ww7dJZ/ASZrmtQILAkt2a537eW81pWJv5VLpqvSvP4S4FQlpwA17GCisDt7axaMNDi0an7FJVPOvKeFRVb4E48YVVSVknuvqv5PZXtGjcpAZQIgNE41P6VtREo/ibv4KqZl69fI6HyNFUOCBqqX1gw3qkeksX8U2lGn2t8nS+v3/sIiH/Ded/aeUVeSoDK0phA+hSXF6/HEh1qvxT2e6WyUx49xuY+nBNQUr6Felr9WsRRYbclbeSytozctYsyx0XpPZMNA5Y5WaUQ0LJyEyhxqin/8Zff5Mv+HLmWbgL1MluuUaIi2xaz4CA7TLqvSM/yD05vDznGY1DBU6nVN7jupb61U1Fl+aryuaP/3sMd4qeDxx7jvDyN6Mnqr7/7y4bGK70/StuTSu/8x/KBTqHVWk2tCcZNTIRvvhcPP1c7VmvX/YYcx2JYfF2dute8JEx3oXQLNuMIBNyIYcFP5IA5TrfvGMzxMK3Bd6A5X5tM7Ve02Dhk3LOPElD3KeajsHjZ7k0gPyUzqDQja5WeZWn8MLzSofYrKGLj3oS8b3b0gtwnQ1xlsaDQAp+iImaLkZMnd3qweat4CKkawnJhwK0pzZLyK4ntkJLnhVd1hiEjUxx5kKJGIaMkSCTnKB/lrGK5DVHLx5PN6hrtThwpA9+EZXqMNspXfGRyAYSFKX9Bd6WzGoC5w0eakrI1orVEKbe2AEseiZpcGHCXTg1Cp//kXCkJPxadn9J2PY6vhycezxMShmqrb/rbJtGl79eJlVZSOse22tOJ+Ojxifj3p/4VT1S4Ta85+2o/lhPrIGzpHvA7RbewYAnfge5N7dXn08KePXXZsPfVe8Prdh8C6j/J3GcNPBMmAEUnZx7jH2/+EdV+b9IDByn2Bd1ZBCEP57Parx5ADexDqSPz8iFlbOTK1tC0H0Vhm5WrIwxbASnVOjN6eSenkkL6SHDntjtT4KKrOznEdkjJk/IV1Rg5BGvfFC/lQmMkxDdBiGAYPLlU/+gQCkzjjhxaAhecW6lmmULXUO7zlAmFjvxfNdbeOatKytaIOquUcywWWA4QHt6MNX+dn9hSeK3o6f+2NhSP1dwbLddQPdRnFuYCpRyoNXJYJ02Ph9//FN9MUjsWXUeKyqPuTQJKe9BiJ/AGrRZ8iq6VcIMs5FEMCx6mX1gwhqOcZTEHbirKyDpV0WS4MRNwQwLsrLrhTeEpKSOA+akXmq3mDXjVycqubL21KboJQufnQoALTnP0mK+v95HVuxaO6yYueEUnkC25ZHJla4gtvbA//Vw0zF8UjSI2+tOWO9ktR5XX86/sAsNQ0ZYUYknARVRMR262z74QBYUKlUuP6SrOWqvIUsv8SfV48vhCxYJLcuun35PzPXdmPpzbTzz/+ch+XeusajtZFc1Z/UtJCLDgifuxgn+nP/9qbDSDyHPR0obyl59/OgdO6C7+3B/ZP204PTA1HqqrjX3lonqp5KiKlmhyxoFPVpU8Jfq0DUBhN3r3oHcQXUyCZDNIX5am9xmlS3/cCRNoJwLGfnK206J4WN8gYDKZJMzNmIj5qe/hio+u56ACg7VnLYRj2K/l5FoVV/Ml7UXgpgFlioZe9WqEo31RiXhaz6uvRzjCbuVOQhVNBBtT2QhnRnURjao9SXl1CxbFKJqyIkVgBQI9cpOg2qvj7i52nICK1OyU649+fxoqcr78/F7IztT2965GyElkfq21aS1ntRTDwkUtEk9BRexvPHkXNbkQ4JZ+5PJaW9q1t8jSkeuOxjqZi9GJOFuBoNuRfVBY/KLnokSRKm6Xv88Co8YlQYlMKS6RjukTqTufrIqg0r0NvXuEL9sDVgXpLTKT8APJ9GRpRvaKnE6dAnWfMHfIBFxAQLIbcVTggonzEL5NoCAtLdgi+b+AJy7X6kGCvpxpVzMQi3aD+HufHkNzHzoQoDDZq27qBJSTKmorntkLVOpkyTJlyriUI/vY9H0ovqLPMeu4iQmKaoCKrk9JOxKTOaWPWO7vm++GOfJdRezkk+rg2SdyRZoqakNhr6teiYC33gtTnJdnwZDfbFzrzTeUQU+cnx5Gp9P795uBlJvJcaWfOhTGavn/lNNK/0YnsHTK5vjfWEqEyhJRm5bfO7uONi3I7hlZDFSD9lCbhHmRn2ONTxEjZ/+i8+RDqm8fkSxc8udBPPW+5AL5PjdvC4AR9ySLTBPeWr3bEXbubkYpAYuXRqmKbqBw8zUr9kBykr7rKiyywPDRSQ4FbGdGZZlo7Jxc5+2SUVzp9VV73A29b80HU+drV0RB3Up1z1obsDbVNzRflbh9A99c33qaPH617Kx6/C30vQVQfiqG/b6JK0/VY/UShgGGTNgH1jN0EzjQY1rch0ICr7wWDgueFj8lPK9/JZansMHat5TlbdK0qA4jOXhUC1SrkRDK+o2uFWA5cs5JqHi9+gVUvG5FvOfItqQiPGRUitCyg4Ns8Pl7O4XaqmlEdSB/WB/kcPZ//8sf9uyxHiWYRWG+tD66Zz2xxuFp2TUgmrepZk5GXdPiBFvxHh15n779IcghsEX5y+TIk+NM4mH0v6lU0aGn9yIbE7SH3e+iLg5HWsRo46f7sfLiW5Uo2nTuZV1EuoTpkwrgvLPVh2YLDaKyEfGeMiMe65CK8Tl0mJtxU3TkHaUqRz76MlIzHz46GfbKOKB05d3Di1GYLVRWjO0cDIknsTG29ifQuCEIqh9JABv+HetkRXZb83XRWzZ8qVN/3A0TMJwAO6uGI+YB9CSAuRfnYkjLK9inLvFUli71DhElU4pu0vF6Lpf7UkCgBh2Xy67rLBwyS6ccx2HtR8oBVWMpyY2wcFae5lMSCt3buKX9o7NuG7gfht0u/xJNnM++uKuw+M6bL++GxAR9T5Laul/kZFFeIIU30wkq1SQNFhSEUvMMeMo1FZUHHFdyYo/B/FK5kiSU+3jtLR2Flkd/R1++vxNaC09urYMrbugI+wRUhq+5ohzuxbBvvYwiAihHOxDL0QQE2CHA3+aIjggIsDmeEypTE4D/zcqsgdNPkY8y+PNvUtxNcnBVYokJjfDmy/ocbNGGBJ1U79glX2LoyksrYBQKlZ17eWdoOaVva96jhpXAQNZsUHJbDW1rx5PzyqkJ0PSrbt8TTVjy7P6YLevmGTpx7pwJ6ERA+bagTgNzN0xAKYGSjKx70VH9UC9H1b9fJYQt3suOqtIb4abt6cXzqkvFa+HSaZNaR5UQUCjdUBQ9opdWLaZ3Diy9DBOHqRMLHC/kokZ5vHv2ypcqIc5Ug1HUqIyGq4yEmEKwNmRcbBNEYZ4hO6oHyIeF2qBTh0bodXKdrKNK7XPzLQ5nX8Q64kafqKNK/bVX3iqFZZNjmZdvhR07/RwhzrRJ9N2PwfD5VyHw7odhjiiLX34TE3eija7FC3IdSshKjHJXKb9Uq9Ep9d33JQk5qhT2fu/dRQ5FcTlHlebFSsBa746+10v4eRa2MAcCrizTq2OLyQRzMY91Jeex6oWU+zGSADurRtLlvnUhQB+mVD8Vi4fNwQ6VbWO3MgNHWZoRRRD80D5MVBV7IdNlIdyJ4QQol4/qZbrKSMzkzjHJsEnDyaicGrDcWvz9bI4czDGYy/gq5sPRqc34e4rhgnOqFNUnbcQcytkLxcKoFYks6VS+Ro4D/14/AiQ49dWHO+DF5/bC5PsL4YZryyATc7UjWnHMumGtYyUmqtxNStJ0iq+XUekcETOZxD8/OndshMem7sOyluLX0BxETkKdzZXqF999X6JsOC/1cewx9TATv+tIoGzrz/KOuENcCUPm2dyMAD6/QaOxnN4kfN4UbELKrOLmoJjE7/NTM8XCKNwMCU/Hdwiws+o799ojV1qSkZGEH6Zf6VU/1RSJZWnmYlkaheqxHgnPBydNqp0XGliPszWk1TUmGDMhEb74OlgVcarDqNQ6dWyA668ugwUYhvzJO7tgAebPXo+OOp2eHWoUyhcdJR6Cu3FzEHzyubxQj5z6q8VCIdb1DiEfUedEKQNubywBcu7oFPTi8yth9J0l8OScfPjozV3w3lp83vC5G3FHCZx/diVk9ZYPmT10pqInq3QCKHrKKUIiCPOnRUxp3WKqzUsbQ0qsqFjQc26lU8rTvmdCEkaFyDueMVgCZe7M/8Tgtm6XDyNNxvQGik7Q2z7+LASmPxaHZXX4tVMLWz/8fqOIMHOysk0iJ2Om+WPpv+Jevc/QMi++lgkYSYBzVo2ky31rIoD5qX0w7JeElJI0dXTwYssJGAI3PR8opIZNHQHMc4E9mM9G4aIk3EI5giRSRM4TnTJQGGZ72y4U2blhUEfhnMrW5kt5bUrFU+h0ZdxdxXDNFRWKENx8Rwr8JVMmhESCeqfXoGNQ61DtVaKS+u4HoTDj8TjhOZFz++ryvU5fWL/8JhjrRiY4+qT2dNJKP1RHk/7bGZ8H0ZMs4YlxQ68gkIchxqTcLWJDbi2FIbfuF2kq24ZqK1OOqZyR871wdr5cs8N+//26IBg3MVH4mvvvKQLKIVVqpBo97oFEoRx3+gxbgmHKLcJXdO05l3YBiqBwZkaIK1VgregBt3Z0fGdQ2DRtfogoUivl40vt7RgGXj0zHhp+kN9cFOTSYLfZ7o7e8tMzgu25GRNwGQF2Vl2GmgdSQqAkPfsmdHyW4jXy28cCHQdgDl8Q5uyAC0NEBablEU3IQaWXsU++CIV1PwVCZVXrkdhU+5KESa64pAKoZEl72r2TEhy5aGrtjkGleAJghjVvKlcKFhUqapnbDbd1gJ27ned1Pvl4HmSmq6sFSvfv1mHyDvGhrOTEbejl8w9UnyXH1BOVddU+F3ydPgTOvqSLUMkhKhP1BJ7o6mGiTjI5eXSCLKKM3TIvClkeOKSD8DSnYT75+QpPY8nJvG9yAn4GyyuHUyjzLCyvdcap/516b8GyQXcKlA0yQlzp4dmx8P5HYYfxobDyCei0613GR/gmeEnDuhejoBaFw+wHS1vpsKwlu7Y0351u2yAuTKDDoNwFE3BGgOMx+PlwKwLTTCYT5qc+io7qi3o4qhKGIwbfWwBB4wrZUVV4p0n45/W3w/AUpCPc92AifPpFSJuOKnVdUWmGDz4JdYgOjRybBPQC11428PoyTUNTqOJYPCW94Rrl/bywKhIenRuLQiZiUxAJAyZxGLWGQhpw1/ASRZe/8U4Y/P5n2yrJYXiaTs4zO6qKsHLjgwSenp8LE8YWwbWo+NsztRYocqA1ozBg0b8jObhJiZgCEiIvhkQRFRSyqsSofIwSIyVxJUZ1pCdNjxdyVKnfMSNKDnNU6d+2/CwfAkztTuiub74q5fN/cISjSuNs2BQENw3u4KiXTOtjU0cg4OZSCHksD0y4WayTDe/cy/xJ/gmZYgIGOg3K3TABZwTYWeXnw20IlHbvHnZXWuZbmJ86ASel/u384IpMGJ4YuiAH/PGkj00ZAapdeR2G0s5ZGCtUZuLI3jdtDXSc5j3/YqRuL5tKVtAL62meiGHfau0YLGlENhpf+tSUcHj7/TBHmCyF3slZk8A7hmi9y7bG6pNRC6dmiecWdkCFVy1KyXJr5t/7NgEKTaUIjHFYmuaZhXnw2bs74c3Vu2HOI/mO8kn9+1ZBx5QGrPMqwT+o3KuXpfcS+0x45vkoRSVpvv5WPIqD8rm7dhbPNyRn/SEM9/zme7ExBlxVDvRzpAmLK2Eov15GtYEfmxfbZkoGfa499Ww0DBqewp83GqBbMTUkDGsdW7rqdO8kOMs/yLyhKCOjp4Zp8aVMQDcC7KzqhpI70kKgIC27iz048gf0US/V0k/LtZSfGv4sfni3cziqHmtxZR8k3jFjTiyMxbyo3Dz5MibO5kalYaiu4X0PJuiq6inKQ42TSX1TGCCdwrQYhcXdeqPyvLmvvwuG0ajYWYW5RXKc5Nak5WS1pe+7hhejImjrqqVUY7Lv6dVAuXRUF5VyVtXk1Mmtg3/PBNoikBjf5DgNpDD6mQ8VwJqVe+GL93ZimKiyU0hnhM86Q0wIiVS+xz6QIOSwkrLvex8fHuLqbA6pJ9bhZ4yYejBpAjwyOw4++1LspPeMU6vxVPXo2rR0crldoCQPnfjqKa5EUSZ7scSXnFHO/uCRybBgUTRqBchv8Mn154u/N+HfSdjTe4FK8ulknc1g/R4j3a7WqT/uhgmoJsDOqmp0fKFeBIrS+5xmlWAdhv6eqEef/hdWOGqSSTEspKSEJ+V0DR6V4qg3qKft2evnEGJytZ11RjV0UBhuR3M8pkvDUUJRdw4phdsx3EqpkfrmsNHJUFTcdpigUBgwnjBptS6dGuHyiw9EGVBvpNJ7yw37gUIyP31npyPHjRzUxAT+u9HKmq/Xh0AAlhajur56WT/8TBAJBabxSG134JAU+ODj0DbDVH/5zR9FmxKBThBFrf+Z1aJNHaeSlFohYlRuZvqkAqCw/yPtT8wvFxGMO17HEGBy4l/EEF9RI/XnV16PgOtv6wiFRerVkkXH88p2+PdCJfmChhWjNqUufzd4nC+tLU3PfhAztMQfcq+Ey4tqTwIssNSe9HlsKEnLGiiZJBJSajtBTpCTo37qqCLwv/LoECjBLny2GSnoUp4pnSjoaVTzdNmiHHSMxMPe9Bz/zXfDYNb8WEVdkkP3wDgU42rFlq2MhOeWRynqjxonxDc6FEaPLC1Dvzvv8s6OfF9nNmoohiNrzMOl/veXmYFCvLMza1DFVyD+WPFK+QIm4N4EnlseCctWKvsbjopsdvzNHH9cvePksaTEDD9tDoSNmHepxCWgmsjvrtkNlPMtZ/OejBEWeItHhftlT+dATHTrf9Or14bDwsXyKYiU236TDmXdaHNy6F3JQqe5rXH48I1dnA8v94DI/L5pYxBUTU8AW4WyfGon3a6uKc4fnLJ7tzqlP43r4ct9mwCfrPr2/W+31dMuXUlG1sPoqK7ESWh2VE0oh0/1U9lRVX5LSRxk9H36O6o0k9F3Frebo0rjX4Q1IpWKAJHCbVs2+Jb9MHywMrEi6mtfgdUhPPXr/45+1ClcWs4od08PIxZUN5MdVT1och+eSIDSA+IUli8r3X9APG7eUzGOWqGLnot2CAQpcVSJ1eWXYI1MAUd10XNRwo4qhfA/PjO/TUeVxhWpr0rtyBnXw0igTSTsuLWxaGNA6We2HnP2tj4sWIIp7Nk9YDlGn3uKfG6gmvfFJ2aK12jyNqi8nnYjwM5qu6H33YHzUzKDinr1WSOB9CBS0PwWbkExnLAlmJ/aizf8lD5VtAP+IKpMFhgQdtXvzCrFNUeVzl+uPZWfoDIsSmznbuc5VoNuKoORdyh3WKkUzshxSfDjEaUnSHVZzkRC+OT64N8zASZAOel2mHJ/IYb6K3U1tdGjE9lBN8nnvi9dEQkvro4UGoxy0GdO3QekXu7Mtm6XrwBHX8THYyixVqOUh6fRmVdrXQ+K26m9nq/7j4AJUzrCFu0Fv7665bH2MfmbN5T07J3BnJmAKwmws+pK2jwWlGRkJPnHm7/B/NRr9MDhd1qVQ1TAlKifCIce8/KUPqg0jWhJAyVrSsL7Mene1kNplfSjR9trLi+HAH/5sLuWsd7/KBSL1zv/aLz5hjK4GwWLlFpdnQnuwxqwH376n2BKkwtPVpXOl9szAW8k0BvLLo2+U/mGkxYWJHxEp4bO7MXVEbB0hXiI8r2oppyd6XyTducuq6NmtJx1QPXl4DZKCMlde+jvH38iVqiGblt9dkPNADYdCWAea8g0zGPFiCBdNmgkSJYslm+K07MH6DhL7ooJOCXAzio/IC4jcEAG3boeB9S8K0e7wIEDsb4YljoAHQU4XAbDDQYi1UUluVv0RUdqkxPvLcT8yzx4FHf0SSU3MeHwjQIqzTBjSoGuqpJacIWH2+CSC8V3lusbTPDaW+GyQ944oBzuGYlCFrItD29Azun0R+Ph5TUHxnBlGLDCqXJzJuC1BK6/phxGYISE0r9fNUAuwzz4Sy5w/hn06uvhjvBiUaMNODpZlatR6soQYCqvQyroWowE7tj0J+Cox4rvS1KQ+Matk1kEodzSKyy8pP994h5bJ8DOKj8ZLiFQnJF1Icqgf4svBilaB5RQpCJ4Sj4EDsGdcVe8aWidsJte//HnoUKlGWj6pBz74nM5WAdxH1x2USVk9a6FfqhqSSq5r6/a43Bgw8MOnBrchaVe9C4srxXhjdeWoUqmeNjfWnRW6wXyRK+7uhxrRRYpfgxpJk8siYGFT8u/nAYEYCkdVujV+gjw9UzgKAK3YITEDNx0C9bnBb5VwmefVQX3j3EeZUJCcAsWyQsgHToA1Sid+XgcXI/1sD/5PKRNxXWR+qrUr9Z81eoaCetyK1tDa8C6srNq2F+q9bRqR1iwWZ9yUJjJBQ8Xp/VZ/ltqqn7FkA1bPXfsyQRYDdiT756HzL0kPWuEJEkLcbqapWZNKIwR+kgemHWU2PcQjLpPc/joJCHhjV6ptQ4lW39/585eIeYqvYUvXUNvk8/L0n0xAh1Owtzcz78Sq1dI3d2LTug1Vxwo9SJnJCgyZ0GsYsGVtvqlF7ZTUH00G4u990qtA1JVZmMCTMAYAgWFFoej9d2P2k4FD50d7aMOvH4/nt6WHlUK69B2VBrn4dn42WHXtvNKnxnDby+FM9EhOdQuv66TkCYBlbBK71mnGvDcJ2KANvm0GEXvUG1d0Tq0NRgdtGVbIJyWXaNlWJ+71l5pgqqpidCIImE62Td1dXBV0q/rXBtbr9PkuRv3J8DOqvvfI4+d4TSU/L0rLXMOHn+O1WMRluPrIHRmHkhcckMzTtoFP+/yLrIhqOQkrV25B0uvCKgAaZ6VsR387w9/uO1O8YN9yrt97cU9rdYtbG2mb71HZXJiVL10BuHJDpXGcPyggxoXw2VljH0auHcmcDSBzdsCYMVLkfATlv3Qsj3UqWMDjB9TDBkyon+ffhkCD82IA6oxqpf1wO/JYei0UvRLfoEFrryhk2zX5CR+9u5OPGFWt+pfUOX8jlHJqj77Dp0cfea+8dIe2fm2NCB15jVvhMNZZ1Th5mKxU0Vk4U59pSF+xdQ8HQt1WNtWJ/vLhhk3MVvW/alTf9wNE/iXADur/DAYQqAgLS3YKvmvwjCRK/QYwO+sSgh5oACL3Kj7MtVjDt7Ux7ZfAmAYllKRs9Oyq2HuzH1yzTzm9yOwluzmrYHC850xZR+cfdbhJxXOLn73w1AMzZM/JaGXwzNPq4Hrr8bwZNQ+OemEOsw/E54WN2QCTMBAAntzrPDRZyGO/Mu/d4hXViNH8Vqs833+2VWym1zU98Rp8bIbhmqXmXZyrSO0d/Vr8s5IRxRXWrNyr6qhKGf2lqEd4J+d2iNBSROBUk1E7Lff/WEIOsgtjj6pLZNK+xWXVDg9yRbp25fa1L8TDjUL8TtLQOhPgEup3W67OnrzT18JtOUmTECYADurwqi4oSgBqsNlCjC/g+17i17TVjvabyZhgEAVtS21ju3N11PNQKoXKGc3YK6nq1Uz5eak5fc/rA+CsQ+Il4k7oXsdvLA4V9GQFNb3yJzYVk9L/LCUzkXnVQLl0HbswArWisByYybQDgQKsawXbe6Rc5SXbwUqzUL5ohYUNwoLtUFKcqMjp78PnmSmCOYCUvmq8ZMToLFRvxNVLWjOP7sSpk0qVNXFipcjYPFS+dz7JBTiy9vnvCzYbQP3O06F5Ywc5EHDU+Cvf47eSOiJaSsPjCuCzh3581WOY8vvm7YEQtWURLBV6rJjSgpZQ6M2rVshOj63YwJyBNhZlSPEv1dEoDQjowcq/r6PF3VWdGErjSUMQQ0eXwB+54oruWod01euJ+XJ+QKCHpdeWAGT7nOPEjR63Zsbb+8AO3aJnwKoyeX6GE9lpuFmQMuuf2hIM1x9eQUMwFOXKA5j1+tWcj9MwOMIbNwcCOMmJgCpjouYw53FSAytOa3Oxhp9ZzHccK2yetTUX06eFW66PUV2LXGoNXHBOZWwUqZ+7MOTC+DcflWyWKjEjzPlZEpfIaX6W28s43x/WZoHGthyrVD5QBI07xH/bnTWNT6xj8Ru2TDFZrNxOJzgPeBmbRMQ+7RkgkxAgAAq/vZFR/U7PRxVUyQKKS3IYUdVgLuaJlTyQMToJLKhwT12/0XmK9LmpuvKRJr922bVK5GK2lPj88+pcpxUUA4WvQi+/epuGD64lB1VxST5AibgPQS2bg+Aex8Ud1Rp5XTSuGppDvQ9vVqx6rgoObVKwI/Ni5F1VGkO940uEhJ56talXnbKuXkWLLnm/DOZTqxJYblOQNFddkAfaWDCCAGqWW9F3QQ9DKWCHyxOy1zJSsF60OQ++GSVnwFdCJSkZ98oSfA8diae4NPGyBb8wgp5LA9MXiDqowtcAzr5/KtgmDQ9Qajn6zCv8p6RYiJ/9JJAuUt//e0Hu3CHdi/u1pLSZnEJhs7VmaAZS7xRmQgSbOqBis6nY45S77Ral+ZrNqFW1JU3dsJwPjFxanLVX35+D3TpzGFlQg8MN2ICTOAoAr+iCNHd9yVBdY34GcHFF1TA5PH/RbaQSNySZVGwHgWg9DK14kqU7jB9lnwqSb8zq7AmdwHmtabAn3+3/XpA9bm//nCH7HfB3fclwk8CKraP4CntOQKntHpx9Jp+SHhpEQovvRGhz5Ls8FV1c+1VHbZtc88yAfqsknsxmAA7qwYD9oXuSzKyJuAu2kxcq+YjONrVC52WD2Bg3TtfuCdya/zrHz+4+Y4Ocs3+/T196d+MZRi6dW1wvExUVZmgCB3QHHRGd+/1QxES/ME+yUFtalL2GMTHNcFNA8owTLZc9kVFeMIyDVe9EgFPPSufZ9XSzcXnV8Lk+9XldOk1Z+6HCTABzyRAn7cj7kmCyirxnEBSEl44Ow8sreyp0QntM+i0bvlZXCyuLXIdO6C40gpl4kpl5Sa47taOUF7hfD0hwTZ4ZfkeiIpshrMu6uo0SucYLL3z0jLn8yDRq6kz42UfAm8TBpRdsAEN6rEMUc2Tugkv/a/R3nBR/ObNuwyYKnfpAwTYWfWBm2zUEr82mSypaX2ewv6H6TFGwKXlEDQGHQLx73M9hvXJPlBiHs69rIuiXf4WULQTb0T+1LHH1MNDDxQ6HGKjrbraBJdh/UHRUw7a9X/z5d0QyyVljL413D8T8DoCL68Jh2eXRzmiS0SMSt8sfSoXQlHh1pmt3xgIzzwfheJPASLdttpGjbjS1Efj4KNPQ2XHHD+mCK66rMIRYXPtzR2dtpebR0WFCQagg1xW7vwFITDQBquf3+sV5dZkARvcoBHTgKqmJYJdQTSAkykVgN12WdTmn34yeNrcvRcSEPvk9MKF85K0EShKTQ1J7dXnLT0cVXJ+goYVQ9A4dlS13RXxq034l3+qykLqRjiqNHNSdhx6VzKQUqbRFow7/lTiQNTotPhV/erRiQ7L7ZgAE/ACAjcOKHfUDx1wVbms4E9EeDPMm5kv66gSFqql+vzTuVjuJR9os0+NKc1X/WlToJCjmnpiHVx56YHP2J0CgnZd8WTVmS1cHCPrqNL1w24rZUdVzYPQyjXWrBoIe2ovmON1SYGJB8n0ZUlGn8t1mh5340ME2Fn1oZut11Kxhmqc2Rr0BQb9Xqy1T8nPBiFT90HADZzOoJWl0uuphIq7WU2tyVHSYZOCWqhq13DdNWUYYicmNEVjvPVeGNCJLBsTYAJMQCkBCoUdO6oYXl+1By67uAJTHo7+7KHSVlRnNDkJE+sV2Bmn1sDKZ3OA1HSpZqoSOwG1A0StHgWLZs2PlW1On6sTcfMZdSwctkOgBiuFAbdlm7C0CuXIyhk53rQhwKYfATNGOoUt3gsWrCGsgwVJYHq9JD1rhA59cRc+RIDfvHzoZuux1KKTM4+xmvy/x2+hTK39keJv2MJcsPaVl6rXOhZffzSBU/rUgNxudntwI5Gm+6ckOISZjLQ4DOk9r7/4sxcR0Yx1Ao2dk5Hr5b6ZABNofwJUxmUi1gF9ZfleoNBXiiwiI79uCubF04mkGiPHkMq+rH5hL5x1htjnGo193LHizupSVOHNxXI1cnbz9WWHCdLt2CV/zTFtpH/Uoxr9o/Mwd1JmUHL+J95bCBQ1JGp79lod4n9szglIWG4t7AmsztBXlw1usyRJi0ozsh41mUzKBC74RvksAQV/1j7LiBd+kEBJz94ZZqv5e/y/3bRCMXc6sFtnPkHdF7PW8fn6AwRG3iGm8utqXiTgRHVKjTYqYyP3bdkDd5Rn4un/2pV7MNRO2amF0fPn/pkAE/BMAh2wVAiVt3pp2YGyNMMGl+iiXksCeMUlYptqHTs0QlCgnBt4gC+JRL28JkIWNp3s3jbw8Eipnbud1+4MwjzTxDbU/59HB5mE/OTs+qvL4bhu4p/PpfvNMOb+RBg8MsWhYM8mQwBP/SkKLvDGUp1QSRO4tI1OKH2gG3ZWfeAm67HE0vTM8ySL5UvsS16KT2ZAa89aCFu0F0wJykKd9FgH93E4gdMwb5VelNzRNmMo8Meo/mikUehZFp4wH2nkwJ5+SjUsWZDryAnrfybWOJTzao2cKPfNBJiAVxLo2rkBZk3fB4NuKtNlfbW1EvyOJW5ETDRflQT5Zj4eC83Nzj8E6bcT8NSYwplbrBlLoZBivDNrKwSYnMiXXo2QXUpSQiMMxVxVUaNw5vuw3m3evgOl1UgrgcSq2GQI4A0OHFoCwfcWgCRYq915j9LAeL+g90u7dw9j9kzAGQF2Vvn5kCVQktbnZvxkeg8byieNyPTm378SQh/PBUlG5VB2Ul7ewI7f9VTUnEoEGG2UWxQb454bB0tQ6ZJedoy0m/F0tcUo14pqG1Jd1cdn7INeJ/PJv5HsuW8mwAT0JfDzrwHQJONUtox4AuZ4ithrWMbkf3/IKw5fcmEFpPc8/DOTwoYbMJTXmbWWjkLfgY/OjRVay/33FIG/v9gJMfX70Mw4+PV//62HVOHHPpAIb7+v+RVHBKfHt/FHccKQR/NA0qHEIJY9PAeCI78uychI8ngwvADDCBj/JmzY1LljVxAoSc8eL5lMK3As+TgcmQlR+EjwlH3Yk9iXiivW545jUAgs7fqSkMVNgztgAXRjd3zDw22wYFY+hIUa7BWqgJ2PO99ffGPs6WpGWi1QTUOq9UrlaSaPLzos30rFtPkSJsAEmEC7ENiqoPaqyMkqnTwuwZquckYCUncNPzqtRC4EmPpt7WT19bfD4Jff5B1kyvvNyqyVm96/v3/qmWj46tujv1Po1PjRuXFCaxUezIsbWjEiifJYTXpsdEvQSwLrD6Un9z7Bi5Hx0jQQYGdVAzxvvpQS3zEBfi6GPs7CdWoKgJRMdggeW+gIH2FzToDCngbdmQLf/RjsaFhSaoHR4xPhySXR0GTg4Se9LDwxJ99RvN3d7MNPjN/tXjQvz/GixXVU3e3u83yYABNQQmDzNnkHj/oTFVd6/IkYIJV2ORszohg3PI+uC7tDoGzNkeJKRcVmWLw0Wm5ICA9rhjEjxd8rKFrpJZm82+UvRcKDD8fLngbLTs4HGpi71UM4KQV3FTuhl0HSCayW74oysk71AXS8RIUE5D+BFHbIzT2fwGZTppUS3/HrbKzW1UgBWJpmRj74X8Zy8nIsP/0yBMUeko8Sk6C6pvQFe8ddKY7i6kYZ7bKvfHYvnIq11fQyEs6gEC86uUzDXOXoKOUeN50skyIkGxNgAkyACbRNgD4nf/tdzFntJCCu9MU3wfDtDwc2Tp1ZdmYNnHd26wrEQs5ql8OdncefiAUKzZUz2mCMRJV2EaP63eR4i9hn+F18132JUFEhPweR/ry5jYTq1mFP5YAVnwEdLMoM0qfFadmX6NAXd+FFBCQ7BfCzMYGDBLCGajCWplmL//dCrVBM+CUS+lgumI/XZddN63Tc9nrKyXzq2WhYvTZCdo6B6Pzde3cxXHy+LhLybY63YXMgrHolAn7aGCRbMqClk9CQZuiB95p+qHbfsbjr2prC4/oNgTBrQSzk5Ys73s88kQs9T+L8UdkHhBswASbgswSoPvXIsWKpfxecWwlTHyhskxWlo1w3qIMjuseZBeCG9Orn90JiG4KJA4ekwN872hZ8omieD17f9e8QX38X7ChdJme9MX3jqbl5cs0cv6+ukeDKGzpBRaWyMjWk2DzvsXyg/7LJEMD3mGoMo67/IFwPVE1gt98RtXn9cj064z48nwA7q55/D3VbQU5qalSgX/B7eIZ1itZOzUmNEDonF0z8Ie8UJcnnT5oeD1u2KctLPRfrg05AUYng4KPDrrTeu0Ovp3ylH9YH4W69P+SgUEZdnQlIhIjCr+LjmiApsQk6d2yAblgjj/6/qJWWmuE2DHcuKBIrsfDg+EK45AJjHXTRuXM7JsAEmIA7Eli6IhKWrpDPL6W5jxlZDFTupS0jzQQKm5UzOt2kfP/WjDZiz7qoK1Dt7LYsM6MGnsQUFDJyKq8f1BGKip1/L5Da8EtL90KHFHEnciNuwE6YmgDkhCsx+q6b/cg+3iwVhFb7QhTUrpAP4RboDo/S7BOjN61/TKAtN/FyAuysevkNFl1eaa9eKXZzwMf4ldJD9Jq22lmOq4PQWagU54b5j1rXpuf15ABOeCgBCgUdtiPHJrn+6Q8WwEk9PPPk+ksMMXsAXx5EbBTmOw/EQvNsTIAJMAEm0DoBOlWl01URW7IwF3qlth6tsu2XABg+OgkPt5ynXxyH0TMvLM4Bqu3amu3ea4Xrbu3odDrXX132b97pnIUx8Prb8idzw28vhUFH1HIVWfPO3VaH6i8J9ykxco6n3F+oSx1cJeN6att63OSoWRAHdkFVamfrRI91wVNbfxr3kI0KKLH5KgFlW0y+SsnL113SM/N4MAd8r4ejas2shrCFOeyoCjwzpPir1lGl7qlG3LDRyfDCqkjwxI/xs86ohvBwsXwjG2crCDxR3IQJMAFfJkDOoYiRuFJ3dDRbMxLyewxLxsg5qiYUTpx4b1Gbjir1vVOBuNIvv/nDG+/In+SSBsLA6/eLLPOoNl06NcKyp3IdaSpKjErvTEbRpeUvRSi5zGfb+l+KpW0ezgfJX7t/iSKfY+7q1efF31JTnRfr9VnavrFwdlZ94z63ucqS9KxMyWL6Fhs43/4U4OR/fgXmqGIOSSB7FgK44Nx+rQtSiFzb0obk9p/BWqS0o67F8VUypl5t8UvIEUIsYqFcl1cEE7dhAkzAhwmsfmEvDLppP5C2gTMjcaXANr6nV66OBJFyM9ddVQ5ypW/ExJUaHEr3MzHfUc5BJieb6oJbxLJHWkUQFdUMi+fnwpmnVSt6UuitZsmyaJxnrOG1vxVNzE0bW089cHBB2iWaTYIbE/yC3iZNFc19cQceSYCdVY+8bfpMuiS9z1mSJH2Oqr9iEnlOhnXUUH2gAECZfoE+C/HQXi6/uEK3mW/B2nokZEGhtZ5k1dViH0EU8szGBJgAE2ACbROgTb3hg0sd9aJvuLYM/P1ad1rbOlncgyezFKkjZwnxjTAMQ3HlTM5ZJeeza+cGWPVqBOzAsm1ydtVlFbqkvQQE2OGxaftgwJXKqxS8836YI5SY8mvZnBMgcc2wRXuBNEy0m3SBVfL/eHd6eoT2vrgHTyMg9qboaavi+coSKEnLulSSTB9iQ01FLOnLJviuIq6hKkv86AZdOjdC6on6KdyS0iHlgM6eHwP19e7/RVqCIksiO/i0ErkdfBX4+RImwASYgFcSiAi3weg7S+D1l/bA1ZeXO0TxDrW2Pk8fQ1ElZ2JILX3cN7oYyOGTM7kwYBLoKyqxwAsvyjvIsTFNMOIO8ZqqcnMz4dvv2LuKYeyoYqCQZiW2HlXyqZQcCRCyOSdAIpthT2Mt1u46vOtIcFqo5Pd1UWqWmNgF3xyvIcDOqtfcSvGFlKRn3ySZpNfxCrGCbG10LeEXYDAK/PijQAKbOgJ6nq62zOCNd8Ph1mEp8Nc/8jvV6mZ99FVqKmCtXB2B4VTyTjWVwAnHly82JsAEmAATECcQE90M5FiufXEPXHphBeaXHnDKjm8lZ/PdD0Jhs4A40zmYvnJatnxNTVIClsuhpVPVWfNisY62/KsolWwLDlLmVIqQ6t+3SrhW66H90Ukw1UX/4y/Xfc+KrMcd20gYChy2AGux9pZ/bgTmf7LZT/qusGdWV4G23MRLCMh/QnjJQnkZBwiUpvcZhbmCK/F/iikxtAFOwtpqITPzwO9sLiei5dk656wq/AJ27ojR6bVS27XHD24fkQKvvC6vrKi07yPbr14bDiQWpeQ096tvg2HNG2Jz63+mstwirevh65kAE2AC3kSA6l1Puq8IXsGc1vPxO/u4Yw4XGKISak8+I19uhGppj8WSNyK2N9eKuajONyP/3uEHG7fIqxf3Pb0a6Edvq62VHCG9crVk2xq3GE+Fh49Jhu/XBek9Ne/rD3OkQx/LBX993hmPsVikbwvS+pzkfaB4Ra0RYGfVh56L0vTsB0EyPYlL1nTfTVh3LAwFCqx9dNkl86E7cPRSKZSKXh6c2eUXV4KanE0K51qwKAbGTUyAsnJNt7zN6X32ZQg8sSQavvsxGMOikkEuR4k6WvtWGDyIyopyYhrU1mq1w2U65vb69MPGi2cCTMCnCVBd0mmTCo8SV5qP3xOURiJnVFOVBIpETOS7QKSEDG3m3nt3kciQitqQgj59D/35t7+i645sXFtrcmzW0vcamwwBjJoOfnAfBFxTpgeqJKvJ9HVpr97ZenTGfbg3AWPeYN17zT43O5PJJJVmZM0FCR7WunhTHOYfPIl11U7QIf9A62S85PrLL3EutEQ7z89jLbtTVG4OfL8uGG4a3AF+2iS/g60E6eZtATDtsf8UHOlLn8KPFyyKxjp2h+fy0IvBBizKfuc9STD3iVjZHfeWeVx1WTlEcb1eJbeF2zIBJsAEhAn8+FMQfPpFiGz7tJNr4bKLxCOp5PJVZQc82ODOISUQGyPmIIv2Se3mPRWDJ6L6CBLabJLje23h4mjchFUyCx9si4ftQaOKIGhoMb6SarYoMFs+w4jBczX3xB24NQHJzn9Zbn2DtE5uGnqqd6X1WYz9DNXalxnLjIQ+ngumONSZZ9OVADl5f/zV9g7vzKn7oB/WJV22MtLxI3IqeeQEKZz4xmvLgb78tUj/U78UvjUca7xWtaHmS19CSagASOFnlLv0D+b3iOzcHzpnclJfXbEHuGyNro8ad8YEmAAT+JcApYo8hdExTU70AyjCZdXSvUAlb0Rt0vR4+PwreSfYWX+pPerg2Sdzgcqc6Wm0Zoo6MsIoXHn6JNTy8GevVY5vw4dhUP04bngLaFfI9FVvB9t10Zt+eltuTP69ZxLgk1XPvG9Cs/7aZLLclZa5Qg9H1XJ8HZ6o7mVHVYi88kZXyJyuvohiRPSFPeTW/TB35j504JTvNJOD+9KaCBSFSIG9OepTlkkB8Z4JiW06qrR6+prOzbM68pGorI5SR5Uc64cmFLCjqvxR4iuYABNgAsIErr+6HFY8m4MlYdqOlhp0435FjioNrvVk1YJiUBPGFenuqH7zfRA8gSegRtnX3wU7IogoD5jNOQE/FP0KmZ4PUhsllhTw85fA9BpWuRio4Bpu6kEE2Fn1oJulZKq/pab6nZSW+SrWUNX8x2tNq8Ec1RyQWJFVyS1Q1PY8zFsNQNGqtux/fwQAhd2SnZpVAyueyYHjUCVXjdEJ7i14kvv+x8qrFlVWmWDM/YlQVGysZP+oYaWQlVmrZnl8DRNgAkyACSggcEyXBngOTzCpjEtQ4OHfQ50xourWm/Yr6A0c0TR7NGyI0mADry8Dmpee9vuf/jBlRjxQ2K6R9tvvAQ6lYKpby+acgPW0agidkwdSsGbFfwtWuVhRkpE9nJl7HwF2Vr3vnkJOp06BCX5Bb0sgXaV1eX6nVUHorDwAVHJja5sAKeFWtxESK8KNJPlJGdiZvbj6v1p0VJ/uuady4eLzxXOIDu2bRCEenhXnEJioQgdUxBoaJLhvUoJQbVSR/tpqMwhfjG4aUKalC76WCTABJsAEFBCgyJ0BV5XDK5h6ccapB5R3KcLlgXuLFKeNkKMqpwTsbGodsDbnbTcrc5DllrqvwOIQG6yrE/u+O7S/Sy6ogHAUllRiVJYt8AjHX8n1vtTW0rPWcSBiwhI3Gs2Ej/HTWJ5xvMZ++HI3I6D8r9bNFsDTOZxASY8eoUExCR/i18wFWtn4n3cgRAP82FF1xrK6RoLR4xPhHpTAr6tTv2MrFwq8DoUwKPezxfzxvky+vxDuv4deJtTdI1LzvXloCvz8i3zJXQrp/flX+XZqnzsqzD5mRDEMH1yqtgu+jgkwASbABDQQiEMxozmP7APSSRh0Uxn0PEm5mKKWEGD6Bp0wtgjo+00vo41ktSVqLjqvEh4cXwRLF+UCOdEiRqfTc2fmGyIMJTK+J7YxH1fvSDUzo4inRpNw42VWSUaWZkFRjfPgy3UkwM6qjjDbu6u9PXtGQmDYp+io9tU6l4CryiD4gQIATrtwirIcS8KMHJsMW7ejI4cO3/1TEoBKxqixk3rUAxVJb8voq/vFVyKO+vWVl1bAMwtzIT5WnfAVlQ+gHBsSbiLV3raMwo/pJSYkRHO4zlFDROKO6vxH8+H6a8rVoONrmAATYAJMQEcCVN962O3qNg61OKsX4SlmRpp+KSAUkvzA1HihsmpH4svoVQsT7y10/DM5qkufyoHUE50772bMtZ3xUAEce4y+Icw63lq37cqEAl5hi7DaRCft7DCy8MGS9KyFVA3DbRfMExMmwM6qMCr3bph/QmZMsCXwc/yrzNI606BBJRBEdc34T9wpyuISs6MgOOXBtNj6jUEw+ZE4p06fs04vl6kp+hmWGCCBoyPtxBPqYTnmsfZW+SVPIUvPLY9CxzsJCovazkc9LbsGVj6zF0ilUS/rd2YVvPz8Xs5R1Qso98MEmAATaEcCIjVWW5teRHgzjMZarnrarAWxWLYtSHGXlKv72PR9h4VAh6Nux6K5eXBOv7ZTdu69u1h1mTnFk/TCCyTcdA97Igcs3bW/Y+AR693FvTKfoaoYXojKp5Zknjp1qk8t2BsXW9izZ7yfv/UL9C57alkf+aZBI4sgQKGYgpYxPfXavHwLnkYmo6ruf2G5LWvZtccP9hVYgSTslVpHLNr+6hsRKFDR+k6BDRV9SWo3u8/RO8+BAXa44NxKx8nuz7+oq6lK837vo1DHLnKXTq2H44SG2uDSCysd9U9/RSGJ+np13wMkEDVlQiHcemMZ0NzZmAATYAJMwPMJLF0RBWXlysOyHkD1X9p41ctWoor+qlf+03oQ7Zec5qfn50FM9NE5lGZcVv++1UAaDtuO+J4lrYVbMXSaTRsBCd8H/M+phCZMO7Jh5Jcmk6SMrMTkLu/fOfTdHg89xC8ammC238VcZ7X92OsycklGRpIE1s+xs+O1dEhCCkFjC8EfQ0rZnBPYucsKd92XBMUlzhVxSayC1BWV2kMz4uDjz9tW6iXRhrdf2Q1h6DS2ZV99G+wQUKquUedIUr+UQ3vPyGKn9eIoF+jNd8PgDfzJy5f/UqEQqezMGrj68gqHqjEbE2ACTIAJeA+BJsxGOevCrk7rtra2WvpeWDALNTJ0MtJjmIwCgkq9E38so7JoXh6W8pF3mt9+PxRm48ktbS7371sFM6YU6F5qRyccntkNbghUTU6EhvXBOszf/uquLbab020bNCfF6jAZ7kIhAXZWFQJzp+Z5J2d1CLBK5Kgeq2VeEjoQwRMLwA/Lp7A5J0AhvySmVF4htms8+JZSuGOQMlXDTVsDHeG4zmw45hINGui8X5LNn/BQgqpcnZaxKRTq4cli+TfEZsOmQPjzH3/I32eBGnSUSfiJ8lGpmDzV8aMXkrAw/XNe+bllAkyACTCB9idAm7k33N5R0UQC/G2w+oW9kJigTnfhyMFIP2LUvUmO008lRpv2lG9K+bqitn5jILz0agTMmbFPV1Eo0fG9vh0+ElWPJEDDV8pL7R3Nxv7mvoaa63ts3649KdbrwbvXAtlZda/7ITybgrTsLlYTkKPaRfiiVhpKVjuETM0HqnXF5pzA1p8DUPo+UfFpJdWvkxNlOHLka2/uCHtz2z6ppBDct1bvBj8ZxcTaWglzaOPhux/V70xa8RkZObQEqHg8GxNgAkyACTCBtgh8/lUwTJqeoAjQqGElMPC6MkXXtNU4N8+CNU5TVIUhj8LvOarvyuZmBHB/u3p2PNR/FKZ9Ynb4oLKs8OpOO3ZoT4rVPhvuQZCA+hhBwQG4mf4EijMyjrWY4GvNjiruZoY+mseOqsAt+hHLxtCJqpKwWtrTvXt4sWJHlaZz2UXOw7FL95vh/Y/ldxqpOPkvv2krN0M5sAsWxcA9ExJhf5nYibIAUm7CBJgAE2ACXkZg5+6jdRycLZG0C264Rh8HsaLS5CghpyZfltJe2FF104cRPZXgCQUQcLUOz4kEF4VExr6bn5KpXHXLTfH4wrTYWfWwu1zSK6u7CaxfoSPUQcvUpSB0VOfkgqU35w3KcaSd4vseTID6BvE/F6oZ+gBK3t84QN1p5MXnV4IFw7Od2UtrIpyqDtPv70YHW80Xd2vjksM+cEgKUNgTGxNgAkyACTCBIwkoUQJ2fE+iqBKJFmk12lS9f3IC7NmrzFmmcbPwPei+0VgBgc2tCQTdVQSBA9WVUzp0YVjW5hz/OPP7BWlp6kPO3JqU901O/O3b+9bucSsq6Zl5vGSWvsSJO09olFmZKbQZwuahNPjJHAUh9xC8+0GoI4y2qUk894WczOmTCvF0VH0OcFRUM5x+qvPQ7BwME/7qu6M/ayn090EUlnhySXSbqsJy627r9yWlFhhzf6KjbxLSYGMCTIAJMAEm0ELgRlTE7dpFLCVwwJXlcEJ3eSEjEbozH4+FLT8r30g9Buc6c+o+XRxmkXlyG20EAodgacWhyoUrjxpVgrOsJv8Pi1JTQ7TNiK92BQF2Vl1BWYcxSk/ufYJkMZOjmqilOxNKsofOzwXz8fp8QWiZi7tf+8rr4TDzcaqZKu6okpLgrIf3Oa3DJrpuCkuSsxdRmv9QozxXytchJUSjzI7lc+jUlsYhESc2JsAEmAATYAJE4CQsPUO1uIehCKAzTYX4uCZHGz3sueWR8OGn8mkxR44VHdUE8x7Nh+AgpZrB2mZdXSNBfoEFKwqYoa5O/P1C26jec3XAjfsheFQR6EDuDLM1+KPS7t11SIb1Hr7uuBIWWHLHu3LEnArSs0+0Sg4xpXgt0zVFNkHoPHRUBXc9tYzl6dcuXREJVCtOiQVhSZnHZ+ZDek99Tqzt+P155Y0dHTVbnRnJ7Gf0qoXv1wXBQzPjoarKdXtQAQE2mDC2CC44p+0i6UoYclsmwASYABPwDgK0mfnoPDzx3Hb0iedc/K48LVt7GtIHn4TCw4/FKS5RQ99dSxbkwfHHGbtxT9/jpBvxzfdBjv/+8Zc/1NT+9x1NDldiYqOjvuyZKHR5JkZU+fu71nn21Ket/p1wqJkfC7SBrs3sP0BV2YVRf/whf0KgbSC+WiUBdlZVgnPVZbo5qjFNjtBfU0cuMSV37xYsioZXXo+Qa3bY78PDmh014vQKaWrpfNnKSHhuuXOnmcrBUFkYaqvkQ5vKBQzBsjpUJzU3T90JaYfkRpj9cD506czPlaIHhht7HQE6KdmbY4UqrD3shwradHLUpVMDlm/yuqXygpiAIgJvvRcGTz0b/e9G6tlnHahJqtU2bwuAu7HmuZI0HRqTcmVnTd8HZ5yq3Vluaw0VFSZ46/0weP3tcCgoFP8QiMDot+tRcOqGa8u5FI7AA9KAQpPVs7CeroIIuNa6xe2B9RXlzed3+XuDOqERgblyE/UE2FlVz87wKwt7ZaZazGY6UY3VMpgprhEd1VwwpbBD4YyjDeXRH8Nd4Hc+UB4RsnBWHmRl1mq5Ta1eW1hshiuu76QoFFlkEkkJjY5w5WOPaYBKPIl9aEY8/LBemTje6adUw9QHCiEkhOumijDnNt5HYB86qK+/HQafYth9axEQgRhtcUqfGrjy0grITNf/88H7iPKKvJVAaakZ5j4VAz+hQN+ry/cC6TJosd14ajtkZDJ+fylXZ7pnZDFcZ1AptmrcrHp5bTisXhtx2Amq0rUm4WnrpHuLICONPzfk2DV8EQLVMxLA3qzxhNVu31DdXHd+h23bnBexl5sQ/153Auys6o5Unw4Le/Y+2WKxfKbVUTXjB17ofDxR1anYtj6rc79eSCyIQmg//0pdriedoCxZkAvh4fo7buMmJmCIr36idaR8+PCDBRAW9t9cKVSJTmZFTmepcPrgW/Y7fiSN3w3u9yTwjJiAPAFSHn32hUhY/VrEv6c6VqsVUjp0gLDQUFQOb4C83FyoqPgvqiwdQ/UfwJD5DrxpKA+YW3gtgSLcgI2N0eaolpWb4PYRKZCXrzwiiESdxt6lg0BPK3eIQpIXLo6G8nLlDnRrN5xOgEcMKeWSOgJ/DY3fBkPVtESwKxDDbKPbTdVNteeywyoA3YVN2Fl1IWzRoQrS+pxkNZm+0OyopjQ4xJRMsSzb6ox9fb0EEx5KACrNosUo92URnmDrLdZAuS7jJ2vS1XIsi/zKW2/aD0NvK8UwqNZXKpf3Sqeo0yYW6JJrpIU1X8sE2otACZ4QjcVajpR7RpaVnQ3XXHstZPbJxFyzA//WYn//9Re8//778NYbb6CQSj3QSesjk/nvp73uHY/r+QTqGyQYNTYJtquoH07RQLMxoqit7z+1dMgBf2R2HJZ10/YO0db4V11aDveNKebNYZkb1IjRYVWTk8COz4hG21hpbzi30+bNZRr74ct1IsDOqk4g9eqmNCOjB9itX6JnEaelTzM6qmF40idhripb2wRIle/eiYmqJO9b6zXt5FpYMDtf11yTZtyEvhxDgYtLxPNejpwbiT9Nvr8Q+p3pvBwOXZeD+atUr+6fnYfXqyOJfwodTknicHL+m/JNApSHNvTuZNi1xw8iIyPhwSmT4dTTTpOFUVhQCNOnTYNNGzc66ifPmbHPER7MxgSYgDgBigCaND0evvhaeQRU92PrHdFPgYH6ihfRZvKMOXFQXqHPaWpbNC6/uMJRk5bNOYEm3DCoxHc6e4NmoUl2WN3oYdN8N91oLR4/FaqjCmD9XLOj2gEd1YU57KjKPBH04jlqXLJujioNR3XeJkxJ0LUGKRVMv+QC9TVbO3VsgOcX5wg5qrQGckaXLcqBc/v/p/B7Tr8qx7+xo+rxHzO8AA0EKFWAHNX4hHhY+vzzQo4qDRcXHwcLn3wCzjv/fGjCvKrJWAc5f5/6zScNS+BLmYDHEnj6uShVjmo8RpeR+rCejippXNB87seoJ6MdVbphb6NY0wurIj323rlq4hZMcwrFey1hGUGN1jtU8vt4Z7fMcI398OU6EOCTVR0g6tFFcVr2cRiaQnVUk7T0Z0bHJGwBOqoaxQu0zMETrqX6ZqQiuGPX4aeHes2d1A4pL1SvcKO8fAtcPbCjIrVfWkvf06thyoQC1aHJq1Eowoay8DdhoXc2JuDLBD76LASmorMaEOAPy5Yvh65duyrG0YxhEqNGjIStW7Y4TlbnP5avuA++gAn4IgFSFCYBRKVGUUXPPJHrEBPUy0hEafIjykUJtY5Pwa3z8DODozLkSTZtCYTKCRgSXK/tTI5VguVZu6KFtrvoihn6wBhFqb27mSSgHFVtjiqK/LCjKv/AkONHoXxGOao0AxJqmoX1v/SypMQm6K1ATZREkKjgOsnza8mhJfl8dlT1uovcj6cSoPDDlrrLtw8ZospRpbWbMUxi0uQHgcSYKEf+l98Oz3H1VD48byZgJIH1qCA8Z2GM4iHMGHI/c+oB1Xu9jBT66f1BqXq+HuNTAPOMObFQUcmv7nI8LaiiHIpVGiSsp6vFcIMgKyzc/GFp9+7Ky0RoGZivPYwAP/Ht/EAU9szqavKzfIGhv8lapmLuXM+OqgDAnbusji8aNSqCAt0f1oTCdp5cEq30sjbbX36RWChwaEiz48TmtoGsvq4bfO7Ipwlswl36nFwrqn2Hw4DrrtPEIiUlBS648EJHH3RaxMYEmEDbBEg7YeLUBGhWUZbk3ruLIVvHknL0/nDHyJSj9BzU3j86KbViTWYlRtoVpNrPJk/AggrsobNRuwVP17UY3qdT7CGRH7HDqoWitmvZWdXGT9PV+07s3clikb7AP4QOWjpyOKqo+itFapOD1zIHT7k2b58VysqUCSFce0U5XHHJfyUolKz1pTURuuWZUEgvFQyXs5joZl2/oOXG498zAW8nQCrZZP369ztK8VfN2i+6+CLHZT+s168klZp58DVMwJ0JULrO2AmJUF2j/FWVIoKovrFe9tc/fjD8nmQoKNKWa06nvRecWwlPPp4HX36wA779eAe8/9ouuHt4MUZBiTlVb7wTDoUa56EXF3fvx3JyHYTOwfdjQbZtrYccVgiJfK8gLY0/tNvhpiv/BGiHSXrjkKXp6cl+AZbPcW2dtKzvwIkqO6qiDE/LrnGo4lKYrIjR6eQ43J29/56iwwSHRK5tafPM81Gw9k3tOfq0A3vR+fKnqzt3+8F3Pxojoa9k3dyWCXgLgd8PlqnplZamy5JOSk0FrKMNpfvNQGUv2JgAEzicAJWUu3dSoirnsN+ZVTBqWIluSMlRHTUuSXP91N7pNbD6+b0w9YFCyMS0noCAA+8h0agxcuOAclj2dA7+b/kKDlTn+Z0PQnVbn7d3ZDkJHdZZ2k9YkdMZVpP/OzmdOgV6OzN3Wx87q+1wRwp79owHCVV/AY7RMryZclTpRDVC/rRNyzjedu3551TBfaOdFwWn8JyRd5Q48j7JJPyHqQ9QfUT50i+t8Zr3ZAxQwXCtRvL1IhXEXnwlQutQfD0TYAIHCRQVHzhNSUrSlK3xL09yVGNjD+S08wkJP2ZM4GgCfn526JVaqxjNiSfUOZxB+s7Ww3btsR5wVDWUpvFHZdpxdxfBU4/nQ8cObZd+69yxER6dWiC0mf7hp9rfJ/Tg4yl9WFLJYdWew4rr7R8Uk/DG3927s+CAC28+O6suhE1D5Z2YHW2xBH6K7k93LUM7VH/no+ovh/6qwnjVZRUwAp3R1oxOXcfjSerNN5Qd9msqITMTv0iolqpSaxFG+Po7bREknfCLrqfAF/i27YHw8y8BSqfJ7ZkAE2iFAJ1kkFmt2kIAD+3agiJLZFTKho0JMIHDCZCzOWZkCYy7qxhV9cUioZISGmHOI/swVF+svRzzgkILjMaqAVoc1YT4Rnj2yVy49gqxkOST8RTwlD7y7xi5WA+d5scmTsCC7276OKzSBVEhkWs2mzIPfIizGU6AnVXDEf83wO709IiAAPgE/yVVy7DmlIOOKpen0YIRbkFn9OYbDhchsmA+ybSJhW3muvjjbu/jWMPrhO71iscmgYgHsb7ihs3aIkguu1g+FJgmt+rVCMVz5AuYABM4mkBY6IHolbKyct3wlJeVOfoKQ0E0NibABFoncO2V5TD74X0YMus8n5OEBamsS5ROG/jVNRKMuV9dGHLLSjJQ4Gf5khzofqwyNeJMDBcWsd//5MM9EU6HtrH0RIf1UTxh9RfLD3bS/2Wdeplf/tpk4h0DpTdBRXt2VlVAU3NJSY8eoSGS30d4bbqa61uuMScfDP1FER027QRG3lEKV1164AWUwo5I5v68s6ucdkylYBY8lgddMAxbqdEJzfjJCZpKVpzdtwpCQuQ/aL/9IQgohImNCTABbQRaQvf+/PNPbR0dvLqgoAAqKiqANseSkuRz1HQZlDthAh5K4PRTamDJgrw28znp74jCZymMVg+jUlUPzYgH0n9QayTu9MScPBRFlP+uPnKMwECxk+F9Bewnqbk/jrI2+A6n1WHF0/9rUtMyl79mMrHwgJoboeAadlYVwFLblNTDpMCw96lek9o+6DpzYiOEkphSLL/cyHGk/NDaWrHwuvvGFMNlmAs6D09MzzxNbEczHL+ASM0vCe+JUqutNcE9qHBIog1qjEKcLjhH/nTVbpdgFeeuqkHM1zCBwwik42482bfffKMLmZZ+epxQDxStwcYEmIBzAscfVw/PP50LXbscvUn8wL1FiuqQy7F+HkvDfPej+pSdIbeWOkQZKXVIjVGZLBGrwXcJNnUEHA7rTHRYMZ9Ym0k39Uvr85zJZBJ74dQ2mM9ezU+6wbeekrAtJr+3cJgztAxlxryH0AU5YGJHVRbjm++GwfTH4mD4mGQg6Xs5o9yYieOUf9lRiZin0GGNiVa+eVBZZYbR45Ngb47Yl9KRayChJRH76LNQVhsVAcVtmIATAv3OrHacgv6yfTv8+uuvmlg1NzfD2jVrHX2c219+00nTYHwxE/AiAvFxTfDswlx0TP/bVCbF/osFVPJFMWz/NQCeX6Wujinl1j4wrhCG3Kqtxvm3gmr+orm8omv3tXaWDHJY89Fh1bZhiK+QtxWl9Vnoa/xcuV52Vg2kTbHsUcGRr0ognaNlGFNME4Si6q8pXrlTpGVcT7x23YZAePyJGMfU/8ByE4OxgPeOXepOMEXWn5TYhKE++RAepjwsm8pWjLo3SZVIwrHHNGDebJ3sFJuaJHjltQjZdtyACTCBtglQHtyF5x1wLOc/PhfI4VRra159Ffbs3g3hWDP5Eh1fstXOh69jAp5EgFJgFs7Kh0suqIDzz678V7FfjzVQuZyHZsbh37fyQzKLBdOIHiqAywU1Jdqa7zffB8HuPWLvLFFcCULzbbf0roGQaeiw4v3TYvjE3FWanj1TSx98bdsE2Fk16OmYhjEBqWl9VmKdkcu1DGGKbHKo/pqSlIebahnXE6/9e4cfTJqWcNgXDanl3TEqGdZv1CZq5IxH184NMB+FHYIClYeT0PzuHp8I+8vkT4CPnMMVl4idrn76ZQhQDg4bE2AC6glQGSt6UaaT1YXzF6jqaMvmLbB40dOOa6k0lmhumqrB+CIm4KUEKLz2wfFFMGVCoa4rfP7FSMjLVx7tRDXQZ03fB2edoa60Xcsi6uokWLj4wGa7iCUn83uhCCe5NtZTqiFkyj6QMHpGk0nwQGl61kRNffDFrRJgZ9WAB4Ni1+/qlfkMdn2Dlu5NuPMeOg9PVJ3U5dLSvzddS+G+4x5IhOqaox9p+jf6nZFFtHscX+9QCSaRJqVGu6ij0WGtqlL253hu/yp82XXuIJMjvWgu5mUo3yhWugxuzwS8mgCF/U8ef6B+49o1a2DunDmKTlh//OEHGHfPPdDY2Ahnn1UFl13EIcBe/cDw4gwnoDYntLWJ5WApmJfWRCieM33nk1rxadliehfOBljwdAxQSRoRM6NjRXm8bPoQsJ5ZBcGT0GEVLJPU5qiSNKM0I/tufWbFvbQQUPZ2zNyECGDs+lx8oxki1LiNRiaUYQ99PBfMrYgJaOnXG68lIaVxE51LzFMtw5mPx8GSZVGGIUjvWYeKhPscuW1K7c+//WEsroF2VkUtCBUDyWFty/qjavCyRTnQIYV3X0WZcjsm4IxA39OrYfyYIofD+tra12DwoNtg86ZNTqEVFRbCYzMfRUd1LIq+1UJ2Zg08pPOJEN81JsAEtBF4YVUEUNqMEqMT1TkP52NdVO2O6vsfh8Jb74UJD98Dy+fROwCbfgT88H0q+P4C/HzXzHVBcUb2YP1mxj1Jdo4P1PUpKEnPnoYvMlO0dCoF2SCMHNUe8jmJWsbxhmtteLBIpWCUKPed068KptxfqOoUVITZJ1+EoOx9HIbeKvvio76zMH9iLp7QWgQV6X/73R9uH5Fy2LRIdGHEkFIYeH2ZyHS5DRNgAgoJfL8uyCHiVl5xIHy/S9eucOppp0K3bt0gLCwM6usbIDc3x+HIbvhpA74EN2FGCMB1V5fBXcNLVKuEKpwmN2cCTECAAJWAuXpgR0W5quTQzJhSAP37agv9pelt2hIIY7BCAJW2E7UxI4rh+mv0q/ssOq4vtKtHkc6aufGg0WVtttnsN8VsWf+qLzAzeo3srOpIuCQj614UU5qjpUsJC1+Hzs4Fy8nsqIpwJDGl194KF2l6WJueqbW4I7oPXyyV55mKDEaKxLPnx6r6sOuH4Sj0JWgSjHsYOCQF/t5xoDh4BIaO07UZKMvOxgSYgH4E5j0ZA6+/89/JB+3zHviRf8GU8JNAwr/nQ8PxQzH/9aM3d+k3Qe6JCTABVQSeWx4Jy1Yqi7q6b3QRXH25mG6Es0n98ZcfjLgnudUUprauo+itd9bsBhJ+YzOGQP0b4VD9RJzWzhtt9uYrYzZveF9rR75+veDrsK9jkl8/HvkPQUd1tnzLtltIGFIS+gieqrGjKoTxMxQOUuOoUufbtgc6lIL3CtYzE5rQIY2oIPgIFFBRY19+EwKPzo0VvvTyg0JLJ2BY0IpncthRFSbHDZmAOAEbOqakEtryY7OhCyrgqNII6KoCtT/0eg2CwuKT5pZMgAnIEqC67Eps0E37dXFU6f1jzP1JihxVmucF51ayo6rkhqlo639VOQTdUaziysMusZok89riXr01la7UOglvuJ5PVnW4i6UZfa4BML2CXSmXdD04PqmQkXy2FXOi2MQIYGQdzJgTBx9+quyL5tDeqeTM7Ef2Qc+TjDnJXrw0Cla8rK5m2/UYMjhmpLzDW4nCTJSLO/rOEsNCm8XuCLdiAt5LoCWK48abboKbBg5UvdAcDA8eNuQOCEVdgk/f2aW6H76QCTAB7QR27bHC9YM6Cnd0WnY1PD4DhXjkAyqc9kk11keMTcI66II5Pwd7I2GlV5bvhQ6sBCx8z7Q0rH0uGmpfUnbqfuR4uM9ZbrfZ+sVs+WmLlrn48rV8sqrx7pem9zkXHdVVmhxVzH0IfqCAHVWF94LyOh96oBAG31LqyAdTY5RzdhfWOqVTWiPsTswdveoydXklr7weAUtXyDu6FE543+hidlSNuIHcJxM4gkBgUCBERUep/omMiGCmTIAJuAmBzVvFy9pFRzU59C60OqrkIA8fo9xRJWQUesyOqusenkCMkAu4qkzTgPh+Go5VQj4u6ZXVXVNHPnwxO6sabn5pWmYWJiK9gV0cSBhUYeRkBY0tAr9zuIyBCnyOS+4YtB8mo7omFeVWYw0NEkx+OB6Wv2TMSyQ5kuervL9LV0TBK68rz8lVw4GvYQJMgAkwASbgSwR27vITXu7YUcUQHq5N52LnLjxRxRzVklJlJ6o0SXKWh91WKjxfbqgPgaC7i8D/Qs35ybGSWfok7+SsDvrMyrd6YWdV5f0uSM8+EUzmD/ByTUdygXfiH8Gl6k7eVE7dKy+76LxKWDgrH0LwlFGNkZu7ZFk0zMRcUb1zyWgXlnZjzzxNXYj3wkUx8O6H6kOd1fDga5gAE2ACTIAJeDuBvH1iTuNx3eqxPrK67/AWhr/+zx+Go6Naul95xhgdbDwwrgiCg9W943j7fTR6fcH3FYB/P82HSh0DrNIn+zIyxEVJjF6Yh/TPzqqKG1WQlt3FKsEneKmmQPbAQRhecF2ZihnwJa0RIAXc557MgcQE9XVF33k/DMY+kIiCB2oDi1u/N1S8/JHJBdA7XXk9NnKkSXDpi6+D+cYzASbABJgAE2ACOhGorxd7Db7kAm2Oyg/rg2DkuCQoL1fuqNJSr8RDjdNPUf7+oBMm7gYfk+AH94HfKdo2LBDk8X5g/bC0e3fxorpMH8T+ShnUvwQKe/aMt5ocjmqSFiwB1+yHwEEczqGFYWvXdunUCMsW5UKP49ULJq3fGAR33JUCBYViO66ia/Dzs8NsLJejZm6kJDplRjys3yCeXyM6L27HBJgAE2ACTMAnCaBmiIilnqj+neK9j0LhvgcToK5O3Sv38cfVw2gBsUWRdXAbDQRwn8EhhNpL86ZBBoREvvV39+6qUwg1rMIjL1X3l+ORS9U+adoJsVgCKfS3m5be/C+ogCDMfWAzhgDVHls8Pw/6alBW3rHTD0vbJAPVQNPTggLtsADDlY/p0qC426YmCe6fkgDbfglQfC1fwASYABNgAkyACRxOICZarFZpUJDy8Fuqw/zM81EwY3aco2yVGqP3Gdrk9sfNbjY3IID3IXQmlpg8Tv3mxcFV9IsMiXzpNZNJ3VG7G6Bw5RTYWRWk7dgBCYl8E5unC17SajO/06uAYt/ZjCXg72+Hx6btgxuuLVM9UHGJBRX7kuH7dUGq+2jtwrBQGzwxJw9SVEjP12HI0o8YTsTGBJgAE2ACTIAJaCPQMUUsbWjPXquigSiViE5TX1gViXWW1VlAgA1L6+VDXCzW6WNzHwK4cRGK73DmjsoPHQ5dBG5fXN0/rc8i91mY+86EnVWBezMNNacjgyNfxKb9BZq32cSK+YohU/ZpqMaqZXTfu5aEjaj26DhUcjOZ1H1d1NaaHF84a9/UV5E3OqoZnnw8T/GXEJXpGT6Yw8d972nmFTMBJsAEmIDeBNJOrhXq8p0PxFMMd6DC8O0jUuC7H9XrTFiwniptuJ90Qr3Q/LiRawlI4c0QNjcXzPFimx1OZjesJD17mmtn73mjsbMqcM/u6pX5FDo+1wo0bbOJBXMoQ2fkAXAohxaMqq699ooKmPPIPggMVB7GQwNSvujcJ2Ng4eJooLAevSwxvsnhsEbgh56cUQDR3cOLHWV62JgAE2ACTIAJMAHtBCgXVeQ7+NsfguGDj52r8lMlgZfXhMOg4Smwe4/6FCIzOqpTJxZCdqaYI62dAveghoCEJ96h6LCaIrWdfKN/MaUkPWuEmjn4yjXsrMrc6dL07IewAvSdWh4Ic6cGCJ2VC4D5imztQ+C07BpYsiAXYqLVf6isXhsBEx5KgPp6dbknra28U4dGRw5rsJN8GDoVnjCuEG4cwCWO2ufp4VGZABNgAkzAGwlYUEfxQix9J2KPzImF1WvDjypvR5vY3/4QBLcM7QBPLIkBqt2u1uhE9eEHC+CcflVqu+DrXEjAhGHkobPzQNJYUkiSpCeL07MHuHDqHjUUO6tObldJRvadIMFULXeUQgTCHs8FSWMhaS1z4GsPEOh+bINDKbirCnGjFoZffxeMeaxJUFqqX048Kf3NxYT9AP+jT37pi4t2WC+/WOzLlO81E2ACTIAJMAEmIE7gRtS2aO3798geKMpq4eIYuOqmTo5ycouei4Kpj8bB5dd3wnShRPgHhRm1GFUMmDm1APr31VweRcs0+FqFBMzH1kPoY/ie76cueu/gcCaTBCtLe2WfrXB4n2jOzmobt7k0I+tq3Bt7UstTYIpohlByVDk5XgtGXa+Nj2ty1GLN6q1eevx/fwTA4FHJsHO3MsEFZwvpdXIdPDqtACyW/07f6YtrFqoAntefd1h1fQi4MybABJgAE2ACBwnExjSjGKN45BKVtXsba7K/uDoSPvo0FAqLtJe5CwlB4UU8oTvztPZzVBsbJViwKBqWLIviZ0MhAUtqHYRM3QcSHjBoMH8wwxtF6Vm9NPThlZeys9rKbS3u1fsMAGkV/kr18ZmE+ZG002LCME829yIQHGSHeY/mw2UXV6ieWP4+q6MW66Yt+tU9PaVPDUybWOAQgwrC52fBrDyg8GU2JsAEmAATYAJMwDgCt9+8X1VJOT1mRJvozyzMBdq0bi/btceKolDJ8MrrEbDi5QjYtFW/d5v2WpOrx7WeWo3VPgoxIFOThZkl6YOC9PTOmnrxsoslu56KMV4ApzQjoweA9TtcSqTa5Uh4OhbyaB5YM9nRUMOQ8j3WbQh0fFjuRFW9klILNKFwAdUojY9rhGOPaYC0nrWQ2qMerFZNu1iw/KUIeGYZCiepmSheQ2G6E8YVwSUX6BemSyIOnVAS/URWAVR5V/gyJqA/gcefiIHX3gqHwXcMgSF33KF6gL179sCAa66F0JBm+PSdXar74QuZABPQl8DOXVYYMioFqmtcd47TM7UWVX8LIBIj8drL3vkgFOY9FQN1df+tOzamCV5auhfCwjSFtrbXktp13LqXI6Hm2Ritc/i9rg5OT/p1XYnWjrzhenZWD7mLpenpyRh0/gP+U0e1N1eS7BCMyfF+Z+vnvKidi6ddt7/MDKteiYC3USK+qkr+y4Je9qhYdlpPbbuRn30ZAtNnxakWRaBdtNuxpAwr9XraE8fzZQLiBNhZFWfFLZmApxL4AeuY3zspwVEFwGi7+vJyuGdkMab/GD1S6/1X4nvWzMdj4ctvQlpt0Pf0apg1HcstsikmULMInf+1qs+8Do5n/6GmeN85Kbt3+7wstLxHoPgWeeYFO7tlhqOj+oEWR5VWHoQfPOyoKn8G3sWdvWtv6QgvrYkQclRphMoqMyQmqFf3bZklqe5RCZnwMHU7m3Qqu2xlFDw0Mw4o54ONCTABJsAEmAAT8DwCp2bVwPRJhY6oKaOM3jVmP5wP941uP0d1688BMHBwhzYdVVo7CUq++a54fVmjeHliv+QL+J+rPtXswJqlU4OiE1e/ZjKpTkn0RHatzZmdVaTyd/fu/uHh5jfxf56s5cYG3lgK/teUaenC566lkN+HZsTBjMfjhJ3UFkgdkhshAWuV6mE9T6qDpagUTH2qtY8/C4W7xydCRSX/WallyNcxASbABJgAE2hPArSB/eg09bXZnc39XBRMXP38XhRSar80sV/+5w8jxiZBgYAw1MKno3UVk2zP++rqsYMnYJRllkbBLAku75/WZ5Gr5+5u4/n8W/U0k8kUFRKxAm9MPy03x//CCggcyqHlShjW1UkwZkIifPy580LbbfWZmaHvhz05qssW5QDlkKi1LdsCMeclGXLz2imuR+3E+TomwASYABNgAkzAQeCMU2vgeXwf6NihQRci3brWw0JU+6UaqlFR6qK4dJkIdnIS6mFk9RZ7z6mrN8Hkh+NVp0npNWeP7AfPQ0Om5YPlBG2parj2YaXp2Q96JAOdJu3zzupdaZmz8aj9Oi08/bJRAezeAi1d+Ny1zfhZfd/kBNisQXGuT4bYh60SuCQm8OScfE0Fuffs9YPBI1Pgl9/8lQzNbZmAVxP4e4cfvPthKLywKhKW4897H4WigJp+5Z+8Gl47L6683OQICaQ0jaUrImHNG+GwYXMg1GNkDBsT8FYCXTo3wqrncuC2gfuBSsmpseO61WNYcQG8iP2IOohqxlF6zeT7CyEqUsxp/nuHPzz1bLTSIbg9EQiwQygKrpqTNW56SDC9NKPPLb4K1acFlkrT+4wCyaSplirtmITNz3E8kGziBCip/x0UUlJrVN7l47d2oaKmcUp1VGts+UvqE+T9sUD0QxMLof+ZGsNA1ELi65hAOxOw4Z8n/Z2/iMJpuXmtO6akfH3rjWVw4bmVILmx7+OLAkt//eMHzzwfBSQ605rgTCCW2Lr4/Eqgsh+iL77t/Ejy8ExAFYHS/WbHJs3Hn4cAla5zZvS3QPVSLzinsl3L0cgt9MefgmAsRreJvL3SR/PjM/O5nJ4c1DZ+b8u1QsXIDmBDIVEN1mC3wYXRW9Z9oaEPj7zUZ53Vkow+l0tgeh3vmuonh3ZKwjBMRGpHyXFPfOrodGXGnDhNU+9xfB08/3Supj5ELn77/VCYvSAWmpvVvUWTOvTIO0ph4PVlIsNxGybgNQQKCi1w/5QE+P3PAxEGgYGBkHpyKiQlJTn+f25uHmz/+Wcsl3AgRCq1Rx08hsqTEeHNjlM7dzMqW/Pdj8Fw/gUXwAUXXqh6ekVFhTDzkRkQGGBz5MW5owUH2eD7dcFYbzESqLodffp1O/ZY/OkGAQGBUF5eDr/9+ivs23dg/lQXmk5q+vHGnDveTp6TzgR2YEk9+lzbm2OF2loJbHbJIdCYnNQI3Y+th84dG9164+1QHJSTuvq1CCFCVF6Hytm0dxiz0GTdsFHzH/5QMSYF7LWaglrLGu1wevzmdb+64RINm5JPOqsl6VmZkiR9iVSD1ZI1RTZB2NM5YEpUL8ijdmxPvi6/wAI33d4BarT9scKgm/bD8MGlLkGxfmMgTJyaoKn22lWXlsO4u4vBrHprxCVL5UGYgC4E9uy1wvAxyUCnEeEREXD74Nvh8iuuAH//w0PjyVF9be1aWPHCchRYq4K42CaYi7v3N9/RQZd5cCfqCISFNqNQnNnhpJ5z3nkwdPgwSElJOaqzzZs3w6Inn0TH9TdH27F3F8G1V2hVwFQ3Z76KCTAB5QSogsHgkcnw599iaUtZvWsw9zZf+UB8hYNAI0apVE1MArvKA5CDGPfYofGU6E2b8nwFq885qwVp2V2sJvgRb3C82pss4S5y2MIcMB9Xr7YLn72O6pfR6YRWWzQvDzJ66Z+z2ta8KN9u3AOJQup5bfVxSp8amPHQPjyFEAm60UqIr2cC7UOAaiTfPiIZ9uT4wfHHHw+zH58DsXHOIyny8JT13nHjYOeOHdClUwOqT/o5Jk/Xe8wRRfvg1nXUatww2Lt3r6NPPz8/mPzQFDjn3HOdjmHDWO9FTz4FL7/0EpjwwGA+5mdlZbrus1lXANwZE/BBArv2WGHQsBQgMSURu3t4Mdw4oFykKbdphUDDh2FQPSteKPzaCcDNzQ3VfWO3b6/yBcg+5azu7dkzMtgS+D3e2BPU3lwJa2+F4JexFR0PNmUENm8LgBH3JAtdZEbOF5xTBf37VjleXi1WO5SWWuCfnX6waUsgPDCuCKz4b6604hIzjEWHVXQH8si5UZjQMgxdTsFQITYm4K0EWsLKKNz3+RXLITw8XGipxcXFcNsttwL9t8W+X/cjOkBiL1BCg3AjpwTefONNmP3YY4420x95GM7FU1VRm/3YLHjzjTewnFgjrFmxV7Ugjeh43I4JMAH9CLz1Xhg8Ni9WqEOLxe6onND9WI2iQUKjeWejuhejoGaZZtGqD7dv+emyvjabPjUc3Ri1z7wFUC1VdFTfwnuh3lHFi4PHF7CjqvKBfnG1mFhRfFwT5qPmOHKgTsuugaTEJoiLaYbj8SSbxDymTChU5KhSzlX+Posjx4R+8vItmIOqfBEx0c3wzMJcOP0U5YJJ5FjPengfO6rKsfMVHkSANnRee/uAc3r/xAeEHVVqHxMTA/fdP96DVut9U/3oww8di+p/9tmKHFW6ZszYeyA+IR72FVjh7ffVi+d5H1VeERNwfwKXYvlF0TrzTU0STH4kHvUG1Gl5uD8N42cYcHMpBFyi+XT6wlQfqcHqE84q7sxLUcGRz+Pjd6aWRzBwUAn4obPEppxAIRafXofKc3JGp48U4qt1x666RoI33w2DUfcmQr+Lu8CVN3aCQcNTHD9X3dQJ+uO/Db07GVavDXfk1YlaIIbwzkan8+rLxT9k6ON88vhC6JWqudaW6DS5HRNoFwKffRkClAPVs2dP6NOnj+I5nNm3LxzX/TjF1/EF2glQzvCvv/zi6OiOoXco7pDChm8dNMhx3QefqKudrXhQvoAJMAHNBHJQqZ3qw+9FxVpRoxJ9856KEW3O7VohEHQPHrxkKj/8OKKroSUZWfd6O2CfcFaL0jKnofrDjVpupj/uOgUMco2gj5Z5uuu1X38fJBSfP3pEiabTR6oH+NQz0XDZgM4wa34sbNwchLt/Rz/m9Q0m+PmXAFi4OAauvKGj40O3olLsz4GiEu8bXQyj7yzGdDr5UOQ7biuF8872ibQCd338eF4uIrDl5wMqvmf176d6xLPOUn+t6kH5QlRm3o4RJ83QqXMn6Nyliyoifc86y3Hd73/6OVRS2ZgAE3BvAh99FgK3Dk2B//0RoHiiVJbs86+0a5AoHthbLsBzktDp+WDBWrxaTAJpVml69pVa+nD3a8Xezt19FU7mV5LW52a8kQ9qWYI1owaC7y3Q0oXPX7v14EusMxCU60S1FtVYAxanX/5ShOMEddWrEYqUe8lxpfpp1w/qCN+gUy1qN1xbDo9OLQCqp9qWXXxBhaMGIRsT8AUCOQd35rsec4zq5XY9pqvqa/lC9QRyc7FeONoxGu5dVFQURKD6sx1LeeTJ1KJUP1O+kgkwAa0EKPrsoZlxMHVmvKL3pSPHpTxXKlPGppIARuuFzsoFU5wmLRMTHsitKsnI7q1yFm5/mVc7q8UZWX0lk2kp3gXVW7yWrvUQgjsf6quxuv0z4JIJ7sS6ZHKW0atOlfAnFay/flAHWILJ6lpK4lA48P2TE+HZF8Rya2k9Z51RDU/PzwMqAn6kkVrxA2OL5JbNv2cCXkOgHjeNyAKxFqdao3qsbK4n0FB/QCyF6qhqsZb7V1+v+mtXy/B8LRNgAjIEfv2fv6M82MefaQ/Xr6wyw0Mz4gBFwdlUEpBQDyX0sTyQgjVBDMJP3HfyTs7yyrpvXuusFqdlH4dbDW/gsyPvJbXxgJmimyBkluYHSOXj612XFRXL54U6O6FsjQaF/E59NM6h0KvXLj4F9T6PKm2zF4jnYpx4Qr1DGa9zx/+U8eh/PzZ9H1h4w9G7HmRejVMCoSEHNm3KytRHE+zfr/5avj3qCYSEhmi+dwfufZmjn9BQTS9e6hfCVzIBJtAqARKbXLk6AoahXkdevnh+qhzOrdsD4YVV4pv8cv354u/NXRswJBj9DayEocESA6zSeyU9emjfhdAwCSMu9UpnNe/E7GjMK3wfgUWphSYF2fBoPg9MWKSeTTuBJoECyH/vFCtKTbN5/+NQGIBhux99aszf5BvvhMNzy8U/fBMTmuC5p3IhHU9TIyOaYf5j+RAawi9r2p8c7sGTCBzT5cCGzS/bDwj1qLFfDor8qLmWr1FPoCX899dff8NTEnWfXf/88w/mqtbi6awNkhI0hbWpXwhfyQSYwFEE6MDgrnuT4OnnokHkfUwpwudfjITtvyrPe1U6jje3t2TUQvB9hVqXeLIUGPbq1yaTVx2VeJ2zSiVqAgLgTbzb3dTecUct1an5YNaY9Kx2fG+8LihQ/uVnOwoe/fGX84Pwv/7xgzvvSYKHZ8VBebn8aa0Wls+vjIL1G8RD4sg5fWJ2HizB8j');
+INSERT INTO `halaman` (`id`, `judul`, `isi`) VALUES
+(2, 'Layanan Diskusi', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus amet ad magnam saepe illum nobis provident harum odit, incidunt nemo error unde accusamus et adipisci voluptatum dolor fuga natus voluptates.'),
+(3, 'Lapor Diskusi', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus amet ad magnam saepe illum nobis provident harum odit, incidunt nemo error unde accusamus et adipisci voluptatum dolor fuga natus voluptates.'),
+(4, 'Kontak Kami', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus amet ad magnam saepe illum nobis provident harum odit, incidunt nemo error unde accusamus et adipisci voluptatum dolor fuga natus voluptates.'),
+(5, 'Daftar', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellendus amet ad magnam saepe illum nobis provident harum odit, incidunt nemo error unde accusamus et adipisci voluptatum dolor fuga natus voluptates.');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `kategori`
+--
+
+CREATE TABLE `kategori` (
+  `id` int(11) NOT NULL,
+  `nm_kategori` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `kategori`
+--
+
+INSERT INTO `kategori` (`id`, `nm_kategori`) VALUES
+(1, 'Layanan'),
+(2, 'Keamanan'),
+(4, 'Teknologi'),
+(5, 'Perkuliahan');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `komentar`
+--
+
+CREATE TABLE `komentar` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(40) NOT NULL,
+  `komentar` varchar(500) NOT NULL,
+  `tgl` date NOT NULL,
+  `id_berita` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `komentar`
+--
+
+INSERT INTO `komentar` (`id`, `nama`, `komentar`, `tgl`, `id_berita`) VALUES
+(1, 'Ferdinan Imanuel Tumanggor', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo labore nisi in ea repudiandae blanditiis maiores obcaecati doloremque, voluptatem fuga quod accusamus modi iure cum natus. Minus natus nostrum sunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo labore nisi in ea repudiandae blanditiis maiores obcaecati doloremque, voluptatem fuga quod accusamus modi iure cum natus. Minus natus nostrum sunt! Lorem ipsum dolor sit amet consectetur, adipisicing elit. Illo labore nisi i', '2022-05-12', 12),
+(2, 'Ferdinan Imanuel Tumanggor', 'hai', '2022-05-12', 12),
+(3, 'Ferdinan Imanuel Tumanggor', 'coba lagi', '2022-05-12', 12),
+(4, 'Ferdinan Imanuel Tumanggor', 'coba lagi', '2022-05-13', 12);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pegawai`
+--
+
+CREATE TABLE `pegawai` (
+  `id` int(11) NOT NULL,
+  `nk` varchar(10) NOT NULL,
+  `nama` varchar(40) NOT NULL,
+  `jk` varchar(9) NOT NULL,
+  `tmp_lahir` varchar(40) NOT NULL,
+  `tgl_lahir` date NOT NULL,
+  `agama` varchar(20) NOT NULL,
+  `alamat` varchar(40) NOT NULL,
+  `jabatan` varchar(40) NOT NULL,
+  `foto` varchar(100) NOT NULL,
+  `ket` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(11) NOT NULL,
+  `username` varchar(20) NOT NULL,
+  `password` varchar(32) NOT NULL,
+  `nama_lengkap` varchar(40) NOT NULL,
+  `email` varchar(60) NOT NULL,
+  `telp` varchar(15) NOT NULL,
+  `level` varchar(20) NOT NULL,
+  `aktif` varchar(1) NOT NULL,
+  `nama_foto` varchar(255) NOT NULL,
+  `lokasi` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`, `nama_lengkap`, `email`, `telp`, `level`, `aktif`, `nama_foto`, `lokasi`) VALUES
+(3, '200840007', '95c2e6314d0b0340114088b3e097c658', 'Ferdinan Imanuel Tumanggor', 'perdinantumanggor95@gmail.com', '082163240061', 'Mahasiswa', 'Y', 'pp.jpeg', 'assets/uploads/627c6636f0c9c-pp.jpeg'),
+(4, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'admin@gmail.com', '0821212121', 'admin', 'Y', 'foto.png', 'assets/uploads/foto.png'),
+(5, '200840010', '253953ae107bfeeb19f71ef09ab63359', 'Dionisius Siahaan', 'dion@gmail.com', '082323232323', 'Mahasiswa', 'Y', 'foto.png', 'assets/uploads/foto.png'),
+(7, '200840023', 'c4915d5340d75107f17ca53d4a88812d', 'Samuel Doli Hasian Manihuruk', 'samuel@gmail.com', '082323232323', 'Mahasiswa', 'Y', 'foto.png', 'assets/uploads/foto.png'),
+(8, '200840030', '6b445ea2744fa7df622b341b2ba8cbb1', 'Fery Jonathan Sirait', 'fery@gmail.com', '082323232323', 'Mahasiswa', 'Y', 'foto.png', 'assets/uploads/foto.png'),
+(9, '200840029', '4c9eb42f3fd48ad7c35988f8682ca1f2', 'Christ Jordan Baeha', 'christ@gmail.com', '082323232323', 'Mahasiswa', 'Y', 'foto.png', 'assets/uploads/foto.png'),
+(10, '200840031', '08b6c3fe440f25e78926f7e5d5f7c5a0', 'Yosia Silalahi', 'yosia@gmail.com', '082323232323', 'Mahasiswa', 'Y', 'image3.png', 'assets/uploads/627cfc4ac1222-image3.png');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indeks untuk tabel `berita`
+--
+ALTER TABLE `berita`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_kategori` (`id_kategori`),
+  ADD KEY `id_user` (`id_user`);
+
+--
+-- Indeks untuk tabel `file`
+--
+ALTER TABLE `file`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_berita` (`id_berita`);
+
+--
+-- Indeks untuk tabel `file_komen`
+--
+ALTER TABLE `file_komen`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_komentar` (`id_komentar`);
+
+--
+-- Indeks untuk tabel `halaman`
+--
+ALTER TABLE `halaman`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `kategori`
+--
+ALTER TABLE `kategori`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `komentar`
+--
+ALTER TABLE `komentar`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `id_berita` (`id_berita`);
+
+--
+-- Indeks untuk tabel `pegawai`
+--
+ALTER TABLE `pegawai`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `berita`
+--
+ALTER TABLE `berita`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+
+--
+-- AUTO_INCREMENT untuk tabel `file`
+--
+ALTER TABLE `file`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `file_komen`
+--
+ALTER TABLE `file_komen`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT untuk tabel `halaman`
+--
+ALTER TABLE `halaman`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `kategori`
+--
+ALTER TABLE `kategori`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT untuk tabel `komentar`
+--
+ALTER TABLE `komentar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT untuk tabel `pegawai`
+--
+ALTER TABLE `pegawai`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `berita`
+--
+ALTER TABLE `berita`
+  ADD CONSTRAINT `berita_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id`),
+  ADD CONSTRAINT `berita_ibfk_2` FOREIGN KEY (`id_user`) REFERENCES `user` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `file`
+--
+ALTER TABLE `file`
+  ADD CONSTRAINT `file_ibfk_1` FOREIGN KEY (`id_berita`) REFERENCES `berita` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `file_komen`
+--
+ALTER TABLE `file_komen`
+  ADD CONSTRAINT `file_komen_ibfk_1` FOREIGN KEY (`id_komentar`) REFERENCES `komentar` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `komentar`
+--
+ALTER TABLE `komentar`
+  ADD CONSTRAINT `komentar_ibfk_1` FOREIGN KEY (`id_berita`) REFERENCES `berita` (`id`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

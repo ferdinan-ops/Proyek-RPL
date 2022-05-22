@@ -5,7 +5,7 @@ if (isset($_GET['tipe'])) {
         <section class='posting mt-4'>
             <h5 class='fw-bold' style='color: maroon;'>Tulis Posting Diskusi Baru</h5>
             <hr>
-            <form method='post' action='../../diskusi/proses_tambah.php' enctype='multipart/form-data'>
+            <form method='post' action='../../user/diskusi/proses_tambah.php' enctype='multipart/form-data'>
                 <div class='my-3'>
                     <label for='judul' class='form-label'>Judul Diskusi</label>
                     <input type='text' class='form-control' name='judul' placeholder='Masukkan Judul Diskusi'>
@@ -41,7 +41,7 @@ if (isset($_GET['tipe'])) {
         <section class='f-berita mt-4'>
             <h5 class='fw-bold' style='color: maroon;'>Edit Diskusi</h5>
             <hr>
-            <form method='post' action='../../diskusi/proses_edit.php' enctype='multipart/form-data'>
+            <form method='post' action='../../user/diskusi/proses_edit.php' enctype='multipart/form-data'>
             <input type='hidden' name='id' value='$de[id]'>
             <div class='my-3'>
             <label for='judul' class='form-label'>Judul Diskusi</label>
@@ -105,7 +105,7 @@ if (isset($_GET['tipe'])) {
                         <center>
                             <p class='card-text pb-2' style="font-size: small;text-overflow: ellipsis " [..]";"><?= $files['nama']; ?></p>
                         </center>
-                        <center><a href='../../diskusi/hapus_file.php?id=<?= $files['id'] ?>' class='btn btn-danger' style="font-size: small;">Hapus</a></center>
+                        <center><a href='../../user/diskusi/hapus_file.php?id=<?= $files['id'] ?>' class='btn btn-danger' style="font-size: small;">Hapus</a></center>
                     </div>
                 </div>
             <?php
@@ -149,7 +149,7 @@ if (isset($_GET['tipe'])) {
                     <td>$k[judul]</td>
                     <td>
                         <a href='?m=diskusi&tipe=edit&id=$k[id]' class='btn btn-primary'>Edit</a>
-                        <a onclick='confirm(\"Anda yakin akan menghapus?\")' href='../../diskusi/proses_hapus.php?id=$k[id]' class='btn btn-danger'>Hapus</a>
+                        <a onclick='confirm(\"Anda yakin akan menghapus?\")' href='../../user/diskusi/proses_hapus.php?id=$k[id]' class='btn btn-danger'>Hapus</a>
                     </td>
                 </tr>";
                 $no++;

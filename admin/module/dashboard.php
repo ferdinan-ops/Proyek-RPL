@@ -6,7 +6,7 @@ if (!isset($_SESSION['login'])) {
 $level = $_SESSION['level'];
 if ($level != "admin") {
     echo "Anda Tidak Punya Akses Kesini";
-    header('location:../../login.php');
+    header('location:../../n.php');
 }
 include "../../inc/config.php";
 ?>
