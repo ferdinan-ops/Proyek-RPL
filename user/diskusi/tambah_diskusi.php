@@ -46,6 +46,15 @@ if (isset($_GET['hal'])) {
             </center>
         </footer>
         <!-- Akhir footer -->
+        <script type='text/javascript'>
+            var uploadField = document.getElementById('formFileMultiple');
+            uploadField.onchange = function() {
+                if(this.files[0].size > 12000000){ // ini untuk ukuran 800KB, 1000000 untuk 1 MB.
+                    alert('Maaf. File Terlalu Besar ! Maksimal Upload 12 MB');
+                    this.value = '';
+                };
+            };
+        </script> 
     ";
     } elseif ($_GET['hal'] == 'editdiskusi') {
         $sql = mysqli_query($konek, "SELECT berita.*,kategori.nm_kategori
@@ -152,6 +161,15 @@ if (isset($_GET['hal'])) {
             </center>
         </footer>
         <!-- Akhir footer -->
+        <script type='text/javascript'>
+            var uploadField = document.getElementById('formFileMultiple');
+            uploadField.onchange = function() {
+                if(this.files[0].size > 12000000){ // ini untuk ukuran 800KB, 1000000 untuk 1 MB.
+                    alert('Maaf. File Terlalu Besar ! Maksimal Upload 12 MB');
+                    this.value = '';
+                };
+            };
+        </script> 
     ";
     }
 } else {

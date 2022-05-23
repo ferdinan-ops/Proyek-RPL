@@ -53,6 +53,15 @@ if (isset($_GET['tipe'])) {
                 <input type='button' class='btn link-dark bg-light my-3' value='Batal' onclick='history.back();'>
             </form>
     </section>
+    <script type='text/javascript'>
+                            var uploadField = document.getElementById('img');
+                            uploadField.onchange = function() {
+                                if (this.files[0].size > 1000000) { // ini untuk ukuran 800KB, 1000000 untuk 1 MB.
+                                    alert('Maaf. File Terlalu Besar ! Maksimal Upload 1 MB');
+                                    this.value = '';
+                                };
+                            };
+                        </script>
         ";
     } elseif ($_GET['tipe'] == 'edit') {
         $sql = mysqli_query($konek, "SELECT * FROM user WHERE id='$_GET[id]'");
@@ -114,6 +123,15 @@ if (isset($_GET['tipe'])) {
                 <input type='button' class='btn link-dark bg-light my-3' value='Batal' onClick='history.back();'>
             </form>
     </section>
+                        <script type='text/javascript'>
+                            var uploadField = document.getElementById('img');
+                            uploadField.onchange = function() {
+                                if (this.files[0].size > 1000000) { // ini untuk ukuran 800KB, 1000000 untuk 1 MB.
+                                    alert('Maaf. File Terlalu Besar ! Maksimal Upload 1 MB');
+                                    this.value = '';
+                                };
+                            };
+                        </script>
     ";
     }
 } else {

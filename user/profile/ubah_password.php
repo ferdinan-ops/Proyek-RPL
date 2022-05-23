@@ -10,6 +10,6 @@ if (!empty($_POST['password'])) {
     session_destroy();
     header('location:../login.php');
 } else {
-    header('Location:.././?hal=profile&m=home');
+    header('location:../login.php');
     echo "<script> window.alert('Pastikan Semua Data Terisi!!');</script>";
 }

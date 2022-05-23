@@ -118,6 +118,15 @@ if (isset($_GET['id'])) {
                                 <input type='button' class='btn link-dark bg-light my-3' value='Batal' onclick='history.back();'>
                             </form>
                         </div>
+                        <script type='text/javascript'>
+                            var uploadField = document.getElementById('img');
+                            uploadField.onchange = function() {
+                                if (this.files[0].size > 1000000) { // ini untuk ukuran 800KB, 1000000 untuk 1 MB.
+                                    alert('Maaf. File Terlalu Besar ! Maksimal Upload 1 MB');
+                                    this.value = '';
+                                };
+                            };
+                        </script>
                     <?php
                     } elseif ($_GET['m'] == 'password') {
                     ?>

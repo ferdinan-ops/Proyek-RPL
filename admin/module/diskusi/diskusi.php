@@ -32,6 +32,15 @@ if (isset($_GET['tipe'])) {
                 <input type='button' class='btn link-dark bg-light my-3' value='Batal' onclick='history.back();'>
             </form>
     </section>
+    <script type='text/javascript'>
+            var uploadField = document.getElementById('formFileMultiple');
+            uploadField.onchange = function() {
+                if(this.files[0].size > 12000000){ // ini untuk ukuran 800KB, 1000000 untuk 1 MB.
+                    alert('Maaf. File Terlalu Besar ! Maksimal Upload 12 MB');
+                    this.value = '';
+                };
+            };
+        </script> 
         ";
     } elseif ($_GET['tipe'] == 'edit') {
         $sql = mysqli_query($konek, "SELECT berita.*,kategori.nm_kategori
@@ -123,6 +132,15 @@ if (isset($_GET['tipe'])) {
                 <input type='button' class='btn link-dark bg-light my-3' value='Batal' onClick='history.back();'>
             </form>
     </section>
+    <script type='text/javascript'>
+            var uploadField = document.getElementById('formFileMultiple');
+            uploadField.onchange = function() {
+                if(this.files[0].size > 12000000){ // ini untuk ukuran 800KB, 1000000 untuk 1 MB.
+                    alert('Maaf. File Terlalu Besar ! Maksimal Upload 12 MB');
+                    this.value = '';
+                };
+            };
+        </script> 
     ";
     }
 } else {

@@ -34,11 +34,8 @@
         <div class="content">
             <div class="desc">
                 <h1>Ayo!! Mulai berdiskusi di UNIKA Discussion Forum</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque quasi quidem sint incidunt
-                    voluptate
-                    quas nihil maiores accusantium praesentium, quod vitae delectus doloribus numquam tenetur
-                    dignissimos asperiores libero officiis saepe.</p>
-                <a href="#">Get Started <i class="las la-arrow-right"></i></a>
+                <p>UNIKA Discussion Forum adalah layanan aplikasi yang diharapkan untuk seluruh Civitas Akademik mendapat informasi internal terkait Universitas Katolik Santo Thomas Medan dan sesama Civitas Akademik menjalin hubungan baik dan erat untuk mewujudkan Universitas yang berintegritas</p>
+                <a href="login.php">Get Started <i class="las la-arrow-right"></i></a>
             </div>
             <div class="hero-image">
                 <img src="images/hero.png" width="100%">
@@ -51,10 +48,7 @@
         <div class="content">
             <div class="isi">
                 <h1>Our Features</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ducimus ut cumque temporibus
-                    corrupti,<br> reprehenderit nesciunt laudantium earum et, itaque incidunt pariatur, explicabo
-                    magni
-                </p>
+                <p>UNIKA Discussion Forum Mempunyai beberapa fitur yang kiranya dapat menyelesaikan <br>permasalahan Anda dengan sangat baik.</p>
             </div>
             <div class="items">
                 <div class="card">
@@ -63,7 +57,7 @@
                         <h4>Discussion</h4>
                     </div>
                     <div class="card-body">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum.</p>
+                        <p>Tempat bertukar informasi atau pikiran lewat diskusi antar Civitas Akademik</p>
                     </div>
                 </div>
                 <div class="card">
@@ -72,7 +66,7 @@
                         <h4>Comment</h4>
                     </div>
                     <div class="card-body">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum.</p>
+                        <p>Berfungsi sebagai tanggapan atas diskusi antar sesama Civitas Akademik</p>
                     </div>
                 </div>
                 <div class="card">
@@ -81,7 +75,7 @@
                         <h4>Send File</h4>
                     </div>
                     <div class="card-body">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum.</p>
+                        <p>Fitur yang dapat mengirim informasi dengan tulisan, file, foto ataupun video</p>
                     </div>
                 </div>
                 <div class="card">
@@ -90,7 +84,7 @@
                         <h4>Easy Use</h4>
                     </div>
                     <div class="card-body">
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum.</p>
+                        <p>Memungkinkan pengguna dalam menggunakan website secara mudah</p>
                     </div>
                 </div>
             </div>
@@ -100,39 +94,36 @@
         <div class="content">
             <div class="isi">
                 <h1>About Us</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ducimus ut cumque temporibus
-                    corrupti,<br> reprehenderit nesciunt laudantium earum et, itaque incidunt pariatur, explicabo
-                    magni
-                </p>
+                <p>UNIKA Discussion Forum meningkatkan komunikasi antara Civitas Akademik Universitas Katolik Santo Thomas Medan secara online tanpa harus <br>bertatap muka ataupun meluangkan waktu yang banyak.Lewat website kami diharapkan dapat digunakan secara <br> optimal oleh seluruh Civitas Akademik Universitas Katolik Santo Thomas Medan</p>
             </div>
             <div class="items2">
                 <div class="worker">
-                    <img src="images/foto.jpg" width="100px">
+                    <img src="images/ferdinan3.jpeg" width="100px" height="100px">
                     <p>Ferdinan Imanuel Tumanggor</p>
                     <span>Project Manager, Developer</span>
                 </div>
                 <div class="worker">
-                    <img src="images/foto.jpg" width="100px">
+                    <img src="images/foto.jpg" width="100px" height="100px">
                     <p>Samuel Doli Hasian Manihuruk</p>
                     <span>Project Analyst</span>
                 </div>
                 <div class="worker">
-                    <img src="images/foto.jpg" width="100px">
+                    <img src="images/foto.jpg" width="100px" height="100px">
                     <p>Dionisius Siahaan</p>
                     <span>Project Analyst</span>
                 </div>
                 <div class="worker">
-                    <img src="images/foto.jpg" width="100px">
+                    <img src="images/chris.jpg" width="100px" height="100px">
                     <p>Christ Jordan Baeha</p>
                     <span>Project Analyst</span>
                 </div>
                 <div class="worker">
-                    <img src="images/foto.jpg" width="100px">
+                    <img src="images/foto.jpg" width="100px" height="100px">
                     <p>Yosia Silalahi</p>
                     <span>Project Analyst</span>
                 </div>
                 <div class="worker">
-                    <img src="images/foto.jpg" width="100px">
+                    <img src="images/foto.jpg" width="100px" height="100px">
                     <p>Samuel Doli Hasian Manihuruk</p>
                     <span>Project Analyst</span>
                 </div>
@@ -143,10 +134,7 @@
         <div class="content">
             <div class="isi">
                 <h1>Contact Us</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellendus ducimus ut cumque temporibus
-                    corrupti,<br> reprehenderit nesciunt laudantium earum et, itaque incidunt pariatur, explicabo
-                    magni
-                </p>
+                <p>Looking to spend more time at the UNIKA Discussion Forum? We’d love to hear from you. <br>Feel free to contact us and we will get back to you as soon as possible.</p>
             </div>
             <form action="">
                 <table>
