@@ -11,6 +11,8 @@
     box-sizing: border-box;
 }
 
+
+
 html {
     scroll-behavior: smooth;
 }
@@ -291,6 +293,7 @@ footer p {
     background-color: maroon;
     color: white;
     padding: 15px 0;
+    cursor: pointer;
 }
 
 @media only screen and (max-width: 768px) {

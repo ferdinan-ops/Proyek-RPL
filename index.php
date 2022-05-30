@@ -136,7 +136,7 @@
                 <h1>Contact Us</h1>
                 <p>Looking to spend more time at the UNIKA Discussion Forum? We’d love to hear from you. <br>Feel free to contact us and we will get back to you as soon as possible.</p>
             </div>
-            <form action="">
+            <form action="contact.php" method="POST">
                 <table>
                     <tr>
                         <td><label for="nama">Nama</label></td>

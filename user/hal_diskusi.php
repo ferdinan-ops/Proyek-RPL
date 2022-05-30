@@ -41,7 +41,6 @@ if (isset($_GET['id'])) {
 
     <head>
         <link rel="stylesheet" href="../inc/style.css">
-
     </head>
     <section class="diskusi" style="margin-top: 70px;background-color:white;padding: 50px 0;">
         <div class="container">
