@@ -167,7 +167,7 @@ if (isset($_GET['id'])) {
                     <td>$k[judul]</td>
                     <td>
                         <a href='./?hal=editdiskusi&id=$k[id]' class='btn btn-primary'>Edit</a>
-                        <a onclick='confirm(\"Anda yakin akan menghapus?\")' href='./diskusi/proses_hapus.php?id=$k[id]' class='btn btn-danger'>Hapus</a>
+                        <a onclick='confirm('Anda yakin akan menghapus?')' href='diskusi/proses_hapus.php?id=$k[id]' class='btn btn-danger'>Hapus</a>
                     </td>
                 </tr>";
                                     }

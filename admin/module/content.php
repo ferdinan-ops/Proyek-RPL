@@ -10,6 +10,8 @@ if (isset($_GET['m'])) {
         include "user/user.php";
     } elseif ($_GET['m'] == 'komentar') {
         include "komentar/komentar.php";
+    } elseif ($_GET['m'] == 'pesan') {
+        include "contact/contact.php";
     } else {
         echo "<h3>Module tidak ditemukan</h3><p>Silahkan pilih menu yang lain!</p>";
     }

@@ -93,8 +93,8 @@
                     <div class="text-slider">
                         <div class="text-wrap">
                             <div class="text-group">
-                                <h2>UNIKA FORUM DISCUSSION</h2>
-                                <h2>UNIKA FORUM DISCUSSION</h2>
+                                <h2>UNIKA DISCUSSION FORUM</h2>
+                                <h2>UNIKA DISCUSSION FORUM</h2>
                             </div>
                         </div>
 

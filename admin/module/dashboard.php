@@ -98,6 +98,10 @@ include "../../inc/config.php";
                             <div class="sb-nav-link-icon"><i class="uil uil-user fs-4"></i></div>
                             User
                         </a>
+                        <a class="nav-link" href="dashboard.php?m=pesan">
+                            <div class="sb-nav-link-icon"><i class="uil uil-envelope fs-4"></i></div>
+                            Pesan
+                        </a>
                     </div>
                 </div>
                 <div class="sb-sidenav-footer">
