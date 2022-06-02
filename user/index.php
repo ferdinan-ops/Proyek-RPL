@@ -222,7 +222,7 @@ include "../inc/config.php";
         $('textarea').summernote({
             placeholder: 'Isi Diskusi',
             tabsize: 2,
-            height: 500,
+            height: 300,
             toolbar: [
                 ['style', ['style']],
                 ['font', ['bold', 'underline', 'clear']],

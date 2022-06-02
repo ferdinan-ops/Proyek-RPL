@@ -9,6 +9,14 @@
     /* border: 1px solid black; */
 }
 
+img.gambardiskusi {
+    width: 100% !important;
+}
+
+img.gambarkomen {
+    width: 100% !important;
+}
+
 .logout {
     background-color: #960909;
     color: white !important;
@@ -67,6 +75,10 @@
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+}
+
+.diskusi .container .komentar form #formFileMultiple {
+    display: block !important;
 }
 
 .diskusi .container a.word {
@@ -157,6 +169,14 @@ body {
     .diskusi .container .word img {
         width: 48px !important;
         height: 48px;
+    }
+
+    img.gambardiskusi {
+        width: 50% !important;
+    }
+
+    img.gambarkomen {
+        width: 50% !important;
     }
 }
 

@@ -30,7 +30,7 @@ if (isset($_GET['id'])) {
                 </div>
             </div>
 
-            <div class="content my-4 my-lg-0 mb-lg-4" style="text-align: justify;">
+            <div class="content my-4 my-lg-0 mb-lg-4" style="text-align: justify;font-family:Poppins, sans-serif;">
                 <?= $dbrt['isi']; ?>
             </div>
             <?php
@@ -85,7 +85,7 @@ if (isset($_GET['id'])) {
                                 if ($ekstensi == 'jpg' or 'png' or 'jpeg' or 'gif') {
                         ?>
                                     <a href="#">
-                                        <center><img class='mt-4 mt-lg-0 gambar' src='diskusi/<?= $files['lokasi'] ?>' width="100%"></center>
+                                        <center><img class='mt-4 mt-lg-0 gambardiskusi' src='diskusi/<?= $files['lokasi'] ?>'></center>
                                     </a>
                         <?php
                                 }
@@ -104,13 +104,13 @@ if (isset($_GET['id'])) {
                 <div class="container mt-3 p-3" style="width: 100%;box-shadow: none;background-color: #eee">
                     <h5 class="mb-4 fw-bold" style="color: #960909;">Diskusi</h5>
                     <?php
-                    $sqlKomen = mysqli_query($konek, "SELECT * FROM komentar WHERE id_berita='$dbrt[id]' ORDER BY id DESC");
+                    $sqlKomen = mysqli_query($konek, "SELECT * FROM komentar WHERE id_berita='$dbrt[id]' ORDER BY id ASC");
                     while ($dk = mysqli_fetch_array($sqlKomen)) {
                     ?>
                         <div class="pesan d-flex mb-4">
                             <div class="text bg-light pt-2 ps-2 pe-2 rounded d-flex flex-column" style="width: 100%;">
                                 <p class="mb-1 fw-bold" style="font-size: 14px;"><?= $dk['nama'] ?></p>
-                                <p style="font-size: 12px; text-align: justify;"><?= $dk['komentar'] ?></p>
+                                <div class="isi_komentar" style="font-size: 12px; font-family: Poppins,sans-serif;color: black !important;"><?= $dk['komentar'] ?></div>
                                 <?php
                                 $sqlFileKomen = mysqli_query($konek, "SELECT * FROM file_komen WHERE id_komentar='$dk[id]' AND nama NOT LIKE '%.jpg%' AND nama NOT LIKE '%.png%' AND nama NOT LIKE '%.jpeg%' AND nama NOT LIKE '%.gif%'");
                                 while ($fileKomen = mysqli_fetch_array($sqlFileKomen)) {
@@ -167,7 +167,7 @@ if (isset($_GET['id'])) {
                                                     if ($ekstensi == 'jpg' or 'png' or 'jpeg' or 'gif') {
                                             ?>
                                                         <a href="#">
-                                                            <center><img class='mt-4 mt-lg-0 gambar' src='komentar/<?= $fileKomen['lokasi'] ?>' width="100%"></center>
+                                                            <center><img class='mt-4 mt-lg-0 gambarkomen' src='komentar/<?= $fileKomen['lokasi'] ?>' width="500"></center>
                                                         </a>
                                             <?php
                                                     }
@@ -186,19 +186,23 @@ if (isset($_GET['id'])) {
                     <?php
                     }
                     ?>
-                    <!-- <div class="input-group"> -->
-                    <form action="komentar/simpan_komentar.php" method="POST" class="input-group" enctype="multipart/form-data">
-                        <input type="hidden" name="idberita" value="<?= $dbrt['id'] ?>">
-                        <input type="hidden" name="nama" value="<?= $_SESSION['nama'] ?>">
-                        <label for="formFileMultiple">
-                            <a class="btn btn-warning btn-sm d-flex align-items-center" rel="nofollow" style="height: 100%;"><i class="uil uil-paperclip link-light fs-5"></i></a>
-                        </label>
-                        <input type='file' id='formFileMultiple' name='listGambar[]' multiple>
-                        <input type="text" class="form-control" placeholder="Ketik diskusi disini..." aria-label="Recipient's username" aria-describedby="button-addon2" name="komentar">
-                        <button class="btn link-light " style="background-color: #960909;" type="submit" id="button-addon2"><i class="uil uil-message"></i></button>
-                    </form>
-                    <!-- </div> -->
                 </div>
+                <h5 class="mt-4" style="color: maroon;">Tulis Komentar</h5>
+                <hr>
+                <form action="komentar/simpan_komentar.php" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="idberita" value="<?= $dbrt['id'] ?>">
+                    <input type="hidden" name="nama" value="<?= $_SESSION['nama'] ?>">
+                    <!-- <textarea class='form-control summernote' name='isi' style='height: 100px !important;background-color: white;'></textarea>
+                    <input class='form-control' type='file' id='formFileMultiple' name='listGambar[]' multiple> -->
+                    <div class='my-3'>
+                        <textarea class='form-control summernote' name='komentar' style='height: 200px !important;'></textarea>
+                    </div>
+                    <div class='mb-3 mt-4'>
+                        <input class='form-control' type='file' id='formFileMultiple' name='listGambar[]' multiple>
+                    </div>
+                    <button class="btn link-light py-3 fs-5" style="background-color: #960909;width: 100%;" type="submit" id="button-addon2">Posting Komentar</button>
+                </form>
+                <!-- </div> -->
             </section>
         </div>
     </section>
@@ -209,20 +213,7 @@ if (isset($_GET['id'])) {
         </center>
     </footer>
     <!-- Akhir footer -->
-    <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!-- Slick JS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('.slider').slick({
-                autoplay: true,
-                autoplaySpeed: 2500,
-                dots: true
-            });
-        });
-    </script>
 <?php
 } elseif (isset($_GET['ktg'])) {
     // tampilkan berita berdasarkan kategori

@@ -105,7 +105,7 @@ if (isset($_GET['tipe'])) {
                             echo "<img src='../../images/word (2).png' width='50px' class='pt-2'>";
                         } elseif ($ekstensi == 'xlsx') {
                             echo "<img src='../../images/word (2).png' width='50px' class='pt-2'>";
-                        } elseif ($ekstensi == 'jpg') {
+                        } elseif ($ekstensi == 'jpg' || 'jpeg' || 'png' || 'gif') {
                             echo "<img src='../../images/img.png' width='50px' class='pt-2'>";
                         }
                     }

@@ -7,6 +7,7 @@
             <th scope="col">Nama</th>
             <th scope="col">email</th>
             <th scope="col">Pesan</th>
+            <th scope="col">Aksi</th>
         </tr>
     </thead>
     <tbody>
@@ -41,6 +42,9 @@
                             </div>
                         </div>
                     </div>
+                    </td>
+                    <td>
+                        <a onclick='confirm(\"Anda yakin akan menghapus?\")' href='contact/proses_hapus.php?id=$k[id]' class='btn btn-danger'>Hapus</a>
                     </td>
                 </tr>
                 

@@ -27,6 +27,10 @@ include "../../inc/config.php";
     <link rel="icon" type="icon/x-image" href="../../images/title.png">
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../../inc/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <style>
         .note-editor .dropdown-toggle:after {
             all: unset;
@@ -145,29 +149,19 @@ include "../../inc/config.php";
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <script>
-        $('.summernote').summernote({
-            placeholder: 'Silahkan Isi Disini',
+        $('textarea').summernote({
+            placeholder: 'Isi Diskusi',
             tabsize: 2,
-            height: 120,
+            height: 500,
             toolbar: [
                 ['style', ['style']],
                 ['font', ['bold', 'underline', 'clear']],
                 ['color', ['color']],
                 ['para', ['ul', 'ol', 'paragraph']],
                 ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ],
-            callbacks: {
-                onImageUpload: function(files) {
-                    for (let i = 0; i < files.length; i++) {
-                        $.upload(files[i]);
-                    }
-                },
-                onMediaDelete: function(target) {
-                    $.delete(target[0].src);
-                }
-            },
+                ['insert', ['link']],
+                ['view', ['fullscreen']]
+            ]
         });
     </script>
 </body>

@@ -40,7 +40,7 @@ if (isset($_GET['tipe'])) {
 ?>
     <h1 class="mt-4">Kategori</h1>
     <a href="?m=kategori&tipe=tambah"><button class="btn mb-4 link-light mt-4" type="button" style="background-color: #960909;">
-            <i class="uil uil-plus"></i> Tambah user</button></a>
+            <i class="uil uil-plus"></i> Tambah Kategori</button></a>
     <table class="table table-striped" style="width:  100%; text-align: center;">
         <thead></thead>
         <thead>
