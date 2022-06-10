@@ -33,71 +33,7 @@ include "../inc/config.php";
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
     <style>
-        /* gambar */
 
-        .slider {
-            height: fit-content;
-        }
-
-        .slider .slick-slide img.gambar {
-            width: 100%;
-        }
-
-        /* make button larger and change their positions */
-        .slick-prev,
-        .slick-next {
-            width: 50px;
-            height: 50px;
-            z-index: 1;
-        }
-
-        .slick-prev {
-            left: 5px;
-        }
-
-        .slick-next {
-            right: 5px;
-        }
-
-        .slick-prev:before,
-        .slick-next:before {
-            font-size: 40px;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        }
-
-        /* move dotted nav position */
-        .slick-dots {
-            bottom: 15px;
-        }
-
-        /* enlarge dots and change their colors */
-        .slick-dots li button:before {
-            font-size: 12px;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            opacity: 1;
-        }
-
-        .slick-dots li.slick-active button:before {
-            color: #dedede;
-        }
-
-        /* hide dots and arrow buttons when slider is not hovered */
-        .slider:not(:hover) .slick-arrow,
-        .slider:not(:hover) .slick-dots {
-            opacity: 0;
-        }
-
-        /* transition effects for opacity */
-        .slick-arrow,
-        .slick-dots {
-            transition: opacity 0.5s ease-out;
-        }
-
-        /* akhir gambar */
-        .diskusi .container .komentar form #formFileMultiple {
-            display: none !important;
-        }
     </style>
 </head>
 
@@ -214,10 +150,25 @@ include "../inc/config.php";
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-    </script>
+
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Slick JS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
     <script src="script.js"></script>
+    <!-- Our Script -->
+    <script>
+        $(document).ready(function() {
+            $('.slider').slick({
+                autoplay: true,
+                autoplaySpeed: 2500,
+                dots: true
+            });
+        });
+    </script>
     <script>
         $('textarea').summernote({
             placeholder: 'Isi Diskusi',
